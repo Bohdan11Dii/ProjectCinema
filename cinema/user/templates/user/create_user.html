@@ -1,0 +1,142 @@
+{% extends 'user/base.html' %}
+{% block content %}
+          <form>
+            <div class="creat_user_block">
+                <div>
+                    <div class="flex_text">
+                        <p>
+                            Ім'я
+                        </p>
+                        <input type="text">
+                    </div>
+                   <div class="flex_text">
+                        <p>
+                            Прізвище
+                        </p>
+                        <input type="text">
+                   </div>
+                    <div class="flex_text">
+                        <p>
+                            Псевдонім
+                        </p>
+                        <input type="text">
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            E-mail
+                        </p>
+                        <input type="email">
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            Адреса
+                        </p>
+                        <input type="text">
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            Пароль
+                        </p>
+                        <input type="text" class="input-password" id="input-password">
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            Номер картки
+                        </p>
+                        <input type="text">
+                    </div>
+                </div>
+                <div>
+                    <div class="flex_text">
+                        <p>
+                            Язик
+                        </p>
+                        <div class="display_block_check">
+                            <h6>
+                                Українська
+                            </h6>
+                            <input type="radio" name="language">
+                        </div>
+                        <div class="display_block_check">
+                            <h6>
+                                Англійська
+                            </h6>
+                            <input type="radio" name="language">
+                        </div>
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            Стать
+                         </p>
+                         <div class="display_block_check">
+                            <h6>
+                                Чоловіча
+                            </h6>
+                            <input type="radio" name="gender">
+                        </div>
+                        <div class="display_block_check">
+                            <h6>
+                                Жіноча
+                            </h6>
+                            <input type="radio" name="gender">
+                        </div>
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            Телефон
+                        </p>
+                        <input type="text">
+                    </div>
+                   <div class="flex_text">
+                        <p>
+                            День народження <input type="date" name="calendar" max="2022-12-12" min="1990-01-01">
+
+                        </p>
+
+                   </div>
+                    <div class="flex_text">
+                        <p>
+                            Місто
+                        </p>
+                        <select name="user_city">
+
+                            <optgroup label="Украина">
+                              <option value="4">Київ</option>
+                              <option value="5">Харків</option>
+                              <option value="6">Львів</option>
+                            </optgroup>
+
+                          </select>
+                    </div>
+                    <div class="button_generation">
+                        <div class="flex_text">
+                            <p>
+                                Повторіть пароль
+                            </p>
+                            <input type="text" class="input-password" id="input-password_1" >
+
+                        </div>
+                        <button id="input-generate">
+                            Генерація пароля
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="button_save_usr">
+                <button type="submit">
+                    Зберегти
+                </button>
+            </div>
+          </form>
+{% endblock %}
+
+
+
+      <!-- ----------------------CONTENT---------------------- -->
+
+
+
+
+
+
+

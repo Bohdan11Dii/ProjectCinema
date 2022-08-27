@@ -1,0 +1,145 @@
+.poster__block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.left__block{
+    position: relative;
+    margin-left: 20px;
+
+}
+.left__block__item{
+    position: sticky;
+    top: 20px;
+}
+
+.button_menu{
+
+  background-color: white;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 315px;
+    border-radius: 10px;
+
+}
+
+.list__poster{
+    height: 50px;
+    padding: 10px 0;
+    cursor: pointer;
+    border:  3px solid transparent;
+}
+.list__poster:hover{
+    background-color: black;
+    color: white;
+    border: solid 3px blue;
+     border-radius: 10px;
+}
+
+.advertising img{
+    width: 318px;
+    height: 500px;
+}
+.right__block{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.card__block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 50px;
+}
+
+
+.card__block p{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.card__block img{
+    width: 200px;
+    height: 300px;
+}
+
+.card__block a:hover{
+    font-size: 24px;
+}
+
+
+
+.card__button__poster{
+    display: flex;
+    align-items: center;
+    border: 3px solid orange;
+    border-radius: 10px;
+    background-color: orange;
+    cursor: pointer;
+}
+
+.card__button__poster img{
+    width: 35px;
+    height: 35px;
+}
+
+.card__button__poster button{
+    color: white;
+    background: orange;
+    padding: 10px;
+}
+
+/* soon.html */
+
+
+.right__block_and_button_18{
+    display: flex;
+}
+
+.button_18{
+    color: white;
+    display: flex;
+    margin-top: 60px;
+    border: 3px solid #02b3be;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #02b3be;
+    margin-left: -25px;
+}
+
+.button_3d{
+    color: white;
+    display: flex;
+    margin-top: 10px;
+    border: 3px solid #5a1b6c;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #5a1b6c;
+    margin-left: -20px;
+}
+
+
+.button_dbox{
+    color: white;
+    display: flex;
+    margin-top: 10px;
+    border: 3px solid #0343ba;
+    height: 20px;
+    /* width: 30px; */
+    border-radius: 10px;
+    background-color: #0343ba;
+    margin-left: -45px;
+}
+
+
+
+
+

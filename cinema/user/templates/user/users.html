@@ -1,0 +1,49 @@
+{% extends 'user/base.html' %}
+          {% block content %}
+          <table id="example" class="display" style="width:100%">
+            <thead>
+                
+                    <th data-field="code" data-sortable="true">ID</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="int-percentage-plusminus">Дата реєстрації</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="int-percentage-plusminus-muted">День народження</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float1-percentage-plusminus">Email</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float1-percentage-plusminus-muted">Телефон</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float2-percentage-plusminus">ПІБ</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float2-percentage-plusminus-muted">Псевдонім</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float3-percentage-plusminus">Місто</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float3-percentage-plusminus-muted">Редагувати</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float4-percentage-plusminus">Видалити</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2014</td>
+                    <td>12.10.2015</td>
+                    <td>12.10.1998</td>
+                    <td>ivan@gmail.com</td>
+                    <td>3809453647892</td>
+                    <td>Іван Іванович</td>
+                    <td>Іванич</td>
+                    <td>Львів</td>
+                    <td style="text-align: center">
+                        <a href="./create_user.html"><g transform="matrix(1 0 0 1 1056 245)" class="stencil"><svg   width="24" height="24" x="0.5" y="0.5" class="stencil--easier-to-select" style="opacity: 1; cursor:pointer"><defs></defs><rect x="0" y="0" width="24" height="24" fill="transparent" class="stencil__selection-helper"></rect><path d="M0 19.000220183636742C0 19.000220183636742 0 24.000000000000004 0 24.000000000000004 0 24.000000000000004 4.999779816354067 24.000000000000004 4.999779816354067 24.000000000000004 4.999779816354067 24.000000000000004 19.745797088054324 9.253982728272625 19.745797088054324 9.253982728272625 19.745797088054324 9.253982728272625 14.74601727170026 4.254202911909364 14.74601727170026 4.254202911909364 14.74601727170026 4.254202911909364 0 19.000220183636742 0 19.000220183636742 0 19.000220183636742 0 19.000220183636742 0 19.000220183636742M23.612293479368137 5.387486336951702C24.129235506877283 4.867459299167845 24.129235506877283 4.027596163782973 23.612293479368137 3.507569125999116 23.612293479368137 3.507569125999116 20.4924308739632 0.38770652058844135 20.4924308739632 0.38770652058844135 19.972403836190665-0.12923550686281438 19.13254070078661-0.12923550686281438 18.612513663014074 0.38770652058844135 18.612513663014074 0.38770652058844135 16.172621112633287 2.8275990709737133 16.172621112633287 2.8275990709737133 16.172621112633287 2.8275990709737133 21.17240092898735 7.827378887336974 21.17240092898735 7.827378887336974 21.17240092898735 7.827378887336974 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702" stroke-width="0" stroke="none" stroke-dasharray="none" stroke-dashoffset="none" fill="rgb(0,0,0)" fill-rule="evenOdd"></path></svg></g></a>
+                    </td>
+                    <td style="text-align: center">
+                        <svg width="19" height="24" x="0.5" y="0.5" class="stencil--easier-to-select" style="opacity: 1;cursor:pointer"><defs></defs><rect x="0" y="0" width="19" height="24" fill="transparent" class="stencil__selection-helper"></rect><path d="M1.3571428571428559 21.333333333333332C1.3571428571428559 22.8 2.578571428571429 24 4.071428571428571 24 4.071428571428571 24 14.928571428571429 24 14.928571428571429 24 16.42142857142857 24 17.642857142857146 22.8 17.642857142857146 21.333333333333332 17.642857142857146 21.333333333333332 17.642857142857146 5.333333333333332 17.642857142857146 5.333333333333332 17.642857142857146 5.333333333333332 1.3571428571428559 5.333333333333332 1.3571428571428559 5.333333333333332 1.3571428571428559 5.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332M19 1.333333333333333C19 1.333333333333333 14.250000000000002 1.333333333333333 14.250000000000002 1.333333333333333 14.250000000000002 1.333333333333333 12.892857142857144 0 12.892857142857144 0 12.892857142857144 0 6.107142857142858 0 6.107142857142858 0 6.107142857142858 0 4.75 1.333333333333333 4.75 1.333333333333333 4.75 1.333333333333333 0 1.333333333333333 0 1.333333333333333 0 1.333333333333333 0 4 0 4 0 4 19 4 19 4 19 4 19 1.333333333333333 19 1.333333333333333 19 1.333333333333333 19 1.333333333333333 19 1.333333333333333" stroke-width="0" stroke="none" stroke-dasharray="none" stroke-dashoffset="none" fill="rgb(0,0,0)" fill-rule="evenOdd"></path></svg>
+                    </td>
+                </tr>
+                
+                
+            </tbody>
+            </table>
+      {% endblock %}
+
+
+
+
+
+
+
+
