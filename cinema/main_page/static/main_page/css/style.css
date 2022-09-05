@@ -56,9 +56,15 @@ body {
 
 .list_menu {
     margin-right: 15px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     text-align: center;
 }
+
+.list_menu svg path{
+    fill: #5a1b6c;
+}
+
+
 
 .list_menu a {
     width: 130px;
@@ -69,7 +75,7 @@ body {
     border: 1px solid transparent;
 
 }
-.list_menu a:hover{
+.list_menu .list_menu_a:hover{
     background-color: #000000;
     color: white;
     border-radius: 2px;
@@ -510,4 +516,109 @@ span.sim-dot {
     text-align: center;
     margin: 10px auto;
     color: white;
+}
+
+
+/*LOGIN*/
+
+.body{
+      font-family: sans-serif;
+      /*background-color:seagreen;*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+.form {
+  border: 3px solid white;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px 15px;
+  /*min-height: 250px;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.form p{
+     display: block;
+  /*border-radius:20px;*/
+  outline: none;
+  /*padding: 15px 10px;*/
+  margin: 10px auto;
+  /*border: solid 1px ;*/
+  background: none;
+  color: white;
+  width: 200px;
+  transition: border-color 1s;
+}
+
+.form p:focus{
+    border-color: royalblue;
+}
+
+.form button {
+  padding: 10px;
+  border-radius:20px;
+  color: white;
+  background: royalblue;
+  border: none;
+  width: 200px;
+  transition: 0.2s;
+  cursor: pointer;
+    text-align: center;
+  }
+  .form button:hover {
+  background: rgb(114, 149, 255);
+  }
+
+  .action {
+      display: flex;
+      justify-content: center;
+  color: limegreen;
+  text-align: center;
+  font-size: 18px;
+  /*margin: 30px;*/
+  text-transform: uppercase;
+  font-weight: bold;
+  }
+  .load {
+  position: relative;
+  margin: 2px 5px;
+  padding-bottom: 5px;
+  border-bottom: solid 2px transparent;
+  cursor: pointer;
+  transition: 0.5s;
+  }
+  .load.show {
+  /*border-bottom-color: royalblue;*/
+  }
+
+.form_input{
+
+    border: none;
+    border-radius: 20px;
+    padding: 15px 10px;
+
+}
+
+.checkbox_input{
+    width: 195px;
+}
+
+.form-error{
+    color: red;
+}
+
+
+.register_block{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 500px;
+}
+
+.data_input{
+    width: 170px;
 }

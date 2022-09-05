@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <link rel="stylesheet" href="{% static 'main_page/css/style.css' %}">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="body">
+
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="action">
+        <span class="load show">
+            <a href="{% url 'login' %}">
+                 Login
+            </a>
+        </span>
+        <span class="load">
+            <a href="{% url 'register' %}">
+                Register
+            </a>
+        </span>
+        </div>
+<div class="form-error"> {{ form.non_field_errors }}</div>
+{% for f in form %}
+
+    <p>{{f}}</p>
+    <div class="form-error">{{ f.errors }}</div>
+{% endfor %}
+
+  <button type="submit">Увійти</button>
+</form>
+</div>
+
+</body>
+</html>
+
+
