@@ -1,5 +1,4 @@
 asgiref==3.5.2
-backports.zoneinfo==0.2.1
 Django==4.1
 django-debug-toolbar==3.5.0
 django-phonenumber-field==6.3.0
