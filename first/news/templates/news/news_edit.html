@@ -1,0 +1,282 @@
+{% extends 'news/base.html' %}
+{% block content %}
+<form  method="post" enctype="multipart/form-data"  style="margin: 0 10%">{% csrf_token %}
+
+<!--        <div class="button__position_">-->
+<!--&lt;!&ndash;            <div class="switch-btn switch-on" data-id="#bl-2" style="margin: 10px;">&ndash;&gt;-->
+<!--&lt;!&ndash;                <input type="button" class="switch-btn switch-on" data-id="#bl-2" name="is_published" value="{{ id_model.is_published }}">&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+
+<!--  <input type="checkbox" id="{{ id_model.is_published }}" name="scales" value="{{ id_model.is_published }}"-->
+<!--              checked="checked">  {{ id_model.is_published }}-->
+<!--        </div>-->
+<!--          <div class="title_film_block_news">-->
+<!--            <div class="input_news_block">-->
+<!--                <p>-->
+<!--                    Назва новини-->
+<!--                </p>-->
+<!--                  <input type="text" placeholder="Назва фільма" name="name" required value="{{ id_model.title }}">-->
+<!--            </div>-->
+<!--            <div class="date_newS_block">-->
+<!--                <p>-->
+<!--                    Дата публікації-->
+<!--                   <input type="date" name="data"  value="{{ id_model.data_published }} ">-->
+
+<!--                </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="description_film_block">-->
+<!--            <p>-->
+<!--             Опис-->
+<!--            </p>-->
+<!--                <input type="text" placeholder="Назва фільма" name="desc" value="{{ id_model.description }}">-->
+
+<!--          </div>-->
+<!--          <div class="images_AddRemove_film_block">-->
+<!--            <p>-->
+<!--             Головна картинка-->
+<!--            </p>-->
+
+<!--              <input type="file" name="image" class="input_image" value="{{id_model.images}}">-->
+<!--              <img src="{{id_model.images.url }}" alt="" style="width: 150px;">-->
+<!--&lt;!&ndash;               <svg width="124" height="64" x="0" y="0" class="" style="opacity: 1;"><defs></defs><path d="M0 0 L124 0 C124 0 124 0 124 0 L124 64 C124 64 124 64 124 64 L0 64 C0 64 0 64 0 64 L0 0 C0 0 0 0 0 0 Z" stroke-width="2" stroke="rgb(0,0,0)" stroke-dasharray="none" fill="rgb(230,230,230)"></path><path d="M81.79744779490082 24.91854109301054C81.79744779490082 28.45927054650527 78.82188757797331 31.409878424417546 75.25121531766032 31.409878424417546 71.68054305734732 31.409878424417546 69.00253886211259 28.16420975871404 69.00253886211259 24.91854109301054 69.00253886211259 21.377811639515805 71.68054305734734 18.42720376160353 75.25121531766032 18.42720376160353 78.82188757797331 18.42720376160353 81.79744779490082 21.377811639515805 81.79744779490082 24.91854109301054 81.79744779490082 24.91854109301054 81.79744779490082 24.91854109301054 81.79744779490082 24.91854109301054M66.91964671026335 32C65.4318666017996 29.63951369767018 63.0514184282576 29.63951369767018 61.56363831979385 32 61.56363831979385 32 61.266082298101104 32.29506078779123 61.266082298101104 32.29506078779123 60.0758582113301 30.524696061043862 58.885634124559104 28.45927054650527 57.99296605948086 26.688905819757903 55.91007390763161 23.148176366263172 52.636957669011366 23.148176366263172 50.55406551716212 26.688905819757903 48.47117336531288 30.229635273252633 45.19805712669263 35.83579024128596 43.11516497484339 39.37651969478069 41.032272822994145 42.917249148275424 42.81760895315064 45.57279623839647 46.98339325684913 45.57279623839647 46.98339325684913 45.57279623839647 69.89520692719084 45.57279623839647 69.89520692719084 45.57279623839647 72.87076714411833 45.57279623839647 74.06099123088933 43.802431511649104 72.57321112242558 41.14688442152806 71.08543101396182 38.49133733140701 68.70498284041983 34.65554709012105 66.91964671026335 32 66.91964671026335 32 66.91964671026335 32 66.91964671026335 32" fill="rgb(179,179,179)" fill-rule="evenOdd"></path></svg>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <button name="add_images" id="add_images">&ndash;&gt;-->
+<!--&lt;!&ndash;              Додати&ndash;&gt;-->
+<!--&lt;!&ndash;            </button>&ndash;&gt;-->
+<!--          </div>-->
+<!--          <h6 style="">-->
+<!--            <strong>Галерея картинок</strong>-->
+<!--          </h6>-->
+<!--          <div class="add_film_images">-->
+<!--            <p>-->
+<!--                Розмір: 1000х190-->
+<!--            </p>-->
+<!--            <div class="blockAll block_container__">-->
+
+<!--&lt;!&ndash;                        {% for i in id_model.collection_image.images.url %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            <img src="{{ i.collection_image.images.url }}">&ndash;&gt;-->
+<!--&lt;!&ndash;                        {% endfor %}&ndash;&gt;-->
+
+
+<!--                    <div class="block_img_url_input item-upload" >-->
+
+<!--                         <div id="images" style="display: flex; flex-wrap: wrap"  >-->
+<!--                            <img  src=" {{ id_model.collection_image.images.url }}  " style="width: 150px" alt="">-->
+<!--&lt;!&ndash;                             &lt;!&ndash;                             <input type="file" name="file[]" value="{{ id_model.collection_image.images }}"><br><br>&ndash;&gt;&ndash;&gt;-->
+<!--                    </div>-->
+<!--                    <input type="button" name="add_image" id="add_image" value="Add images" class="add_image">-->
+<!--&lt;!&ndash;                      <div class="button_and_svg">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <button type="submit" class="close__button"><span>&times;</span></button>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <svg class="image__add__to" width="124" height="64" x="0" y="0" class="" style="opacity: 1; margin-bottom: 10px;"><defs></defs><path d="M0 0 L124 0 C124 0 124 0 124 0 L124 64 C124 64 124 64 124 64 L0 64 C0 64 0 64 0 64 L0 0 C0 0 0 0 0 0 Z" stroke-width="2" stroke="rgb(0,0,0)" stroke-dasharray="none" fill="rgb(230,230,230)"></path><path d="M81.79744779490082 24.91854109301054C81.79744779490082 28.45927054650527 78.82188757797331 31.409878424417546 75.25121531766032 31.409878424417546 71.68054305734732 31.409878424417546 69.00253886211259 28.16420975871404 69.00253886211259 24.91854109301054 69.00253886211259 21.377811639515805 71.68054305734734 18.42720376160353 75.25121531766032 18.42720376160353 78.82188757797331 18.42720376160353 81.79744779490082 21.377811639515805 81.79744779490082 24.91854109301054 81.79744779490082 24.91854109301054 81.79744779490082 24.91854109301054 81.79744779490082 24.91854109301054M66.91964671026335 32C65.4318666017996 29.63951369767018 63.0514184282576 29.63951369767018 61.56363831979385 32 61.56363831979385 32 61.266082298101104 32.29506078779123 61.266082298101104 32.29506078779123 60.0758582113301 30.524696061043862 58.885634124559104 28.45927054650527 57.99296605948086 26.688905819757903 55.91007390763161 23.148176366263172 52.636957669011366 23.148176366263172 50.55406551716212 26.688905819757903 48.47117336531288 30.229635273252633 45.19805712669263 35.83579024128596 43.11516497484339 39.37651969478069 41.032272822994145 42.917249148275424 42.81760895315064 45.57279623839647 46.98339325684913 45.57279623839647 46.98339325684913 45.57279623839647 69.89520692719084 45.57279623839647 69.89520692719084 45.57279623839647 72.87076714411833 45.57279623839647 74.06099123088933 43.802431511649104 72.57321112242558 41.14688442152806 71.08543101396182 38.49133733140701 68.70498284041983 34.65554709012105 66.91964671026335 32 66.91964671026335 32 66.91964671026335 32 66.91964671026335 32" fill="rgb(179,179,179)" fill-rule="evenOdd"></path></svg>&ndash;&gt;-->
+<!--&lt;!&ndash;                      </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <button class="add_button_img">&ndash;&gt;-->
+<!--&lt;!&ndash;                          Добавити&ndash;&gt;-->
+<!--&lt;!&ndash;                      </button>&ndash;&gt;-->
+<!--                    </div>-->
+<!--            </div>-->
+<!--         </div>-->
+<!--         <div class="trailer_film_block">-->
+<!--          <p>-->
+<!--            Силка на трейлер-->
+<!--          </p>-->
+<!--          <input type="text" placeholder="Силка на відео в youTube" name="link" value="{{ id_model.link }}">-->
+<!--         </div>-->
+<!--         <div class="seo_film_block">-->
+<!--          <p class="seo_film_block_p">-->
+<!--            SEO блок:-->
+<!--          </p>-->
+<!--          <div class="seo_film_block__">-->
+<!--            <div class="seo_film_block_items">-->
+<!--              <p>-->
+<!--                URL:-->
+<!--              </p>-->
+<!--                <input type="text" class="text_input__" name="url" placeholder="https://google.com" value="{{ id_model.seo.url }}">-->
+<!--            </div>-->
+<!--            <div class="seo_film_block_items">-->
+<!--              <p>-->
+<!--                Title:-->
+<!--              </p>-->
+<!--              <input type="text" class="text_input__" name="title" value="{{ id_model.seo.title }}">-->
+<!--            </div>-->
+<!--            <div class="seo_film_block_items">-->
+<!--              <p>-->
+<!--                Keywords:-->
+<!--              </p>-->
+<!--              <input type="text" class="text_input" name="key" value="{{ id_model.seo.keywords }}">-->
+<!--            </div>-->
+<!--            <div class="seo_film_block_items">-->
+<!--              <p>-->
+<!--                Description:-->
+<!--              </p>-->
+<!--              <input type="text" name="desc2" value="{{ id_model.seo.description }}">-->
+<!--            </div>-->
+
+<!--          </div>-->
+<!--         </div>-->
+<!--         <div class="news_btn_save">-->
+<!--            <button type="submit">-->
+<!--                Зберегти-->
+<!--             </button>-->
+<!--         </div>-->
+<!--</form>-->
+
+
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+<!--<script>-->
+
+<!--</script>-->
+
+
+<!--<script>-->
+<!--    document.getElementById("add_image").onclick=function (ev) {-->
+
+<!--        var image = document.getElementById("images");-->
+
+<!--        var preview = document.createElement("img");-->
+<!--        preview.style.width = "150px";-->
+<!--        preview.style.height = "auto";-->
+<!--        preview.style.margin = "10px";-->
+
+<!--        var newInput = document.createElement("input");-->
+<!--        newInput.type = "file";-->
+<!--        newInput.name = "file[]";-->
+
+
+<!--        var br = document.createElement("br");-->
+<!--        var br1 = document.createElement("br");-->
+
+<!--        newInput.onchange = function (ev1) {-->
+<!--            if (this.files && this.files[0]) {-->
+<!--                var fileReader = new FileReader();-->
+
+<!--                fileReader.onload = function (ev2) {-->
+<!--                    preview.src = ev2.target.result;-->
+<!--                };-->
+
+<!--                fileReader.readAsDataURL(this.files[0])-->
+<!--            }-->
+<!--        };-->
+
+<!--        image.appendChild(preview);-->
+<!--        image.appendChild(newInput);-->
+<!--        image.appendChild(br);-->
+<!--        image.appendChild(br1);-->
+<!--    }-->
+<!--</script>-->
+
+
+
+    {{ form_new.as_p }}
+   <div id="gallery" class="form-gallery">
+        <div class="col-md-12 mb-3"><span class="font-weight-bold">Галерея:</span></div>
+        <div id="form_set" class="mb-5">
+            {{ formset.management_form }}
+            {% for form in formset %}
+            <div id="{{ form.prefix }}-form" style="display: inline-block">
+                {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
+                <a onclick="delete_image(this.id)" id="{{ form.prefix }}">
+                    <button type="button" class="close btn-form-delete" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+                <div class="text-center">
+                    <img id="{{ form.prefix }}-image"
+                         class="form-gallery-img"
+                         src={{ form.instance.images.url }}>
+                </div>
+                <div class="text-center">
+                    <a id="{{ form.prefix }}"
+                       onchange="preview_gallery(this.id)"
+                       class="btn btn-outline-success btn-file btn-gallery-load"><span>Загрузить</span>
+                        {% for visible in form.visible_fields %}
+                        {{ visible }}
+                        {% endfor %}
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="delete-list d-none"></div>
+        <div id="empty_form" class="d-none">
+            <div id="form-__prefix__-form" style="display: inline-block">
+                <a id="form-__prefix__" onclick="delete_image(this.id)">
+                    <button type="button" class="close btn-form-delete" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </a>
+                <input type="hidden" name="form-__prefix__-id" id="id_form-__prefix__-id">
+                <div class="text-center">
+                    <img id="form-__prefix__-image"
+                         class="form-gallery-img"
+                         src="/static/news/images/preview_upload.png">
+                </div>
+                <div class="text-center">
+                    <a id="form-__prefix__"
+                       onchange="preview_gallery(this.id)"
+                       class="btn btn-outline-success btn-file btn-gallery-load"><span>Загрузить</span>
+                        <input type="file" name="form-__prefix__-image" accept="image/*" id="id_form-__prefix__-image">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-block btn-success ml-5 btn-gallery-add" id="add_img">Добавить</button>
+        </div>
+    </div>
+<!---->
+    {{ seo_form.as_p }}
+
+<button type="submit">
+    Save
+</button>
+<!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>-->
+</form>
+
+<!--<script>-->
+<!--    $('#add_img').click(function() {-->
+<!--	var form_idx = $('#id_form-TOTAL_FORMS').val();-->
+<!--	$('#form_set').append($('#empty_form').html().replace(/__prefix__/g, form_idx));-->
+<!--	$('#id_form-TOTAL_FORMS').val(parseInt(form_idx) + 1);-->
+<!--});-->
+
+<!--function is_valid() {-->
+<!--	let $elements = $('option[value="on"]')-->
+<!--	let len = $elements.length-->
+<!--	if (len == 0) {-->
+<!--		$('#submit-btn').prop('disabled', false)-->
+<!--		return true;-->
+<!--	}-->
+<!--	$('#submit-btn').prop('disabled', true)-->
+<!--		return false;-->
+<!--}-->
+
+<!--function delete_image(index) {-->
+<!--	$('#id_' + index + '-image')[0].value="";-->
+<!--	$('.delete-list').append('<input type="hidden" value="on" name="' + index  + '-DELETE" id="id_' + index + '-DELETE">');-->
+<!--	$('#' + index + '-form').css('display', 'none');-->
+<!--	$('#' + index + '-validation').attr('value', 'off')-->
+<!--	is_valid()-->
+<!--}-->
+
+<!--function preview_gallery(index) {-->
+<!--	$('#' + index + '-image').attr('src', URL.createObjectURL(event.target.files[0]));-->
+<!--	img = new Image();-->
+<!--	img.src = URL.createObjectURL(event.target.files[0]);-->
+<!--	img.onload = function () {-->
+<!--		if (img.width == 1000 && img.height == 190) {-->
+<!--			$('#' + index + '-validation').css('display', 'none').attr('value', 'off');-->
+<!--			is_valid()-->
+<!--			return true;-->
+<!--		}-->
+<!--		$('#' + index + '-validation').css('display', 'inline-block').attr('value', 'on');-->
+<!--		is_valid()-->
+<!--		return false;-->
+<!--	}-->
+<!--};-->
+<!--</script>-->
+      {% endblock content %}
