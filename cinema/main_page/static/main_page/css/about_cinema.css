@@ -1,0 +1,408 @@
+.img_block_title img {
+    width: 100%;
+    background-color: #eeeeee;
+    height: auto;
+}
+
+.content_block_info {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+
+.right_content_block_info h1{
+    text-align: center;
+    color: #ffff;
+    font-weight: 900;
+    
+}
+
+.right_content_block_info p{
+    padding: 0 30px;
+    color: #ffff;
+    text-indent: 1.5em;
+    line-height: 1.5em;
+    font-size: 24px;
+}
+
+.right_content_block_info img{
+    width: 95%;
+    /*padding: 0 30px;*/
+}
+
+.left_content_block_info {
+    margin: 0px 20px;
+    position: relative;
+}
+
+.left_content_block_info_position{
+    position: sticky;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* POSTER adversting */
+.img_block_title_poster img {
+    width: 100%;
+    background-color: #eeeeee;
+    height: auto;
+}
+
+.content_block_info_poster {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+
+.right_content_block_info_poster h1{
+    text-align: center;
+    color: #ffff;
+    font-weight: 900;
+    
+}
+
+.right_content_block_info_poster p{
+    padding: 0 30px;
+    color: #ffff;
+    text-indent: 1.5em;
+    line-height: 1.5em;
+    font-size: 24px;
+}
+
+.right_content_block_info_poster img{
+    width: 95%;
+    padding: 0 30px;
+    margin-bottom: 20px;
+}
+
+.left_content_block_info_poster {
+    margin: 0px 20px;
+    position: relative;
+}
+
+.left_content_block_info_position_poster{
+    position: sticky;
+    top: 20px;
+
+}
+
+
+
+.block_content_img_poster{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.block_content_img_poster img{
+    width: 400px;
+}
+
+.sim-silder-poster{
+    max-width: none;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    
+}
+
+
+/* --------------------NEWS-------------------- */
+
+.right_content_block_news{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.content_block_info h1{
+    color: white;
+
+}
+
+.display_flex_news{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 20px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.display_flex_news img{
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+}
+
+
+.display_flex_news a{
+    color: blue;
+    cursor: pointer;
+    text-decoration: revert;
+    margin: 10px 0;
+}
+
+.data_button{
+    color: white;
+    background-color: rgb(89, 87, 87);
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    height: 40px;
+}
+
+.gulliveR_button{
+    color: white;
+    background-color: purple;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+
+
+.display_flex_news p{
+    color: white;
+}
+
+/* cinema.html */
+
+
+.cinema_block_info{
+    text-align: end;
+}
+.cinema_block{
+    display: flex;
+    /*flex-wrap: wrap;*/
+    justify-content: center;
+   
+}
+
+
+.cinema_img_and_p img{
+    max-width: 366px;
+    width: 100%;
+    height: 256px;
+    margin:0px 50px;
+}
+
+.cinema_img_and_p p{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+/* cafe_bar.html */
+
+.title_cafe_block{
+    text-align: center;
+}
+
+.cafe_bar_container p{
+    color: white;
+    margin: 10px 20px;
+}
+
+.cafe_bar_img{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cafe_bar_img img{
+   max-width: 280px;
+   width: 100%;
+    height: auto;
+    margin: 20px 0;
+
+}
+
+
+.table_cafe_bar {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 30px 10px;
+  }
+  
+  .td_cafe_bar, .th_cafe_bar {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    color: white;
+  }
+  
+  .tr_cafe_bar:nth-child(even) {
+    background-color: red;
+  }
+
+
+  /* vip.html */
+
+  .vip_title{
+    text-align: center;
+  }
+
+  .right_vip_info p{
+    color: white;
+    margin: 20px 10px;
+  }
+
+
+  /* childrean_room.html */
+
+  .childrean_title{
+    text-align: center;
+  }
+
+  .right_childrean_info p{
+    color: white;
+    margin: 20px 10px;
+  }
+
+
+
+  /* mobile_app.html */
+
+  .mobile_title{
+    text-align: center;
+  }
+
+  .right_mobile_info p{
+    color: white;
+    margin: 20px 10px;
+  }
+
+.mobile_img{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+  .mobile_img img{
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .mobile_img_goog_foo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mobile_img_goog_foo img{
+    width: 260px;
+    height: auto;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+
+  /* contact.html */
+
+
+.contact{
+    justify-content: space-around;
+}
+
+  .contact_title{
+    text-align: center;
+  }
+
+  .contact_block{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+
+  .logo_contact{
+    margin-right: 50px;
+  }
+
+  .logo_contact img{
+    width: 100%;
+    max-width: 345px;
+  }
+
+  .logo_title_contact{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo_title_contact h3{
+    color: white;
+  }
+
+  .map_info_contact{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    
+  }
+
+  .map_info_contact p{
+    color: white;
+    margin-bottom: 36px;
+    
+  }
+
+
+  .position_contact{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  /* promotions.html */
+
+  .promo_title{
+    color: white;
+    text-align: center;
+  }
+  .right_content_block_promo{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+
+  .dreamtown_button{
+    color: white;
+    background-color: purple;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    margin: 30px 0;
+
+}
+
+
+/* card_promotions.html */
+
+.card_promo_flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card_promo_flex p{
+    color: white;
+}
+
+
+.promo_button{
+    margin-bottom: 10px;
+}
+/* endpoint */
+/* cdm */
+/* seqrs */
+/* candlet */
+/* django denamic formset */

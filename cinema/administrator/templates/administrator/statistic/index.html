@@ -1,0 +1,196 @@
+{% extends 'user/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row row_visitor">
+<!--Pie Chart-->
+          <div class="card card-danger">
+          <div class="card-header">
+              <h3 class="card-title">{% trans "Кращі канали" %}</h3>
+
+          </div>
+          <div class="card-body">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div class="">
+
+                </div>
+              </div>
+              <div class="chartjs-size-monitor-shrink">
+                <div class="">
+
+                </div>
+              </div>
+            </div>
+            <canvas id="oilChart" width="600" height="400"></canvas>
+          </div>
+      </div>
+
+<!--          END PIE CHART-->
+         <div class="card text-white card-blue card_area">
+          <div class="card-header">
+              <h3 class="card-title">{% trans "Сеанси" %}</h3>
+
+          </div>
+          <div class="card-body">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div class="">
+
+                </div>
+              </div>
+              <div id="jsonFilm" class="chartjs-size-monitor-shrink" data-json="{{ film }}" >
+                <div class="">
+
+                </div>
+              </div>
+            </div>
+             <canvas id="mybarChart" style="width: 100%; max-width: 500px "  class="chartjs-render-monitor" ></canvas>
+          </div>
+      </div>
+<!--            END AREA CHART-->
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+
+                        <h3>{{ user }}</h3>
+
+                <p>{% trans "Реєстрації користувачів" %}</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="{% url 'user' %}" class="small-box-footer">{% trans "Більше інформації" %} <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+        </div>
+        <div>
+          <canvas id="myChart"></canvas>
+        </div>
+<!--VISITOR-->
+         <div class="line"></div>
+        <div class="row row_visitor">
+
+
+         <div class="card card-danger">
+          <div class="card-header">
+              <h3 class="card-title">{% trans "Стать" %}</h3>
+
+          </div>
+          <div class="card-body">
+            <div class="chartjs-size-monitor" >
+              <div class="chartjs-size-monitor-expand">
+                <div class="">
+
+                </div>
+              </div>
+              <div class="chartjs-size-monitor-shrink" id="jsonData" data-json="{{ data }}">
+                <div class="">
+
+                </div>
+              </div>
+            </div>
+            <canvas id="myChartDougn" width="400" height="400"></canvas>
+          </div>
+      </div>
+        </div>
+<!--          ENDVISITOR-->
+
+<!--      CHART-->
+
+<!--          END CHART-->
+
+      </div>
+</section>
+
+
+
+
+<script>
+    function loadJson(selector) {
+  return JSON.parse(document.querySelector(selector).getAttribute('data-json'));
+}
+
+window.onload = function () {
+  var jsonData = loadJson('#jsonData');
+
+  var data = jsonData.map((item) => item.female);
+  var date = jsonData.map((item) => item.male);
+  var config = {
+   type: 'pie',
+  data: {
+    labels: ['Жінки', 'Чоловіки'],
+    datasets: [{
+      label: '# of Tomatoes',
+      data: [data, date],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.5)',
+        'rgba(54, 162, 235, 0.2)',
+
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+   	//cutoutPercentage: 40,
+    responsive: false,
+    }
+  };
+
+  var ctx = document.getElementById("myChartDougn");
+  window.myLine = new Chart(ctx, config);
+};
+</script>
+
+<!--<script src="/static/administrator/js/validate.js"></script>-->
+
+<!--&lt;!&ndash;&lt;!&ndash; jQuery &ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;&lt;!&ndash; jQuery UI 1.11.4 &ndash;&gt;&ndash;&gt;-->
+<!--<script src="/static/administrator/plugins/jquery-ui/jquery-ui.min.js"></script>-->
+<!--&lt;!&ndash; Resolve conflict in jQuery UI tooltip with Bootstrap tooltip &ndash;&gt;-->
+<!--<script>-->
+<!--     $.widget.bridge('uibutton', $.ui.button)-->
+<!--</script>-->
+
+
+<!--&lt;!&ndash; Sparkline &ndash;&gt;-->
+<!--<script src="/static/administrator/plugins/sparklines/sparkline.js"></script>-->
+<!--&lt;!&ndash; JQVMap &ndash;&gt;-->
+<!--<script src="/static/administrator/plugins/jqvmap/jquery.vmap.min.js}"></script>-->
+<!--<script src="/static/administrator/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>-->
+<!--&lt;!&ndash; jQuery Knob Chart &ndash;&gt;-->
+<!--<script src="/static/administrator/plugins/jquery-knob/jquery.knob.min.js"></script>-->
+<!--&lt;!&ndash; daterangepicker &ndash;&gt;-->
+<!--<script src="/static/administrator/plugins/moment/moment.min.js"></script>-->
+<!--<script src="/static/administrator/plugins/daterangepicker/daterangepicker.js"></script>-->
+
+<!--<script src="/static/administrator/plugins/summernote/summernote-bs4.min.js"></script>-->
+
+<!--<script src="/static/administrator/dist/js/adminlte.js"></script>-->
+
+<!--<script src="/static/administrator/dist/js/pages/dashboard.js"></script>-->
+
+<script src="/static/administrator/plugins/chart.js/Chart.min.js"></script>
+
+<script src="/static/administrator/js/chart_all.js"></script>
+
+
+<script>
+
+</script>
+
+
+      {% endblock content %}

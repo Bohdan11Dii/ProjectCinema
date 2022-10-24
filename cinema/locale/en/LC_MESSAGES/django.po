@@ -1,0 +1,734 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-19 16:38+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: administrator/templates/administrator/banner/banner.html:12
+msgid "На головній верх"
+msgstr "On the main top"
+
+#: administrator/templates/administrator/banner/banner.html:55
+#: administrator/templates/administrator/banner/banner.html:88
+#: administrator/templates/administrator/banner/banner.html:106
+#: administrator/templates/administrator/banner/banner.html:170
+#: administrator/templates/administrator/banner/banner.html:250
+#: administrator/templates/administrator/banner/banner.html:280
+#: administrator/templates/administrator/banner/banner.html:292
+#: administrator/templates/administrator/cinema_and_hall/cinema.html:37
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:41
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:73
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:113
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:138
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:144
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:40
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:71
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:117
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:123
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:34
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:65
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:111
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:117
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:41
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:73
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:115
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:141
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:147
+#: administrator/templates/administrator/film/add_film.html:35
+#: administrator/templates/administrator/film/add_film.html:80
+#: administrator/templates/administrator/film/add_film.html:86
+#: administrator/templates/administrator/film/update_film.html:37
+#: administrator/templates/administrator/film/update_film.html:83
+#: administrator/templates/administrator/film/update_film.html:108
+#: administrator/templates/administrator/film/update_film.html:114
+#: administrator/templates/administrator/new_and_action/action_create.html:46
+#: administrator/templates/administrator/new_and_action/action_create.html:91
+#: administrator/templates/administrator/new_and_action/action_create.html:97
+#: administrator/templates/administrator/new_and_action/action_edit.html:47
+#: administrator/templates/administrator/new_and_action/action_edit.html:93
+#: administrator/templates/administrator/new_and_action/action_edit.html:118
+#: administrator/templates/administrator/new_and_action/action_edit.html:124
+#: administrator/templates/administrator/new_and_action/news_create.html:46
+#: administrator/templates/administrator/new_and_action/news_create.html:91
+#: administrator/templates/administrator/new_and_action/news_create.html:97
+#: administrator/templates/administrator/new_and_action/news_edit.html:47
+#: administrator/templates/administrator/new_and_action/news_edit.html:93
+#: administrator/templates/administrator/new_and_action/news_edit.html:118
+#: administrator/templates/administrator/new_and_action/news_edit.html:124
+#: administrator/templates/administrator/pages/contact.html:74
+#: administrator/templates/administrator/pages/contact.html:150
+#: administrator/templates/administrator/pages/create_other_page.html:44
+#: administrator/templates/administrator/pages/create_other_page.html:94
+#: administrator/templates/administrator/pages/create_other_page.html:100
+#: administrator/templates/administrator/pages/edit_other_page.html:45
+#: administrator/templates/administrator/pages/edit_other_page.html:89
+#: administrator/templates/administrator/pages/edit_other_page.html:114
+#: administrator/templates/administrator/pages/edit_other_page.html:120
+msgid "Добавити"
+msgstr "Add"
+
+#: administrator/templates/administrator/banner/banner.html:63
+#: administrator/templates/administrator/banner/banner.html:98
+msgid "Текст"
+msgstr "Text"
+
+#: administrator/templates/administrator/banner/banner.html:113
+#: administrator/templates/administrator/banner/banner.html:298
+msgid "Швидкість обертання"
+msgstr "Rotation speed"
+
+#: administrator/templates/administrator/banner/banner.html:121
+#: administrator/templates/administrator/banner/banner.html:190
+#: administrator/templates/administrator/banner/banner.html:305
+msgid "Сохранити"
+msgstr "Save"
+
+#: administrator/templates/administrator/banner/banner.html:139
+msgid "Наскрізний баннер на задньому фоні"
+msgstr "A through banner on the background"
+
+#: administrator/templates/administrator/banner/banner.html:179
+#: administrator/templates/administrator/cinema_and_hall/cinema.html:25
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:49
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:81
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:48
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:79
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:42
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:73
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:49
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:81
+#: administrator/templates/administrator/film/add_film.html:43
+#: administrator/templates/administrator/film/films.html:30
+#: administrator/templates/administrator/film/films.html:62
+#: administrator/templates/administrator/film/update_film.html:45
+#: administrator/templates/administrator/new_and_action/action.html:26
+#: administrator/templates/administrator/new_and_action/action_create.html:54
+#: administrator/templates/administrator/new_and_action/action_edit.html:55
+#: administrator/templates/administrator/new_and_action/news.html:27
+#: administrator/templates/administrator/new_and_action/news_create.html:54
+#: administrator/templates/administrator/new_and_action/news_edit.html:55
+#: administrator/templates/administrator/pages/contact.html:82
+#: administrator/templates/administrator/pages/contact.html:158
+#: administrator/templates/administrator/pages/create_other_page.html:52
+#: administrator/templates/administrator/pages/edit_other_page.html:53
+#: user/templates/user/users.html:22
+msgid "Видалити"
+msgstr "Remove"
+
+#: administrator/templates/administrator/banner/banner.html:208
+msgid "На головній Новини Акції"
+msgstr "Actions on the main News"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema.html:7
+msgid "Список кінотеатрів"
+msgstr "List of cinemas"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema.html:22
+#: administrator/templates/administrator/film/films.html:27
+#: administrator/templates/administrator/film/films.html:59
+#: administrator/templates/administrator/new_and_action/action.html:25
+#: administrator/templates/administrator/new_and_action/news.html:26
+#: user/templates/user/users.html:21
+msgid "Редагувати"
+msgstr "Edit"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:8
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:8
+msgid "Назва кінотеатра"
+msgstr "The name of the cinema"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:14
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:225
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:14
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:155
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:14
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:149
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:14
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:176
+#: administrator/templates/administrator/film/add_film.html:17
+#: administrator/templates/administrator/film/add_film.html:137
+#: administrator/templates/administrator/film/update_film.html:17
+#: administrator/templates/administrator/film/update_film.html:166
+#: administrator/templates/administrator/new_and_action/action_create.html:28
+#: administrator/templates/administrator/new_and_action/action_create.html:131
+#: administrator/templates/administrator/new_and_action/action_edit.html:27
+#: administrator/templates/administrator/new_and_action/action_edit.html:159
+#: administrator/templates/administrator/new_and_action/news_create.html:28
+#: administrator/templates/administrator/new_and_action/news_create.html:131
+#: administrator/templates/administrator/new_and_action/news_edit.html:27
+#: administrator/templates/administrator/new_and_action/news_edit.html:159
+#: administrator/templates/administrator/pages/contact.html:199
+#: administrator/templates/administrator/pages/create_main_page.html:53
+#: administrator/templates/administrator/pages/create_other_page.html:21
+#: administrator/templates/administrator/pages/create_other_page.html:130
+#: administrator/templates/administrator/pages/edit_other_page.html:20
+#: administrator/templates/administrator/pages/edit_other_page.html:149
+msgid "Опис"
+msgstr "Description"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:20
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:20
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:20
+msgid "Умови"
+msgstr "Conditions"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:27
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:27
+msgid "Логотип"
+msgstr "Logotype"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:59
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:58
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:52
+msgid "Фото верхнього банера"
+msgstr "Photo of the top banner"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:149
+msgid "Список залів"
+msgstr "List of halls"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:162
+#: administrator/templates/administrator/new_and_action/action.html:22
+#: administrator/templates/administrator/new_and_action/news.html:23
+#: administrator/templates/administrator/pages/create_other_page.html:15
+#: administrator/templates/administrator/pages/edit_other_page.html:14
+#: administrator/templates/administrator/pages/page_info.html:17
+msgid "Назва"
+msgstr "Name"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:163
+#: administrator/templates/administrator/new_and_action/action.html:23
+#: administrator/templates/administrator/new_and_action/news.html:24
+#: administrator/templates/administrator/pages/page_info.html:18
+msgid "Дата створення"
+msgstr "Date of creation"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:164
+#: administrator/templates/administrator/pages/page_info.html:20
+msgid "Редагування"
+msgstr "Editing"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:165
+#: administrator/templates/administrator/pages/page_info.html:21
+msgid "Видалення"
+msgstr "Removal"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:195
+msgid "Створити зал"
+msgstr "Create a hall"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:202
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:132
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:126
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:153
+#: administrator/templates/administrator/film/add_film.html:114
+#: administrator/templates/administrator/new_and_action/action_create.html:108
+#: administrator/templates/administrator/new_and_action/action_edit.html:136
+#: administrator/templates/administrator/new_and_action/news_create.html:108
+#: administrator/templates/administrator/new_and_action/news_edit.html:136
+#: administrator/templates/administrator/pages/contact.html:176
+#: administrator/templates/administrator/pages/create_main_page.html:30
+#: administrator/templates/administrator/pages/create_other_page.html:107
+#: administrator/templates/administrator/pages/edit_other_page.html:126
+msgid "SEO блок"
+msgstr "SEO block"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:213
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:143
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:137
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:164
+#: administrator/templates/administrator/film/add_film.html:125
+#: administrator/templates/administrator/film/update_film.html:154
+#: administrator/templates/administrator/new_and_action/action_create.html:119
+#: administrator/templates/administrator/new_and_action/action_edit.html:147
+#: administrator/templates/administrator/new_and_action/news_create.html:119
+#: administrator/templates/administrator/new_and_action/news_edit.html:147
+#: administrator/templates/administrator/pages/contact.html:187
+#: administrator/templates/administrator/pages/create_main_page.html:41
+#: administrator/templates/administrator/pages/create_other_page.html:118
+#: administrator/templates/administrator/pages/edit_other_page.html:137
+msgid "Заголовок"
+msgstr "Title"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:219
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:149
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:143
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:170
+#: administrator/templates/administrator/film/add_film.html:131
+#: administrator/templates/administrator/film/update_film.html:160
+#: administrator/templates/administrator/new_and_action/action_create.html:125
+#: administrator/templates/administrator/new_and_action/action_edit.html:153
+#: administrator/templates/administrator/new_and_action/news_create.html:125
+#: administrator/templates/administrator/new_and_action/news_edit.html:153
+#: administrator/templates/administrator/pages/contact.html:193
+#: administrator/templates/administrator/pages/create_main_page.html:47
+#: administrator/templates/administrator/pages/create_other_page.html:124
+#: administrator/templates/administrator/pages/edit_other_page.html:143
+msgid "Ключові слова"
+msgstr "Keywords"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:235
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:165
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:159
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:186
+#: administrator/templates/administrator/film/add_film.html:147
+#: administrator/templates/administrator/film/update_film.html:177
+#: administrator/templates/administrator/new_and_action/action_create.html:141
+#: administrator/templates/administrator/new_and_action/action_edit.html:170
+#: administrator/templates/administrator/new_and_action/news_edit.html:170
+#: administrator/templates/administrator/pages/contact.html:209
+#: administrator/templates/administrator/pages/create_main_page.html:63
+#: administrator/templates/administrator/pages/create_other_page.html:140
+#: administrator/templates/administrator/pages/edit_other_page.html:159
+#: user/templates/user/create_user.html:108
+msgid "Відмінити"
+msgstr "Cancel"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:239
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:169
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:163
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:190
+#: administrator/templates/administrator/film/add_film.html:151
+#: administrator/templates/administrator/film/update_film.html:181
+#: administrator/templates/administrator/new_and_action/action_create.html:145
+#: administrator/templates/administrator/new_and_action/action_edit.html:174
+#: administrator/templates/administrator/new_and_action/news_create.html:145
+#: administrator/templates/administrator/new_and_action/news_edit.html:174
+#: administrator/templates/administrator/pages/contact.html:213
+#: administrator/templates/administrator/pages/create_main_page.html:67
+#: administrator/templates/administrator/pages/create_other_page.html:144
+#: administrator/templates/administrator/pages/edit_other_page.html:163
+#: user/templates/user/create_user.html:112
+msgid "Зберегти"
+msgstr "Save"
+
+#: administrator/templates/administrator/cinema_and_hall/cinema_edit.html:242
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:172
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:166
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:193
+#: administrator/templates/administrator/film/add_film.html:154
+#: administrator/templates/administrator/film/update_film.html:184
+#: administrator/templates/administrator/new_and_action/action_create.html:148
+#: administrator/templates/administrator/new_and_action/action_edit.html:177
+#: administrator/templates/administrator/new_and_action/news_create.html:148
+#: administrator/templates/administrator/new_and_action/news_edit.html:177
+#: administrator/templates/administrator/pages/contact.html:216
+#: administrator/templates/administrator/pages/create_main_page.html:70
+#: administrator/templates/administrator/pages/create_other_page.html:147
+#: administrator/templates/administrator/pages/edit_other_page.html:166
+#: user/templates/user/create_user.html:115
+msgid "Очистити"
+msgstr "Clean up"
+
+#: administrator/templates/administrator/cinema_and_hall/create_cinema.html:89
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:83
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:89
+#: administrator/templates/administrator/film/add_film.html:49
+#: administrator/templates/administrator/film/update_film.html:52
+#: administrator/templates/administrator/new_and_action/action_create.html:60
+#: administrator/templates/administrator/new_and_action/action_edit.html:62
+#: administrator/templates/administrator/new_and_action/news_create.html:60
+#: administrator/templates/administrator/new_and_action/news_edit.html:62
+#: administrator/templates/administrator/pages/create_other_page.html:63
+#: administrator/templates/administrator/pages/edit_other_page.html:62
+msgid "Галерея картинок"
+msgstr "Gallery of pictures"
+
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:8
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:8
+msgid "Назва зала"
+msgstr "Hall name"
+
+#: administrator/templates/administrator/cinema_and_hall/create_hall.html:21
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:27
+msgid "Схема зала"
+msgstr "Scheme of the hall"
+
+#: administrator/templates/administrator/cinema_and_hall/hall_edit.html:59
+msgid "Верхній банер"
+msgstr "Top banner"
+
+#: administrator/templates/administrator/film/add_film.html:10
+msgid "Назва фільма"
+msgstr "The name of the movie"
+
+#: administrator/templates/administrator/film/add_film.html:91
+#: administrator/templates/administrator/film/update_film.html:120
+#: administrator/templates/administrator/new_and_action/action_create.html:102
+#: administrator/templates/administrator/new_and_action/action_edit.html:130
+#: administrator/templates/administrator/new_and_action/news_create.html:102
+#: administrator/templates/administrator/new_and_action/news_edit.html:130
+msgid "Силка на трейлер"
+msgstr "Trailer hitch"
+
+#: administrator/templates/administrator/film/add_film.html:97
+#: administrator/templates/administrator/film/update_film.html:126
+msgid "Тип кіно"
+msgstr "Type of cinema"
+
+#: administrator/templates/administrator/film/films.html:16
+msgid "Список актуальних фільмів"
+msgstr "List of current movies"
+
+#: administrator/templates/administrator/film/films.html:48
+msgid "Список фільмів, які скоро покажуть"
+msgstr "List of films that will be shown soon"
+
+#: administrator/templates/administrator/film/update_film.html:10
+#: administrator/templates/administrator/new_and_action/action_create.html:14
+#: administrator/templates/administrator/new_and_action/action_edit.html:14
+#: administrator/templates/administrator/new_and_action/news_create.html:14
+#: administrator/templates/administrator/new_and_action/news_edit.html:14
+msgid "Назва новини"
+msgstr "Name of the news"
+
+#: administrator/templates/administrator/film/update_film.html:56
+#: administrator/templates/administrator/new_and_action/action_edit.html:66
+#: administrator/templates/administrator/new_and_action/news_edit.html:66
+msgid "Розмір"
+msgstr "Size"
+
+#: administrator/templates/administrator/film/update_film.html:143
+msgid "SEO блок:"
+msgstr "SEO block:"
+
+#: administrator/templates/administrator/new_and_action/action.html:10
+msgid "Список Акцій"
+msgstr "List of Shares"
+
+#: administrator/templates/administrator/new_and_action/action.html:15
+#: administrator/templates/administrator/new_and_action/news.html:16
+msgid "Створити новину"
+msgstr "Create news"
+
+#: administrator/templates/administrator/new_and_action/action.html:24
+#: administrator/templates/administrator/new_and_action/news.html:25
+#: administrator/templates/administrator/pages/page_info.html:19
+msgid "Статус"
+msgstr "Status"
+
+#: administrator/templates/administrator/new_and_action/action_create.html:20
+#: administrator/templates/administrator/new_and_action/action_edit.html:20
+#: administrator/templates/administrator/new_and_action/news_create.html:20
+#: administrator/templates/administrator/new_and_action/news_edit.html:20
+msgid "Дата публікації"
+msgstr "Publication date"
+
+#: administrator/templates/administrator/new_and_action/news.html:11
+msgid "Список Новин"
+msgstr "List of News"
+
+#: administrator/templates/administrator/new_and_action/news_create.html:33
+#: administrator/templates/administrator/pages/create_other_page.html:27
+#: administrator/templates/administrator/pages/edit_other_page.html:26
+msgid "Головна картинка"
+msgstr "Main picture"
+
+#: administrator/templates/administrator/pages/contact.html:33
+#: administrator/templates/administrator/pages/contact.html:112
+msgid "Назва кінотеатру"
+msgstr "The name of the cinema"
+
+#: administrator/templates/administrator/pages/contact.html:39
+#: administrator/templates/administrator/pages/contact.html:119
+#: user/templates/user/create_user.html:35
+msgid "Адреса"
+msgstr "Address"
+
+#: administrator/templates/administrator/pages/contact.html:45
+#: administrator/templates/administrator/pages/contact.html:126
+msgid "Координати для карти"
+msgstr "Coordinates for the map"
+
+#: administrator/templates/administrator/pages/contact.html:52
+#: administrator/templates/administrator/pages/contact.html:134
+msgid "Лого"
+msgstr "Logo"
+
+#: administrator/templates/administrator/pages/contact.html:171
+msgid "Добавити контакт"
+msgstr "Add a contact"
+
+#: administrator/templates/administrator/pages/create_main_page.html:12
+#: user/templates/user/create_user.html:74 user/templates/user/users.html:17
+msgid "Телефон"
+msgstr "Phone"
+
+#: administrator/templates/administrator/pages/create_main_page.html:23
+msgid "SEO текст"
+msgstr "SEO text"
+
+#: administrator/templates/administrator/pages/page_info.html:6
+msgid "Список сторінок"
+msgstr "List of pages"
+
+#: administrator/templates/administrator/pages/page_info.html:11
+msgid "Створити нову сторінку"
+msgstr "Create a new page"
+
+#: administrator/templates/administrator/pages/page_info.html:25
+msgid "Головна сторінка"
+msgstr "Main page"
+
+#: administrator/templates/administrator/pages/page_info.html:28
+#: administrator/templates/administrator/pages/page_info.html:47
+#: administrator/templates/administrator/pages/page_info.html:66
+msgid "Активний"
+msgstr "Active"
+
+#: administrator/templates/administrator/pages/page_info.html:30
+#: administrator/templates/administrator/pages/page_info.html:49
+#: administrator/templates/administrator/pages/page_info.html:68
+msgid "Неактивний"
+msgstr "Inactive"
+
+#: administrator/templates/administrator/pages/page_info.html:44
+#: main_page/templates/main_page/base.html:147
+#: main_page/templates/main_page/base.html:233
+msgid "Контакти"
+msgstr "Contacts"
+
+#: administrator/templates/administrator/statistic/index.html:13
+msgid "Кращі канали"
+msgstr "Best channels"
+
+#: administrator/templates/administrator/statistic/index.html:36
+msgid "Сеанси"
+msgstr "Sessions"
+
+#: administrator/templates/administrator/statistic/index.html:64
+msgid "Реєстрації користувачів"
+msgstr "User registrations"
+
+#: administrator/templates/administrator/statistic/index.html:69
+msgid "Більше інформації"
+msgstr "More information"
+
+#: administrator/templates/administrator/statistic/index.html:84
+#: user/templates/user/create_user.html:64
+msgid "Стать"
+msgstr "Sex"
+
+#: main_page/templates/main_page/action/promotions.html:14
+msgid "Акції та скидки"
+msgstr "Promotions and discounts"
+
+#: main_page/templates/main_page/advertising_page/advertising.html:35
+#: main_page/templates/main_page/childrean_room/childrean_room.html:35
+#: main_page/templates/main_page/vip_hall/vip.html:35
+msgid "ФОТОГАЛЕРЕЯ"
+msgstr "PHOTO GALLERY"
+
+#: main_page/templates/main_page/base.html:49
+msgid "Логін"
+msgstr "Login"
+
+#: main_page/templates/main_page/base.html:54
+msgid "Реєстрація"
+msgstr "Registration"
+
+#: main_page/templates/main_page/base.html:59
+msgid "Адмін"
+msgstr "Admin"
+
+#: main_page/templates/main_page/base.html:108
+#: main_page/templates/main_page/base.html:204
+#: main_page/templates/main_page/poster/poster.html:12
+#: main_page/templates/main_page/soon/soon.html:12
+msgid "Афіша"
+msgstr "Poster"
+
+#: main_page/templates/main_page/base.html:114
+#: main_page/templates/main_page/base.html:207
+msgid "Розклад"
+msgstr "Schedule"
+
+#: main_page/templates/main_page/base.html:120
+#: main_page/templates/main_page/poster/poster.html:15
+#: main_page/templates/main_page/soon/soon.html:15
+msgid "Скоро"
+msgstr "Soon"
+
+#: main_page/templates/main_page/base.html:126
+#: main_page/templates/main_page/base.html:213 user/templates/user/base.html:89
+msgid "Кінотеатри"
+msgstr "Cinemas"
+
+#: main_page/templates/main_page/base.html:131
+#: main_page/templates/main_page/base.html:216
+#: user/templates/user/base.html:117
+msgid "Акції"
+msgstr "Actions"
+
+#: main_page/templates/main_page/base.html:138
+#: main_page/templates/main_page/base.html:221
+msgid "Про кінотеатр"
+msgstr "About the cinema"
+
+#: main_page/templates/main_page/base.html:141
+#: main_page/templates/main_page/base.html:224
+#: main_page/templates/main_page/news_page/news.html:18
+#: user/templates/user/base.html:103
+msgid "Новини"
+msgstr "News"
+
+#: main_page/templates/main_page/base.html:142
+#: main_page/templates/main_page/base.html:227
+msgid "Реклама"
+msgstr "Advertising"
+
+#: main_page/templates/main_page/base.html:143
+#: main_page/templates/main_page/base.html:230
+msgid "Кафе-Бар"
+msgstr "Cafe-Bar"
+
+#: main_page/templates/main_page/base.html:144
+msgid "Vip-зал"
+msgstr "VIP-room"
+
+#: main_page/templates/main_page/base.html:145
+msgid "Дитяча кімната"
+msgstr "Children room"
+
+#: main_page/templates/main_page/base.html:146
+msgid "Мобільний додаток"
+msgstr "Mobile application"
+
+#: main_page/templates/main_page/base.html:192
+msgid "Мобіний додаток"
+msgstr "Mobile application"
+
+#: main_page/templates/main_page/base.html:199
+msgid "Розробка сайтів"
+msgstr "Website development"
+
+#: main_page/templates/main_page/base.html:210
+msgid "Незабаром у прокаті"
+msgstr "Coming soon at the box office"
+
+#: main_page/templates/main_page/cafe_bar/cafe_bar.html:34
+msgid "Меню"
+msgstr "Menu"
+
+#: main_page/templates/main_page/cinema/cinema.html:16
+msgid "НАШІ КІНОТЕАТРИ"
+msgstr "OUR CINEMA THEATERS"
+
+#: main_page/templates/main_page/index/index.html:42
+msgid "Дивіться сьогодні"
+msgstr "See today"
+
+#: main_page/templates/main_page/index/index.html:59
+#: main_page/templates/main_page/index/index.html:91
+msgid "Купити квиток"
+msgstr "Buy a ticket"
+
+#: main_page/templates/main_page/index/index.html:75
+msgid "Дивіться скоро"
+msgstr "See you soon"
+
+#: main_page/templates/main_page/index/index.html:107
+msgid "Новини й Акції"
+msgstr "News and Promotions"
+
+#: main_page/templates/main_page/poster/poster.html:29
+msgid "Зараз в кіно"
+msgstr "Now in the cinema"
+
+#: main_page/templates/main_page/poster/poster.html:38
+#: main_page/templates/main_page/soon/soon.html:38
+msgid "Купити"
+msgstr "Buy"
+
+#: main_page/templates/main_page/soon/soon.html:29
+msgid "Скоро в кіно"
+msgstr "Soon to the cinema"
+
+#: user/templates/user/base.html:58
+msgid "Статистика"
+msgstr "Statistics"
+
+#: user/templates/user/base.html:66
+msgid "Баннера/Слайдери"
+msgstr "Banners/Sliders"
+
+#: user/templates/user/base.html:76
+msgid "Фільми"
+msgstr "Movies"
+
+#: user/templates/user/base.html:131
+msgid "Сторінки"
+msgstr "Pages"
+
+#: user/templates/user/base.html:149
+msgid "Користувачі"
+msgstr "Users"
+
+#: user/templates/user/base.html:161
+msgid "Розсилання"
+msgstr "Mailing"
+
+#: user/templates/user/base.html:198
+msgid "Адміністратор"
+msgstr "Administrator"
+
+#: user/templates/user/create_user.html:11
+msgid "Ім'я"
+msgstr "Name"
+
+#: user/templates/user/create_user.html:17
+msgid "Прізвище"
+msgstr "Last name"
+
+#: user/templates/user/create_user.html:23 user/templates/user/users.html:19
+msgid "Псевдонім"
+msgstr "Pseudonym"
+
+#: user/templates/user/create_user.html:29 user/templates/user/users.html:16
+msgid "E-mail"
+msgstr "E-mail"
+
+#: user/templates/user/create_user.html:41
+msgid "Пароль"
+msgstr "Password"
+
+#: user/templates/user/create_user.html:47
+msgid "Номер картки"
+msgstr "Card number"
+
+#: user/templates/user/create_user.html:55
+msgid "Язик"
+msgstr "Language"
+
+#: user/templates/user/create_user.html:80 user/templates/user/users.html:15
+msgid "День народження"
+msgstr "Birthday"
+
+#: user/templates/user/create_user.html:87 user/templates/user/users.html:20
+msgid "Місто"
+msgstr "City"
+
+#: user/templates/user/create_user.html:94
+msgid "Повторіть пароль"
+msgstr "Repeat the password"
+
+#: user/templates/user/users.html:14
+msgid "Дата реєстрації"
+msgstr "Registration Date"
+
+#: user/templates/user/users.html:18
+msgid "ПІБ"
+msgstr "Full name"

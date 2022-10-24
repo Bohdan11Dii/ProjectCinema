@@ -1,0 +1,298 @@
+{% extends 'user/base.html' %}
+{% load  i18n static%}
+{% block content %}
+<form method="POST" enctype="multipart/form-data"  style="margin: 0 10%">
+    {% csrf_token %}
+             <div class="title_film_block">
+            <p>
+              {% trans "Назва кінотеатра" %}
+            </p>
+           {{ form.title }}
+          </div>
+          <div class="description_film_block">
+            <p>
+             {% trans "Опис" %}
+            </p>
+            {{ form.description }}
+          </div>
+          <div class="description_film_block">
+            <p>
+             {% trans "Умови" %}
+            </p>
+            {{ form.condition }}
+          </div>
+    <!--Logo-->
+    <div class="images_AddRemove_film_block">
+                  <div class="image_block_uodate">
+                        <div class="col-md-12 mb-3"><span class="font-weight-bold">{% trans "Логотип" %}</span></div>
+                        <div class="">
+                            <img id="logo_preview"
+                                 class="logo_preview_image"
+                                 src="{{ form.instance.logo.url }}">
+                        </div>
+                        <div class="class_block_all">
+                            <div class="">
+                                 <button name="logo"
+                                        type="button"
+                                        onchange="showPreview(name, event)"
+                                        class="button_image">
+<!--                                     {{ form.logo }}-->
+                                     <input type="file" name="logo" accept="image/*" id="id_logo">
+                                      <label for="id_logo" class="btn-1">{% trans "Добавити" %}</label>
+                                </button>
+                            </div>
+                            <div class="">
+                                <button name="logo"
+                                        type="button"
+                                         onclick="deletePreview(name, event)"
+                                        class="button_delete">
+                                    <span>{% trans "Видалити" %}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+          </div>
+    <!--End Logo-->
+    <!--Banner-->
+           <div class="images_AddRemove_film_block">
+                  <div class="image_block_uodate">
+                        <div class="col-md-12 mb-3"><span class="font-weight-bold">{% trans "Фото верхнього банера" %}</span></div>
+                        <div class="">
+                           <img id="banner_preview"
+                                 class="logo_preview_image"
+                                 src="{{ form.instance.banner.url }}">
+                        </div>
+                        <div class="class_block_all">
+                            <div class="">
+                                <button name="banner"
+                                        type="button"
+                                        onchange="showPreview(name, event)"
+                                        class="button_image">
+<!--                                        {{ form.banner }}-->
+                                    <input type="file" name="banner" accept="image/*" id="id_banner">
+                                     <label for="id_banner" class="btn-1">{% trans "Добавити" %}</label>
+                                </button>
+                            </div>
+                            <div class="">
+                                <button name="banner"
+                                        type="button"
+                                        onclick="deletePreview(name, event)"
+                                        class="button_delete">
+                                    <span>{% trans "Видалити" %}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+           </div>
+    <!--End Banner-->
+    <div id="gallery" class="form-gallery">
+        <div id="form_set" class="mb-5">
+            {{ formset.management_form }}
+            {% for form in formset %}
+            <div id="{{ form.prefix }}-form" style="display: inline-block">
+                {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
+                <a onclick="delete_image(this.id)" id="{{ form.prefix }}">
+                    <button type="button" class="close btn-form-delete" aria-label="Close">
+                        <span aria-hidden="true">&times</span>
+                    </button>
+                </a>
+                <div class="text-center">
+                    <img id="{{ form.prefix }}-image"
+                         class="form-gallery-img"
+                        src="{{ form.instance.image.url }}">
+                </div>
+                <div class="text-center">
+                    <a id="{{ form.prefix }}"
+                       onchange="preview_gallery(this.id)"
+                       class="">
+                        {% for visible in form.visible_fields %}
+                        {{ visible }}
+                        {% endfor %}
+                          <label for="id_{{ form.prefix }}-image" class="btn-1">{% trans "Добавити" %}</label>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+                <div class="delete-list d-none"></div>
+                <div id="empty_form" class="d-none">
+                    <div id="form-__prefix__-form" style="display: inline-block">
+                        <a id="form-__prefix__" onclick="delete_image(this.id)">
+                            <button type="button" class="close btn-form-delete" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </a>
+                        <input type="hidden" name="form-__prefix__-id" id="id_form-__prefix__-id">
+                        <div class="text-center">
+                            <img id="form-__prefix__-image"
+                                 class="form-gallery-img"
+                                 src="/static/administrator/images/preview_upload.png">
+                        </div>
+                        <div class="text-center">
+                            <a id="form-__prefix__"
+                               onchange="preview_gallery(this.id)"
+                               class="">
+                                <input type="file" name="form-__prefix__-image" accept="image/*" id="id_form-__prefix__-image">
+                                <label for="id_form-__prefix__-image" class="btn-1">{% trans "Добавити" %}</label>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-block btn-success ml-5 btn-gallery-add" id="add_img">{% trans "Добавити" %}</button>
+                </div>
+            </div>
+    <!--    {% show_halls_table halls %-->
+                        <h1 class="titile_cinama_card">
+                            {% trans "Список залів" %}
+                         </h1>
+                        <div class="card-body">
+<!--                            <div class="d-flex flex-row-reverse mb-3">-->
+<!--                                <button type="button" class="btn btn-info add-new">-->
+<!--                                    <a class="text-decoration-none text-reset" href="{% url 'create_hall' pk %}">-->
+<!--                                        <i class="fa fa-plus"></i> Добавить-->
+<!--                                    </a>-->
+<!--                                </button>-->
+<!--                            </div>-->
+                             <table class="table_cinema_card" id="example">
+                                <thead>
+                                    <tr class="tr_cinema_card">
+                                      <th class="th_cinema_card">{% trans "Назва" %}</th>
+                                      <th class="th_cinema_card">{% trans "Дата створення" %}</th>
+                                      <th class="th_cinema_card">{% trans "Редагування" %}</th>
+                                      <th class="th_cinema_card">{% trans "Видалення" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in hall %}
+                                <tr class="tr_cinema_card">
+                                    <td class="td_cinema_card">{{ i.title }}</td>
+                                    <td class="td_cinema_card">{{ i.data_published }}</td>
+                                     <td class="td_cinema_card">
+                                         <a href="{% url 'update_hall' i.id %}">
+                                          <g class="stencil" transform="matrix(1 0 0 1 1024 174)"><svg width="24" height="24" x="0.5" y="0.5" class="stencil--easier-to-select" style="opacity: 1;"><defs></defs><rect x="0" y="0" width="24" height="24" fill="transparent" class="stencil__selection-helper"></rect><path d="M0 19.000220183636742C0 19.000220183636742 0 24.000000000000004 0 24.000000000000004 0 24.000000000000004 4.999779816354067 24.000000000000004 4.999779816354067 24.000000000000004 4.999779816354067 24.000000000000004 19.745797088054324 9.253982728272625 19.745797088054324 9.253982728272625 19.745797088054324 9.253982728272625 14.74601727170026 4.254202911909364 14.74601727170026 4.254202911909364 14.74601727170026 4.254202911909364 0 19.000220183636742 0 19.000220183636742 0 19.000220183636742 0 19.000220183636742 0 19.000220183636742M23.612293479368137 5.387486336951702C24.129235506877283 4.867459299167845 24.129235506877283 4.027596163782973 23.612293479368137 3.507569125999116 23.612293479368137 3.507569125999116 20.4924308739632 0.38770652058844135 20.4924308739632 0.38770652058844135 19.972403836190665-0.12923550686281438 19.13254070078661-0.12923550686281438 18.612513663014074 0.38770652058844135 18.612513663014074 0.38770652058844135 16.172621112633287 2.8275990709737133 16.172621112633287 2.8275990709737133 16.172621112633287 2.8275990709737133 21.17240092898735 7.827378887336974 21.17240092898735 7.827378887336974 21.17240092898735 7.827378887336974 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702" stroke-width="0" stroke="none" stroke-dasharray="none" stroke-dashoffset="none" fill="rgb(0,0,0)" fill-rule="evenOdd"></path></svg></g>
+                                         </a>
+                                    </td>
+
+                                      <td class="td_cinema_card">
+                                           <a  data-id="{{i.id}}" href="{% url 'delete_hall' i.id %}" class="delete_post">
+                                        <g transform="matrix(1 0 0 1 1080 1024)" class="stencil"><svg width="19" height="24" x="0.5" y="0.5" class="stencil--easier-to-select" style="opacity: 1;"><defs></defs><rect x="0" y="0" width="19" height="24" fill="transparent" class="stencil__selection-helper"></rect><path d="M1.3571428571428559 21.333333333333332C1.3571428571428559 22.8 2.578571428571429 24 4.071428571428571 24 4.071428571428571 24 14.928571428571429 24 14.928571428571429 24 16.42142857142857 24 17.642857142857146 22.8 17.642857142857146 21.333333333333332 17.642857142857146 21.333333333333332 17.642857142857146 5.333333333333332 17.642857142857146 5.333333333333332 17.642857142857146 5.333333333333332 1.3571428571428559 5.333333333333332 1.3571428571428559 5.333333333333332 1.3571428571428559 5.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332M19 1.333333333333333C19 1.333333333333333 14.250000000000002 1.333333333333333 14.250000000000002 1.333333333333333 14.250000000000002 1.333333333333333 12.892857142857144 0 12.892857142857144 0 12.892857142857144 0 6.107142857142858 0 6.107142857142858 0 6.107142857142858 0 4.75 1.333333333333333 4.75 1.333333333333333 4.75 1.333333333333333 0 1.333333333333333 0 1.333333333333333 0 1.333333333333333 0 4 0 4 0 4 19 4 19 4 19 4 19 1.333333333333333 19 1.333333333333333 19 1.333333333333333 19 1.333333333333333 19 1.333333333333333" stroke-width="0" stroke="none" stroke-dasharray="none" stroke-dashoffset="none" fill="rgb(0,0,0)" fill-rule="evenOdd"></path></svg></g>
+                                      </a>
+                                      </td>
+
+<!--                                    {% if hall %}-->
+<!--                                    <td>-->
+
+<!--                                    </td>-->
+<!--                                    {% endif %}-->
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                             <a class="text-decoration-none text-reset" href="{% url 'create_hall' pk %}">
+                                        <i class="fa fa-plus"></i> {% trans "Створити зал" %}
+                             </a>
+                        </div>
+
+   <!--seo  -->
+         <div class="seo_film_block">
+          <p class="seo_film_block_p">
+            {% trans "SEO блок" %}:
+          </p>
+          <div class="seo_film_block__">
+            <div class="seo_film_block_items">
+              <p>
+                URL:
+              </p>
+              {{ seo.seo_url }}
+            </div>
+            <div class="seo_film_block_items">
+              <p>
+                {% trans "Заголовок" %}:
+              </p>
+              {{ seo.seo_title }}
+            </div>
+            <div class="seo_film_block_items">
+              <p>
+                {% trans "Ключові слова" %}:
+              </p>
+              {{ seo.seo_keywords }}
+            </div>
+            <div class="seo_film_block_items">
+              <p>
+                {% trans "Опис" %}:
+              </p>
+              {{ seo.seo_description }}
+            </div>
+
+          </div>
+         </div>
+        <div class="save_cinema_card">
+            <a href="{% url 'cinema'  %}">
+                <button type="button" class="btn_close">
+                    {% trans "Відмінити" %}
+                </button>
+            </a>
+            <button type="submit" class="btn_save">
+                {% trans "Зберегти" %}
+            </button>
+             <button type="reset" class="btn_reset">
+                 {% trans "Очистити" %}
+             </button>
+        </div>
+</form>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+    {% for m in messages %}
+        <script>
+            Swal.fire({
+                "title": "Congratulations",
+                "text": "{{m}}",
+                "icon":"success"
+            })
+        </script>
+    {% endfor %}
+{% endif %}
+<script>
+    const deleteButtons = document.getElementsByClassName('delete_post')
+    for (const deleteButtonElement of deleteButtons) {
+        deleteButtonElement.addEventListener('click', (e)=>{
+            e.preventDefault()
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+            })
+            .then(function(result){
+              if(result.isConfirmed){
+                   fetch(`${deleteButtonElement.getAttribute('href')}`)
+                    .then((res)=>{
+                       if (res.status===200){
+                           window.location.reload()
+                       }
+                    })
+                    .catch((e)=>{
+                           Swal.fire(
+                          'Deleted!',
+                          'Your user has been deleted.',
+                          'success'
+                        )
+                    })
+
+                }
+              })
+        })
+    }
+
+</script>
+
+
+{% endblock %}

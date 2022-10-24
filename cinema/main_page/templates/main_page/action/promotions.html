@@ -1,0 +1,105 @@
+{% extends 'main_page/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+<!-----------------------------------------IMG_BLOCK---------------------->
+<section class="img_block_title">
+    <img src="/static/main_page/images/ promotions/promo.jpg" alt="">
+</section>
+
+
+
+<!-----------------------------------------CONTENT---------------------->
+<h1 class="promo_title">
+     {% trans "Акції та скидки" %}
+</h1> 
+<div class="content_block_info">
+  
+    <div class="right_content_block_promo">
+          {% for item in action %}
+            {% if item.is_published == True %}
+                <div class="display_flex_news">
+                    <img src="{{ item.images.url }}" alt="">
+                    <a href="../card_promotions.html">
+                        {{ item.title }}
+                    </a>
+                    <div>
+                        <button class="data_button">
+                            {{ item.data_published }}
+                        </button>
+                        <button class="dreamtown_button">
+                            Dreamtown
+                        </button>
+                        <button class="gulliveR_button">
+                            Gulliver
+                        </button>
+                    </div>
+                    <p>
+                        {{ item.description }}
+                    </p>
+                </div>
+            {% else %}
+                <div class="display_flex_news">
+                    <img src="/static/main_page/images/news/new_1.jpg" alt="">
+                    <a href="./card_promotions.html">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </a>
+                    <div>
+                        <button class="data_button">
+                            21.07.2016
+                        </button>
+                        <button class="dreamtown_button">
+                            Dreamtown
+                        </button>
+                        <button class="gulliveR_button">
+                            Gulliver
+                        </button>
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi a fuga natus ducimus. Quod exercitationem commodi fugit cupiditate molestiae minima ullam, consectetur amet sint repudiandae iure, molestias provident mollitia iste?
+                    </p>
+                </div>
+            {% endif %}
+          {% endfor %}
+    </div>
+    <div class="left_content_block_info">
+        <div class="left_content_block_info_position">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+           <img src="/static/main_page/images/about_cinema/1.png" alt="">
+        </div>
+    </div>
+</div>
+
+
+
+<!---------------------FOOTER----------------------------------------------->
+
+
+
+
+<!-- -----------------------------------------SCRIPT---------------------- -->
+
+<!--<script>-->
+<!--    /* When the user clicks on the button,-->
+<!--    toggle between hiding and showing the dropdown content */-->
+<!--    function myFunction() {-->
+<!--        document.getElementById("myDropdown").classList.toggle("show");-->
+<!--    }-->
+<!--    -->
+<!--    // Close the dropdown if the user clicks outside of it-->
+<!--    window.onclick = function(event) {-->
+<!--        if (!event.target.matches('.dropbtn')) {-->
+<!--    -->
+<!--        var dropdowns = document.getElementsByClassName("dropdown-content");-->
+<!--        var i;-->
+<!--        for (i = 0; i < dropdowns.length; i++) {-->
+<!--            var openDropdown = dropdowns[i];-->
+<!--            if (openDropdown.classList.contains('show')) {-->
+<!--            openDropdown.classList.remove('show');-->
+<!--            }-->
+<!--        }-->
+<!--        }-->
+<!--    }-->
+    </script>
+{% endblock %}

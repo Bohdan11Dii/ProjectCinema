@@ -1,0 +1,113 @@
+{% extends 'user/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+<form action="" method="post" >
+    {% csrf_token %}
+</form>
+    <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-field="code" data-sortable="true">ID</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="int-percentage-plusminus">{% trans "Дата реєстрації" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="int-percentage-plusminus-muted">{% trans "День народження" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float1-percentage-plusminus">{% trans "E-mail" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float1-percentage-plusminus-muted">{% trans "Телефон" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float2-percentage-plusminus">{% trans "ПІБ" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float2-percentage-plusminus-muted">{% trans "Псевдонім" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float3-percentage-plusminus">{% trans "Місто" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float3-percentage-plusminus-muted">{% trans "Редагувати" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float4-percentage-plusminus">{% trans "Видалити" %}</th>
+                </tr>
+            </thead>
+    {% for user in users %}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.date_joined}}</td>
+                    <td>{{user.data_birthday}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.username}} {{user.last_name}} </td>
+                    <td>{{user.anonym}}</td>
+                    <td>{{user.choice_city}}</td>
+                    <td style="text-align: center">
+                        <a href="{% url 'update_user' user.id %}"><g transform="matrix(1 0 0 1 1056 245)" class="stencil"><svg   width="24" height="24" x="0.5" y="0.5" class="stencil--easier-to-select" style="opacity: 1; cursor:pointer"><defs></defs><rect x="0" y="0" width="24" height="24" fill="transparent" class="stencil__selection-helper"></rect><path d="M0 19.000220183636742C0 19.000220183636742 0 24.000000000000004 0 24.000000000000004 0 24.000000000000004 4.999779816354067 24.000000000000004 4.999779816354067 24.000000000000004 4.999779816354067 24.000000000000004 19.745797088054324 9.253982728272625 19.745797088054324 9.253982728272625 19.745797088054324 9.253982728272625 14.74601727170026 4.254202911909364 14.74601727170026 4.254202911909364 14.74601727170026 4.254202911909364 0 19.000220183636742 0 19.000220183636742 0 19.000220183636742 0 19.000220183636742 0 19.000220183636742M23.612293479368137 5.387486336951702C24.129235506877283 4.867459299167845 24.129235506877283 4.027596163782973 23.612293479368137 3.507569125999116 23.612293479368137 3.507569125999116 20.4924308739632 0.38770652058844135 20.4924308739632 0.38770652058844135 19.972403836190665-0.12923550686281438 19.13254070078661-0.12923550686281438 18.612513663014074 0.38770652058844135 18.612513663014074 0.38770652058844135 16.172621112633287 2.8275990709737133 16.172621112633287 2.8275990709737133 16.172621112633287 2.8275990709737133 21.17240092898735 7.827378887336974 21.17240092898735 7.827378887336974 21.17240092898735 7.827378887336974 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702 23.612293479368137 5.387486336951702" stroke-width="0" stroke="none" stroke-dasharray="none" stroke-dashoffset="none" fill="rgb(0,0,0)" fill-rule="evenOdd"></path></svg></g></a>
+                    </td>
+                    <td style="text-align: center">
+                        <a data-id="{{user.id}}" data-url="{% url 'delete_user' user.id %}" class="delte_user" >
+                           <button type="submit" ><svg width="19" height="24" x="0.5" y="0.5" class="stencil--easier-to-select" style="opacity: 1;cursor:pointer"><defs></defs><rect x="0" y="0" width="19" height="24" fill="transparent" class="stencil__selection-helper"></rect><path d="M1.3571428571428559 21.333333333333332C1.3571428571428559 22.8 2.578571428571429 24 4.071428571428571 24 4.071428571428571 24 14.928571428571429 24 14.928571428571429 24 16.42142857142857 24 17.642857142857146 22.8 17.642857142857146 21.333333333333332 17.642857142857146 21.333333333333332 17.642857142857146 5.333333333333332 17.642857142857146 5.333333333333332 17.642857142857146 5.333333333333332 1.3571428571428559 5.333333333333332 1.3571428571428559 5.333333333333332 1.3571428571428559 5.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332 1.3571428571428559 21.333333333333332M19 1.333333333333333C19 1.333333333333333 14.250000000000002 1.333333333333333 14.250000000000002 1.333333333333333 14.250000000000002 1.333333333333333 12.892857142857144 0 12.892857142857144 0 12.892857142857144 0 6.107142857142858 0 6.107142857142858 0 6.107142857142858 0 4.75 1.333333333333333 4.75 1.333333333333333 4.75 1.333333333333333 0 1.333333333333333 0 1.333333333333333 0 1.333333333333333 0 4 0 4 0 4 19 4 19 4 19 4 19 1.333333333333333 19 1.333333333333333 19 1.333333333333333 19 1.333333333333333 19 1.333333333333333" stroke-width="0" stroke="none" stroke-dasharray="none" stroke-dashoffset="none" fill="rgb(0,0,0)" fill-rule="evenOdd"></path></svg>
+                        </button>
+                        </a>
+                    </td>
+                </tr>
+
+    {% endfor %}
+            </table>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+{% if messages %}
+    {% for m in messages %}
+        <script>
+            Swal.fire({
+                "title": "Congratulations",
+                "text": "{{m}}",
+                "icon":"success"
+            })
+        </script>
+    {% endfor %}
+{% endif %}
+
+
+<script>
+    const deleteButtons = document.getElementsByClassName('delte_user')
+    for (const deleteButtonElement of deleteButtons) {
+        deleteButtonElement.addEventListener('click', (e)=>{
+            e.preventDefault()
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+            })
+            .then(function(result){
+              if(result.isConfirmed){
+                 fetch(`${deleteButtonElement.dataset.url}`)
+                    .then((res)=>{
+                       if (res.status===200){
+                           window.location.replace('/user')
+                       }
+                    })
+                    .catch((e)=>{
+                           Swal.fire(
+                          'Deleted!',
+                          'Your user has been deleted.',
+                          'success'
+                        )
+                    })
+
+                }
+              })
+        })
+    }
+
+    
+</script>
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+

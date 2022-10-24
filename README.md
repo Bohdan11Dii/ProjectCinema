@@ -1,4 +1,6 @@
 # ProjectCinema
-
-python3 manage.py runserver
-відкриває сторінку "Новини" натискаєш на створити новину, заповняєш усі поля, зберігаєш, воно перекидає на сторінку всіх новин. Натискати потім на кнопку "Редагувати"(кнопка у вигляді ручки). 
+1. python3 -m venv env_student
+2. source env_student/bin/activate
+3. pip3 install -r requirements.txt
+4. python3 manage.py migrate
+5. python3 manage.py runserver

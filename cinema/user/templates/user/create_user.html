@@ -1,0 +1,132 @@
+{% extends 'user/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+          <form method="POST">
+              {% csrf_token %}
+            <div class="creat_user_block">
+                <div>
+                    <div class="flex_text">
+                        <p>
+                             {% trans "Ім'я" %}
+                        </p>
+                        {{ form.username }}
+                    </div>
+                   <div class="flex_text">
+                        <p>
+                            {% trans "Прізвище" %}
+                        </p>
+                       {{ form.last_name }}
+                   </div>
+                    <div class="flex_text">
+                        <p>
+                            {% trans "Псевдонім" %}
+                        </p>
+                        {{ form.anonym }}
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            {% trans "E-mail" %}
+                        </p>
+                        {{ form.email }}
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            {% trans "Адреса" %}
+                        </p>
+                        {{ form.adress }}
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            {% trans "Пароль" %}
+                        </p>
+                        {{ form.password1 }}
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            {% trans "Номер картки" %}
+                        </p>
+                       {{ form.card_number }}
+                    </div>
+                </div>
+                <div>
+                    <div class="flex_text">
+                        <p>
+                            {% trans "Язик" %}
+                        </p>
+                        <div class="display_block_check">
+                                 {{ form.language }}
+                        </div>
+
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            {% trans "Стать" %}
+                         </p>
+                         <div class="display_block_check">
+
+                            {{ form.sex }}
+                        </div>
+
+                    </div>
+                    <div class="flex_text">
+                        <p>
+                            {% trans "Телефон" %}
+                        </p>
+                        {{ form.phone }}
+                    </div>
+                   <div class="flex_text">
+                        <p>
+                             {% trans "День народження" %} {{ form.data_birthday }}
+
+                        </p>
+
+                   </div>
+                    <div class="flex_text">
+                        <p>
+                            {% trans "Місто" %}
+                        </p>
+                       {{ form.choice_city }}
+                    </div>
+                    <div class="button_generation">
+                        <div class="flex_text">
+                            <p>
+                                {% trans "Повторіть пароль" %}
+                            </p>
+                            {{ form.password2 }}
+
+                        </div>
+<!--                        <button id="input-generate">-->
+<!--                            Генерація пароля-->
+<!--                        </button>-->
+                    </div>
+                </div>
+            </div>
+            <div class="save_cinema_card">
+                <a href="{% url 'user' %}">
+                    <button type="button" class="btn_close">
+                        {% trans "Відмінити" %}
+                    </button>
+                </a>
+                <button type="submit" class="btn_save">
+                     {% trans "Зберегти" %}
+                </button>
+                 <button type="reset" class="btn_reset">
+                      {% trans "Очистити" %}
+                 </button>
+             </div>
+          </form>
+
+
+{% endblock %}
+
+
+
+      <!-- ----------------------CONTENT---------------------- -->
+
+
+
+
+
+
+

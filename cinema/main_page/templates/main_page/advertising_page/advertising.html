@@ -1,0 +1,100 @@
+{% extends 'main_page/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+
+{% if  advertising_page.is_published == True %}
+<!-----------------------------------------IMG_BLOCK---------------------->
+<section class="img_block_title">
+    <img src="{{advertising_page.images.url }}" alt="">
+</section>
+
+
+
+<!-----------------------------------------CONTENT---------------------->
+
+<div class="content_block_info">
+    <div class="right_vip_info">
+        <div class="vip_title">
+            <h1>
+                 {{advertising_page.title}}
+            </h1>
+        </div>
+        <p>
+             {{advertising_page.description}}
+        </p>
+
+        <div class="cafe_bar_img">
+            {% for img in advertising_page_images %}
+                <img src="{{ img.image.url }}" alt="">
+            {% endfor %}
+        </div>
+
+        <div class="vip_title">
+            <h1>
+                {% trans "ФОТОГАЛЕРЕЯ" %}
+            </h1>
+        </div>
+        <div class="carusel__block carusel__block_poster">
+            <div class="sim-slider sim-silder-poster">
+                <ul class="sim-slider-list">
+                    <li><img  src="/static/main_page/images/carusel/no-image.gif" alt="screen" class="img__carusel"></li> <!-- это экран -->
+                   {% for img in advertising_page_images %}
+                        <li class="sim-slider-element"><img src="{{ img.image.url }}"  class="img__carusel"></li>
+                    {% endfor %}
+                </ul>
+              <div class="sim-slider-arrow-left"></div>
+              <div class="sim-slider-arrow-right"></div>
+              <div class="sim-slider-dots"></div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="left_content_block_info">
+        <div class="left_content_block_info_position">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+<!---------------------FOOTER----------------------------------------------->
+
+
+
+
+<!-- -----------------------------------------SCRIPT---------------------- -->
+
+<!--<script>-->
+<!--    /* When the user clicks on the button,-->
+<!--    toggle between hiding and showing the dropdown content */-->
+<!--    function myFunction() {-->
+<!--        document.getElementById("myDropdown").classList.toggle("show");-->
+<!--    }-->
+<!--    -->
+<!--    // Close the dropdown if the user clicks outside of it-->
+<!--    window.onclick = function(event) {-->
+<!--        if (!event.target.matches('.dropbtn')) {-->
+<!--    -->
+<!--        var dropdowns = document.getElementsByClassName("dropdown-content");-->
+<!--        var i;-->
+<!--        for (i = 0; i < dropdowns.length; i++) {-->
+<!--            var openDropdown = dropdowns[i];-->
+<!--            if (openDropdown.classList.contains('show')) {-->
+<!--            openDropdown.classList.remove('show');-->
+<!--            }-->
+<!--        }-->
+<!--        }-->
+<!--    }-->
+<!--    </script>-->
+<script>
+    window.caruselspeed = 5000
+    console.log(window.caruselspeed)
+</script>
+<script src="/static/main_page/js/carusel.js"></script>
+
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'user/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+
+<!--Poster film-->
+            <div class="add_film">
+                <a href="{% url 'create_film' %}">
+                    <button class="corners">
+                        <i class="fa fa-plus fa-3x" aria-hidden="true" style="color:lightgray"></i>
+                    </button>
+                </a>
+            </div>
+          <div class="line">
+            <h1 class="film_title">
+                {% trans "Список актуальних фільмів" %}
+            </h1>
+                  <div class="film_block container__">
+                      {% for film in actual_film %}
+                    <div class="film_block_add img_responsive">
+                        <img src="{{ film.images.url }}" alt="" style="width: 260px; height: 400px;">
+                        <p>
+                            {{ film.title }}
+                        </p>
+                        <div class="button_film">
+                            <a href="{% url 'update_film' film.id %}">
+                                <button class="btn_1_">{% trans "Редагувати" %}</button>
+                            </a>
+                            <a href="" data-id="{{film.id}}" data-url="{% url 'delete_film' film.id %}" class="delete_post">
+                                <button class="btn_2_">{% trans "Видалити" %}</button>
+                            </a>
+                        </div>
+                    </div>
+                      {% endfor %}
+                  </div>
+          </div>
+
+<!--Show in a while film-->
+            <div class="add_film">
+                <a href="{% url 'create_film_show' %}">
+                    <button class="corners">
+                        <i class="fa fa-plus fa-3x" aria-hidden="true" style="color:lightgray"></i>
+                    </button>
+                </a>
+            </div>
+          <div>
+            <h1 class="film_title">
+                {% trans "Список фільмів, які скоро покажуть" %}
+            </h1>
+                  <div class="film_block container__">
+                      {% for film in show_film %}
+                    <div class="film_block_add img_responsive">
+                        <img src="{{ film.images.url }}" alt="" style="width: 260px; height: 400px;">
+                        <p>
+                            {{ film.title }}
+                        </p>
+                        <div class="button_film">
+                            <a href="{% url 'update_film' film.id %}">
+                                <button class="btn_1_">{% trans "Редагувати" %}</button>
+                            </a>
+                            <a href="" data-id="{{film.id}}" data-url="{% url 'delete_film' film.id %}" class="delete_post">
+                                <button class="btn_2_">{% trans "Видалити" %}</button>
+                            </a>
+                        </div>
+                    </div>
+                      {% endfor %}
+                  </div>
+          </div>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+    {% for m in messages %}
+        <script>
+            Swal.fire({
+                "title": "Congratulations",
+                "text": "{{m}}",
+                "icon":"success"
+            })
+        </script>
+    {% endfor %}
+{% endif %}
+<script>
+    const deleteButtons = document.getElementsByClassName('delete_post')
+    for (const deleteButtonElement of deleteButtons) {
+        deleteButtonElement.addEventListener('click', (e)=>{
+            e.preventDefault()
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+            })
+            .then(function(result){
+              if(result.isConfirmed){
+                 fetch(`${deleteButtonElement.dataset.url}`)
+                    .then((res)=>{
+                       if (res.status===200){
+                           window.location.replace('/film')
+                       }
+                    })
+                    .catch((e)=>{
+                           Swal.fire(
+                          'Deleted!',
+                          'Your user has been deleted.',
+                          'success'
+                        )
+                    })
+
+                }
+              })
+        })
+    }
+
+</script>
+
+{% endblock content %}
+

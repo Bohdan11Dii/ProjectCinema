@@ -1,0 +1,271 @@
+{% load static %}
+{% load  i18n static%}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{% static 'main_page/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main_page/css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'main_page/css/poster.css' %}">
+    <link rel="stylesheet" href="{% static 'main_page/css/about_cinema.css' %}">
+<!--    <link rel="stylesheet" href="css/loader.css">-->
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+<!----------------------NAME_OPEN_LOGON_REGISTRATION------------------------>
+<header class="wrapper">
+    <div class="__container">
+        <div class="block_container">
+            <ul class="menu_container">
+                <li class="list_menu">
+                      <img src="{% static 'main_page/images/header/Vector.svg' %}" alt="">
+                </li>
+                 {% if request.user.is_authenticated %}
+                <li class="list_menu">
+                    <h4>
+                        {{ user.username }}
+                    </h4>
+                </li>
+                    <li class="list_menu">
+                        <a href="{% url 'logout' %}" >
+                            <svg class="header_images" viewBox="0 0 473 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="473" height="512" fill=""/>
+                            <path d="M315.1 53.1V117.1C373.4 146.1 413.6 206.1 413.6 275.7C413.6 373.6 334.3 452.9 236.4 452.9C138.5 452.9 59.1 373.6 59.1 275.7C59.1 206.1 99.3 146.1 157.6 117.1V53.1C65.8 85.6 0 172.8 0 275.7C0 406.2 105.8 512 236.3 512C366.8 512 472.6 406.2 472.6 275.7C472.6 172.8 406.8 85.6 315.1 53.1V53.1ZM236.3 196.9C258 196.9 275.7 179.2 275.7 157.5V39.4C275.7 17.7 258.1 0 236.3 0C214.5 0 196.9 17.7 196.9 39.4V157.6C196.9 179.3 214.6 196.9 236.3 196.9V196.9Z" fill="darkred"/>
+                            </svg>
+                        </a>
+                    </li>
+
+                {% else %}
+                <li class="list_menu">
+                    <a href="{% url 'login' %}" class="list_menu_a">
+                        {% trans "Логін" %}
+                    </a>
+                </li>
+                <li class="list_menu">
+                     <a href="{% url 'register' %}" class="list_menu_a">
+                        {% trans "Реєстрація" %}
+                    </a>
+                </li>
+                {% endif %}
+                {% if request.user.is_superuser %}
+                <a href="{% url 'user' %}" style="cursor: pointer">{% trans "Адмін" %}</a>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</header>
+<!---------------------------HEADER_IMAGE--------------------------------->
+<section class="images_section">
+    <div class="block_container_images">
+        <img class="images" src="{% static 'main_page/images/header/header.png' %}">
+    </div>
+</section>
+<!-----------------------------------------BLOCK_MAIN---------------------->
+<section class="images_section">
+    <!-- <div class="block_container_images">
+        <img class="images" src="img/header/header.png">
+    </div> -->
+    <div class="__container" >
+        <div class="section_info">
+            <div class="logo">
+                <a href="/">
+                    <img src="{% static 'main_page/images/main/marvel_logo.png' %}" alt="">
+                </a>
+            </div>
+            <div class="page_info">
+                <ul class="block__colum">
+                       <li class="block__list">
+                            <input type="text" placeholder="Пошук.." name="search">
+                       </li>
+                       <li class="block__list">
+                            <img src="{% static 'main_page/images/main/internet.png' %}" alt="">
+                       </li>
+                     {% for form in model_page  %}
+                       <li class="block__list">
+                            <div class="phone_info">
+                                <h1>
+                                   {{ form.phone_1 }}
+                                </h1>
+                                <h1>
+                                    {{ form.phone_2 }}
+                                </h1>
+                            </div>
+                       </li>
+                    {% endfor %}
+                   </ul>
+                <div class="down_colum">
+                    <ul class="menu_page">
+                        <li class="about">
+                         <a href="{% url 'poster' %}" >
+                                {% trans "Афіша" %}
+                            </a>
+                            </li>
+
+                         <li class="about">
+                         <a href="" >
+                                {% trans "Розклад" %}
+                            </a>
+                            </li>
+
+                        <li class="about">
+                            <a href="{% url 'soon' %}">
+                                {% trans "Скоро" %}
+                            </a>
+                            </li>
+
+                        <li class="about">
+                            <a href="{% url 'cinema_' %}" >
+                                {% trans "Кінотеатри" %}
+                            </a>
+                            </li>
+                        <li class="about">
+                            <a href="{% url 'action_' %}">
+                               {% trans "Акції" %}
+                            </a>
+                            </li>
+                        <li class="about">
+
+
+                            <div class="dropdown">
+                                <a class="title__about__movie" href="{% url 'about_cinema_history'  %}">{% trans "Про кінотеатр" %} </a>
+                                <button onclick="myFunction()" class="dropbtn add_content"></button>
+                                  <div id="myDropdown" class="dropdown-content">
+                                    <a href="{% url 'news_page' %}">{% trans "Новини" %} </a>
+                                    <a href="{% url 'advertising_page' %}">{% trans "Реклама" %} </a>
+                                    <a href="{% url 'cafe_bar' %}">{% trans "Кафе-Бар" %} </a>
+                                    <a href="{% url 'vip_hall' %}">{% trans "Vip-зал" %} </a>
+                                    <a href="{% url 'childrean_room' %}">{% trans "Дитяча кімната" %} </a>
+                                    <a href="{% url 'mobile_page' %}">{% trans "Мобільний додаток" %} </a>
+                                    <a href="">{% trans "Контакти" %} </a>
+                                  </div>
+                                </div>
+
+                        </li>
+
+                    </ul>
+
+                    <div class="choice">
+                        <a href="{% url 'set_language' 'uk'%}">UK</a>
+                        <a href="{% url 'set_language' 'en'%}">EN</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ------------------------------CARUSEL_BLOCK------------------------- -->
+
+
+{% block content %}
+{% endblock %}
+<!---------------------------------SHOW__SOON------------------------------>
+
+<!----------------------------------NEWS_AND_------------------------------->
+
+<!---------------------FOOTER----------------------------------------------->
+<footer>
+    <div class="__container">
+        <div class="footer__line"></div>
+        <div class="footer__block">
+            <div class="footer_mobile_sites">
+                <h1>
+                    {% trans "Мобіний додаток" %}
+                </h1>
+                <div class="footer_mobile_images">
+                    <img src="{% static 'main_page/images/footer/google_image_footer.png' %}" alt="">
+                    <img src="{% static 'main_page/images/footer/footer_image_apple.png' %}" alt="">
+                </div>
+                <p>
+                    {% trans "Розробка сайтів" %}: AVADA MEDIA
+                </p>
+            </div>
+            <div class="footer__center__block">
+                <h1>
+                     {% trans "Афіша" %}
+                </h1>
+                <a href="">
+                     {% trans "Розклад" %}
+                </a>
+                <a href="">
+                     {% trans "Незабаром у прокаті" %}
+                </a>
+                <a href="{% url 'cinema_' %}">
+                    {% trans "Кінотеатри" %}
+                </a>
+                <a href="{% url 'action_' %}">
+                    {% trans "Акції" %}
+                </a>
+            </div>
+            <div class="footer__center_2__block">
+                <h1>
+                     {% trans "Про кінотеатр" %}
+                </h1>
+                <a>
+                    {% trans "Новини" %}
+                </a>
+                <a>
+                     {% trans "Реклама" %}
+                </a>
+                <a href="">
+                    {% trans "Кафе-Бар" %}
+                </a>
+                <a href="">
+                    {% trans "Контакти" %}
+                </a>
+            </div>
+            <div class="footer_end_block">
+                <img src="{% static 'main_page/images/footer/footer_image.png' %}" alt="">
+            </div>
+        </div>
+        <div class="footer_center_end_block">
+            <p>
+                ©KinoCMS 2016, All rights reserved
+            </p>
+        </div>
+    </div>
+</footer>
+
+
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<!-- <script src="js/hamburger.js"></script> -->
+<script src="{% static 'main_page/js/choiceLanguage.js' %}"></script>
+
+
+
+</body>
+</html>

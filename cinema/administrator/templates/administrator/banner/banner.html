@@ -1,0 +1,320 @@
+{% extends 'user/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+<section class="content">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="card-title" style="text-align: center;">{% trans "На головній верх" %}</h1>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-row d-flex flex-row-reverse">
+                                 <label class="switch2">
+                                   {{ main_banner_form.is_published }}
+                                  <span class="slider2"></span>
+                                </label>
+                            </div>
+
+                            <div class="form-gallery">
+                                <div id="main-formset" class="mb-5">
+                                    {{ main_banner_formset.management_form }}
+                                    {% for form in main_banner_formset %}
+                                    <div class="mb-4" id="{{ form.prefix }}-form" style="display: inline-block">
+                                        {% for hidden in form.hidden_fields %}
+                                        {{ hidden }}
+                                        {% endfor %}
+                                        <a onclick="delete_image(this.id)" id="{{ form.prefix }}">
+                                            <button type="button" class="close btn-form-delete" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </a>
+                                        <div class="text-center">
+                                            {% if form.instance.image.url != null %}
+                                            <img id="{{ form.prefix }}-image"
+                                                     class="form-gallery-img"
+                                                     src="{{ form.instance.image.url }}">
+                                            {% else %}
+                                            <img id="{{ form.prefix }}-image"
+                                                 class="form-gallery-img"
+                                                 src="/static/administrator/images/preview_upload.png">
+                                            {% endif %}
+                                        </div>
+                                        <div class="text-center">
+                                            <a id="{{ form.prefix }}"
+                                               onchange="preview_gallery(this.id)"
+                                               class="">
+<!--                                                {{ form.image }}-->
+                                                 <input type="file" name="{{ form.prefix }}-image" accept="image/*" id="id_main-{{ form.prefix }}-image">
+                                                <label for="id_main-{{ form.prefix }}-image" class="btn-1">{% trans "Добавити" %}</label>
+                                            </a>
+                                        </div>
+                                        <div class="" style="margin-bottom: 10px;margin-left: -3px;">
+                                            <span class="p-2 mr-2">URL: </span>
+                                            {{ form.url }}
+                                        </div>
+                                        <div class="">
+                                            <span class="p-2 mr-2">{% trans "Текст" %}: </span>
+                                            {{ form.text }}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div id="main-empty_form" class="d-none">
+                                    <div id="main-__prefix__-form" style="display: inline-block">
+                                        <a id="main-__prefix__" onclick="delete_image(this.id)">
+                                            <button type="button" class="close btn-form-delete" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </a>
+                                        <input type="hidden" name="main-__prefix__-id" id="id_main-__prefix__-id">
+                                        <div class="text-center">
+                                            <img id="main-__prefix__-image"
+                                                 class="form-gallery-img"
+                                                 src="/static/administrator/images/preview_upload.png">
+                                        </div>
+                                        <div class="text-center">
+                                            <a id="main-__prefix__"
+                                               onchange="preview_gallery(this.id)"
+                                               class="">
+                                                <input type="file" name="main-__prefix__-image" accept="image/*"
+                                                       id="id_main-__prefix__-image">
+                                                 <label for="id_main-__prefix__-image" class="btn-1">{% trans "Добавити" %}</label>
+
+                                            </a>
+                                        </div>
+                                        <div class="d-flex" style="margin-bottom: 10px;margin-left: -3px;">
+                                            <span class="p-2 mr-2">URL: </span>
+                                            <input type="url" name="main-__prefix__-url" class="form-control"
+                                                   maxlength="200" id="id_main-__prefix__-url">
+                                        </div>
+                                        <div class="d-flex">
+                                            <span class="p-2 mr-2">{% trans "Текст" %}: </span>
+                                            <input type="text" name="main-__prefix__-text" class="form-control"
+                                                   maxlength="200" id="id_main-__prefix__-text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <button type="button" class="btn btn-block btn-success ml-5 btn-gallery-add"
+                                            id="add_main_img">{% trans "Добавити" %}
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-row mb-3">
+                                <div class="mr-4">
+                                   {% trans "Швидкість обертання" %}
+                                </div>
+                                <div class="rotation_speed">
+                                    {{ main_banner_form.rotation_speed }}
+                                </div>
+                            </div>
+                            <div class="save_cinema_card">
+                                <button type="submit" name="main_banner_form" class="btn_save">
+                                    {% trans "Сохранити" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title" style="text-align: center;">{% trans "Наскрізний баннер на задньому фоні" %}</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form action="" autocomplete="off" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-row d-flex align-items-center mb-5">
+                                <div class="col-md-2">
+                                    {{ bg_banner_form.choice_photo }}
+                                </div>
+                                <div class="d-flex flex-column col-md-10 mb-4">
+                                    <div class="f-flex__">
+                                        <div class="col-md-3 col-6  mr-5">
+                                            {% if bg_banner_form.instance.image.url != null %}
+                                            <img id="banner_preview"
+                                                 class="img-fluid form-img-preview"
+                                                 src="{{ bg_banner_form.instance.image.url }}">
+                                            {% else %}
+                                            <img id="banner_preview"
+                                                 class="img-fluid form-img-preview"
+                                                 src="/static/administrator/images/preview_upload.png">
+                                            {% endif %}
+                                        </div>
+                                        <div style="display: flex;flex-wrap: wrap; margin: 10px 0">
+                                            <div class="">
+                                                <button name="banner"
+                                                        type="button"
+                                                        onchange="showPreview(name, event)"
+                                                        class="" style="border: none;background: white;">
+<!--                                                    {{ bg_banner_form.image }}-->
+                                                    <input type="file" name="image" accept="image/*" id="id_image">
+                                                    <label for="id_image" class="btn-1">{% trans "Добавити" %}</label>
+
+                                                </button>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <button name="banner"
+                                                        type="button"
+                                                        onclick="deletePreview(name, event)"
+                                                        class="btn btn-upload btn-outline-danger btn-file btn-img-control">
+                                                    <span>{% trans "Видалити" %}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="save_cinema_card">
+                                <button type="submit" class="btn_save" name="back_banner_obj">
+                                    {% trans "Сохранити" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title" style="text-align: center;">{% trans "На головній Новини Акції" %}</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-row d-flex flex-row-reverse">
+                                 <label class="switch2">
+                                    {{ news_banner_form.is_published }}
+                                    <span class="slider2"></span>
+                                </label>
+                            </div>
+                            <div class="form-gallery">
+                                <div id="news-formset" class="mb-5">
+                                    {{ news_banner_formset.management_form }}
+                                    {% for form in news_banner_formset %}
+                                    <div id="{{ form.prefix }}-form" class="mb-4" style="display: inline-block">
+                                        {% for hidden in form.hidden_fields %}
+                                        {{ hidden }}
+                                        {% endfor %}
+                                        <a onclick="delete_image(this.id)" id="{{ form.prefix }}">
+                                            <button type="button" class="close btn-form-delete" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </a>
+                                        <div class="text-center">
+                                             {% if  form.instance.image.url != null %}
+                                                 <img id="{{ form.prefix }}-image"
+                                                     class="form-gallery-img"
+                                                     src="{{ form.instance.image.url }}">
+                                            {% else %}
+                                            <img id="{{ form.prefix }}-image"
+                                                 class="form-gallery-img"
+                                                 src="/static/administrator/images/preview_upload.png">
+                                            {% endif %}
+                                        </div>
+                                        <div class="text-center">
+                                            <a id="{{ form.prefix }}"
+                                               onchange="preview_gallery(this.id)"
+                                               class="">
+<!--                                                {{ form.image }}-->
+                                                <input type="file" name="{{ form.prefix }}-image" accept="image/*" id="id_news-{{ form.prefix }}-image">
+                                                 <label for="id_news-{{ form.prefix }}-image" class="btn-1">{% trans "Добавити" %}</label>
+
+                                            </a>
+                                        </div>
+                                        <div class="">
+                                            <span class="p-2 mr-2">URL: </span>
+                                            {{ form.url }}
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                                <div id="news-empty_form" class="d-none">
+                                    <div id="news-__prefix__-form" style="display: inline-block">
+                                        <a id="news-__prefix__" onclick="delete_image(this.id)">
+                                            <button type="button" class="close btn-form-delete" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </a>
+                                        <input type="hidden" name="news-__prefix__-id" id="id_news-__prefix__-id">
+                                        <div class="text-center">
+                                            <img id="news-__prefix__-image"
+                                                 class="form-gallery-img"
+                                                 src="/static/administrator/images/preview_upload.png">
+                                        </div>
+                                        <div class="text-center">
+                                            <a id="news-__prefix__"
+                                               onchange="preview_gallery(this.id)"
+                                               class="">
+                                                <input type="file" name="news-__prefix__-image" accept="image/*"
+                                                       id="id_news-__prefix__-image">
+                                                 <label for="id_news-__prefix__-image" class="btn-1">{% trans "Добавити" %}</label>
+                                            </a>
+                                        </div>
+                                        <div class="d-flex">
+                                            <span class="p-2 mr-2">URL: </span>
+                                            <input type="url" name="news-__prefix__-url" class="form-control"
+                                                   maxlength="200" id="id_news-__prefix__-url">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <button type="button" class="btn btn-block btn-success ml-5 btn-gallery-add"
+                                            id="add_news_img">{% trans "Добавити" %}
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-row mb-3">
+                                <div class="mr-4">
+                                   {% trans "Швидкість обертання" %}
+                                </div>
+                                <div class="rotation_speed">
+                                    {{ news_banner_form.rotation_speed }}
+                                </div>
+                            </div>
+                            <div class="save_cinema_card">
+                                <button type="submit" class="btn_save" name="news_banner_form">{% trans "Сохранити" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+{% endblock %}
+

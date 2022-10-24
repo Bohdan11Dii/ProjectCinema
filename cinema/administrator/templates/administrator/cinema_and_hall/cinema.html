@@ -1,0 +1,94 @@
+{% extends 'user/base.html' %}
+
+{% load  i18n static%}
+{% block content %}
+
+            <h1 class="title_cinemas">
+                {% trans "Список кінотеатрів" %}
+            </h1>
+          <div class="add_film_images_cinema">
+            
+
+            <div class="block_container__cinema">
+                {% for cinema in model %}
+                    <div class="block_img_url_input_cinema">
+                          <div class="button_and_svg_cinema img_responsive">
+                            <img src="{{ cinema.logo.url }}" alt="" style="width: 260px; height: 400px;">
+                            <p>
+                                  {{ cinema.title }}
+                            </p>
+                            <div class="button_film">
+                                <a href="{% url 'update_cinema' cinema.id %}">
+                                    <button class="btn_1_">{% trans "Редагувати" %}</button>
+                                </a>
+                                <a href="" data-id="{{cinema.id}}" data-url="{% url 'delete_cinema' cinema.id %}" class="delete_post">
+                                    <button class="btn_2_">{% trans "Видалити" %}</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                    <a href="{% url 'create_cinema'  %}">
+                          <div class="block_img_url_input_cinema">
+                          <div class="button_and_svg_cinema_button">
+                              <i class="fa fa-plus fa-5x" aria-hidden="true" style="color:lightgray"></i>
+                          </div>
+                              <p>
+                                {% trans "Добавити" %}
+                              </p>
+                        </div>
+                    </a>
+            </div>
+
+         </div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+    {% for m in messages %}
+        <script>
+            Swal.fire({
+                "title": "Congratulations",
+                "text": "{{m}}",
+                "icon":"success"
+            })
+        </script>
+    {% endfor %}
+{% endif %}
+<script>
+    const deleteButtons = document.getElementsByClassName('delete_post')
+    for (const deleteButtonElement of deleteButtons) {
+        deleteButtonElement.addEventListener('click', (e)=>{
+            e.preventDefault()
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+            })
+            .then(function(result){
+              if(result.isConfirmed){
+                 fetch(`${deleteButtonElement.dataset.url}`)
+                    .then((res)=>{
+                       if (res.status===200){
+                           window.location.replace('/cinema')
+                       }
+                    })
+                    .catch((e)=>{
+                           Swal.fire(
+                          'Deleted!',
+                          'Your user has been deleted.',
+                          'success'
+                        )
+                    })
+
+                }
+              })
+        })
+    }
+
+</script>
+
+{% endblock content %}

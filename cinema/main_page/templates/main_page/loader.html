@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/loader.css">
+
+</head>
+<body>
+<div class="loader_block " >
+    <div id="wrapper">
+        <div class="loader-container">
+          <div class="meter">0</div>
+          <span class="runner"></span>
+        </div>
+        <div class="footer_loader">
+            <a class='name__footer' href="#">Bohdan Brovdiy</a>
+            <a class='name__footer' href="#">@brovbo11di</a>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div>
+    <h2>
+        HELLLLLO
+    </h2>
+    <img src="img/main/1.jpg" alt="">
+    <img src="img/main/1.jpg" alt="">
+    <img src="img/main/back_iron.jpg" alt="">
+    <img src="img/main/internet.png" alt="">
+    <img src="img/main/marvel_logo.png" alt="">
+    <img src="img/main/planet2.jpg" alt="">
+    <img src="img/carusel/img_1.png" alt="">
+    <img src="img/carusel/img_2.webp" alt="">
+    <img src="img/carusel/img_3.gif" alt="">
+    <img src="img/carusel/img_4.jpg" alt="">
+    <img src="img/carusel/img_5.webp" alt="">
+    <img src="img/carusel/img_6.jpg" alt="">
+    <img src="img/card/iluyzion.jpg" alt="">
+    <img src="img/about_cinema/1.png" alt="">
+    <img src="img/about_cinema/block.jpg" alt="">
+   
+</div> -->
+
+
+
+<!--</div>-->
+
+<script src="js/loader.js" ></script>
+<!-- <script>
+    let wrapper = document.querySelector(".loader_block");
+
+    window.addEventListener('load', () =>{
+        wrapper.classList.add('hide');
+        //  console.log(wrapper)
+        setTimeout(() => { wrapper.remove() }, 0);
+    })
+</script> -->
+
+<script>
+    
+    window.onload = function() {
+        let loader = document.getElementsByClassName('loader_block')
+        wrapper.classList.add('hide');      
+        wrapper.remove()
+        for (const iterator of loader) {
+            iterator.style.display = 'none'
+        }
+    };
+  </script>
+
+</body>
+</html>

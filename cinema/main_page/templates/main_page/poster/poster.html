@@ -1,0 +1,86 @@
+{% extends 'main_page/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+
+<!---------------------POSTER__BLOCK__CARD----------------------------------------------->
+    <div class="poster__block">
+        <div class="left__block">
+            <div class="left__block__item">
+                <ul class="button_menu">
+                    <li class="list__poster">
+                        {% trans "Афіша" %}
+                    </li>
+                    <li class="list__poster">
+                        {% trans "Скоро" %}
+                    </li>
+            </ul>
+            <div class="advertising">
+                <img src="/static/main_page/images/poster/advertising.jpeg" alt="">
+            </div>
+            </div>
+        </div>
+<!-- {#        <div class="__container">#} -->
+            <div class="right__block">
+                {% for film in actual_film %}
+                                    <div class="right__block_and_button_18">
+                                            <div class="card__block">
+                                                <p>
+                                                    {% trans "Зараз в кіно" %}
+                                                </p>
+                                                <img src="{{ film.images.url }}" alt="" style="width: 100%;max-width: 260px; height: 400px;">
+                                                <p>
+                                                     {{ film.title }}
+                                                </p>
+                                                <div class="card__button__poster">
+                                                    <img src="/static/main_page/images/poster/ticket.svg" alt="">
+                                                    <button class="">
+                                                    {% trans "Купити" %}
+                                                    </button>
+                                                </div>
+                                                
+                                            </div>
+<!--                                            <button style="color: white" class="button_18">-->
+<!--                                                18+-->
+<!--                                            </button>-->
+
+                                    </div>
+                {% endfor %}
+                
+
+            </div>
+<!-- {#        </div>#} -->
+
+    </div>
+
+<!---------------------FOOTER----------------------------------------------->
+
+
+
+
+
+
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+    
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+            }
+        }
+        }
+    }
+    </script>
+
+{% endblock %}

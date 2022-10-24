@@ -1,0 +1,131 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<form method="post">-->
+<!--  {% csrf_token %}-->
+<!--{% for f in form %}-->
+<!--    <p><label class="form-label" for="{{ f.id_for_label}}">{{f.label}}: </label>{{f}}</p>-->
+<!--    <div class="form-error">{{ f.errors }}</div>-->
+<!--{% endfor %}-->
+<!--  <button type="submit"> Реєстрація</button>-->
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <link rel="stylesheet" href="{% static 'main_page/css/style.css' %}">
+
+    <title>Title</title>
+</head>
+<body>
+
+<div class="body">
+
+<!--    <form method="post" class="form">-->
+<!--        {% csrf_token %}-->
+<!--        <div class="action">-->
+<!--        <span class="load show">-->
+<!--            <a href="{% url 'login' %}">-->
+<!--                 Login-->
+<!--            </a>-->
+<!--        </span>-->
+<!--        <span class="load">-->
+<!--            <a href="{% url 'register' %}">-->
+<!--                Register-->
+<!--            </a>-->
+<!--        </span>-->
+<!--        </div>-->
+<!--<div class="form-error"> {{ form.non_field_errors }}</div>-->
+<!--{% for f in form %}-->
+<!--       <p>{{f}}</p>-->
+<!--    <div class="form-error">{{ f.errors }}</div>-->
+<!--{% endfor %}-->
+
+<!--  <button type="submit">Увійти</button>-->
+<!--</form>-->
+    <form method="POST" class="form">
+              {% csrf_token %}
+        <div class="action">
+        <span class="load show">
+            <a href="{% url 'login' %}">
+                 Login
+            </a>
+        </span>
+        <span class="load">
+            <a href="{% url 'register' %}">
+                Register
+            </a>
+        </span>
+        </div>
+        <div class="form-error"> {{ form.non_field_errors }}</div>
+            <div class="register_block">
+                <div>
+                    <p class="register_block_input">
+
+                        {{ form.username }}
+                    </p>
+                   <p class="register_block_input">
+                       {{ form.last_name }}
+                   </p>
+                    <p class="register_block_input">
+                        {{ form.anonym }}
+                    </p>
+                    <p class="register_block_input">
+
+                        {{ form.email }}
+                    </p>
+                    <p class="register_block_input">
+
+                        {{ form.adress }}
+                    </p>
+                    <p class="register_block_input">
+
+                        {{ form.password1 }}
+                    </p>
+                    <p class="register_block_input">
+
+                       {{ form.card_number }}
+                    </p>
+                </div>
+                <div>
+                    <p class="register_block_input">
+                         {{ form.language }}
+                    </p>
+                    <p class="register_block_input">
+                            {{ form.sex }}
+                    </p>
+                    <p class="register_block_input">
+                        {{ form.phone }}
+                    </p>
+                   <p class="register_block_input">
+                           {{ form.data_birthday }}
+                   </p>
+                    <p class="register_block_input">
+                       {{ form.choice_city }}
+                    </p>
+
+                        <p class="register_block_input">
+                            {{ form.password2 }}
+                        </p>
+                </div>
+            </div>
+            <button type="submit">Увійти</button>
+            <div class="form-error">{{ form.errors }}</div>
+          </form>
+</div>
+
+</body>
+</html>
+
+

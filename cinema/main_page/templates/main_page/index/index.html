@@ -1,0 +1,174 @@
+{% extends 'main_page/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+<!----------------------NAME_OPEN_LOGON_REGISTRATION------------------------>
+
+<!---------------------------HEADER_IMAGE--------------------------------->
+<!--<section class="images_section">-->
+<!--    <div class="block_container_images">-->
+<!--        <img class="images" src="/static/main_page/images/header/header.png">-->
+<!--    </div>-->
+<!--</section>-->
+<!-----------------------------------------BLOCK_MAIN---------------------->
+
+
+<!-- ------------------------------CARUSEL_BLOCK------------------------- -->
+
+<!----------CARD_FILM------------------------------------------------------->
+<section>
+    <div class="__container">
+        <div class="carusel__block">
+            <div class="sim-slider">
+                <ul class="sim-slider-list">
+                    <li><img  src="/static/main_page/images/carusel/no-image.gif" alt="screen" class="img__carusel"></li> <!-- это экран -->
+                    {% for img in item %}
+                        <li class="sim-slider-element"><img src="{{ img.image.url }}"  class="img__carusel"></li>
+                    {% endfor %}
+<!--                    <li class="sim-slider-element"><img src="/static/main_page/images/carusel/img_1.png"  class="img__carusel"></li>-->
+<!--                    <li class="sim-slider-element"><img src="/static/main_page/images/carusel/img_2.webp"  class="img__carusel"></li>-->
+<!--                    <li class="sim-slider-element"><img src="/static/main_page/images/carusel/img_3.gif"  class="img__carusel"></li>-->
+<!--                    <li class="sim-slider-element"><img src="/static/main_page/images/carusel/img_4.jpg"  class="img__carusel"></li>-->
+<!--                    <li class="sim-slider-element"><img src="/static/main_page/images/carusel/img_5.webp"  class="img__carusel"></li>-->
+<!--                    <li class="sim-slider-element"><img src="/static/main_page/images/carusel/img_6.jpg"  class="img__carusel"></li>-->
+                </ul>
+              <div class="sim-slider-arrow-left"></div>
+              <div class="sim-slider-arrow-right"></div>
+              <div class="sim-slider-dots"></div>
+            </div>
+        </div>
+        <div class="block__title">
+            <h1 id="date">
+                {% trans "Дивіться сьогодні" %},
+            </h1>
+        </div>
+        <div>
+
+                <div class="main_block_card">
+                    {% for film in actual_film %}
+                    <div class="block__card">
+                        <div class="card__image">
+<!--                            <img src="static/main_page/images/card/iluyzion.jpg" alt="">-->
+                            <img src="{{ film.images.url }}" alt="" style="width: 260px; height: 400px;">
+                        </div>
+                        <div class="card__title">
+<!--                            Ілюзія обмана-->
+                             {{ film.title }}
+                        </div>
+                        <div class="card__button">
+                            <button>{% trans "Купити квиток" %}</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+</section>
+<!---------------------------------SHOW__SOON------------------------------>
+<section>
+    <div class="__container">
+        <div class="block__title_soon">
+            <h1>
+                {% trans "Дивіться скоро" %}
+            </h1>
+        </div>
+        <div>
+              <div class="main_block_card">
+                    {% for film in show_film %}
+                    <div class="block__card">
+                        <div class="card__image">
+<!--                            <img src="static/main_page/images/card/iluyzion.jpg" alt="">-->
+                            <img src="{{ film.images.url }}" alt="" style="width: 260px; height: 400px;">
+                        </div>
+                        <div class="card__title">
+<!--                            Ілюзія обмана-->
+                             {{ film.title }}
+                        </div>
+                        <div class="card__button">
+                            <button>{% trans "Купити квиток" %}</button>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+<!--            --------------------->
+<!--            --------------------->
+            </div>
+        </div>
+</section>
+<!----------------------------------NEWS_AND_------------------------------->
+<section>
+    <div class="__container">
+        <div class="block__title_soon">
+            <h1>
+                {% trans "Новини й Акції" %}
+            </h1>
+        </div>
+        <div class = 'block__news'>
+
+
+
+<div class="slideshow" style="display: flex;
+                       justify-content: center;">
+    <div id="slideshow" >
+     {% for img in item_news %}
+  <div>
+
+                <img src="{{ img.image.url }}" style="width: 100%;
+                                                      height: auto;
+                                                      max-width: 500px;"
+                                                      alt="">
+
+  </div>
+  {% endfor %}
+
+</div>
+</div>
+
+
+
+    <!--            -->
+
+
+<!--            -->
+
+            <div class="news__advertising">
+                <img src="/static/main_page/images/main/planet2.jpg" alt="image">
+            </div>
+            <div class="news__seo__block">
+                {% for form in model_page  %}
+                  {{ form.seo_text }}
+                {% endfor %}
+<!--                      СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст  СЕО текст-->
+            </div>
+        </div>
+
+    </div>
+</section>
+{% for item in news_banner %}
+<script>
+    window.caruselspeed_2 = "{{item.rotation_speed}}" + "000"
+    console.log(window.caruselspeed_2)
+</script>
+{% endfor %}
+
+{% for item in main_banner %}
+<script>
+    window.caruselspeed = "{{item.rotation_speed}}" + "000"
+    console.log(window.caruselspeed)
+</script>
+{% endfor %}
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+<script src="/static/main_page/js/carusel.js"></script>
+<script src="/static/main_page/js/carusel_news.js"></script>
+<script src="/static/main_page/js/data.js"></script>
+
+{% endblock %}

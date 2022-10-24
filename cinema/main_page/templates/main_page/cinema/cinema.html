@@ -1,0 +1,72 @@
+{% extends 'main_page/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+<!-----------------------------------------IMG_BLOCK---------------------->
+<section class="img_block_title">
+    <img src="/static/main_page/images/about_cinema/block.jpg"  alt="">
+</section>
+
+
+
+<!-----------------------------------------CONTENT---------------------->
+<h1 style="color: white;
+    text-align: center;"
+>
+     {% trans "НАШІ КІНОТЕАТРИ" %}
+</h1>
+<div class="content_block_info cinema_block_info">
+    <div class="cinema_block">
+        {% for cinema in cinemas %}
+            <div class="cinema_img_and_p">
+                <img src="{{ cinema.logo.url }}" alt="">
+                <p>
+                     {{ cinema.title }}
+                </p>
+            </div>
+          {% endfor %}
+
+    </div>
+    <div class="left_content_block_info">
+        <div class="left_content_block_info_position">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+        </div>
+    </div>
+</div>
+
+
+
+<!---------------------FOOTER----------------------------------------------->
+
+
+
+<!-- -----------------------------------------SCRIPT---------------------- -->
+
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+    
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+            }
+        }
+        }
+    }
+    </script>
+
+
+
+{% endblock %}

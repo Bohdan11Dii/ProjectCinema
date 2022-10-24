@@ -1,0 +1,139 @@
+{% extends 'user/base.html' %}
+{% load  i18n static%}
+{% block content %}
+          <div class="title_page_block">
+            <h1>
+               {% trans "Список сторінок" %}
+            </h1>
+            <a href="{% url 'add_page' %}">
+              <button class="title_page_block_button">
+                  <g class="stencil" transform="matrix(1 0 0 1 926 99)"><svg width="19" height="19" x="0.5" y="0.5" class="stencil--easier-to-select" style="opacity: 1;"><defs></defs><rect x="0" y="0" width="19" height="19" fill="transparent" class="stencil__selection-helper"></rect><path d="M19 10.857142857142856C19 10.857142857142856 10.857142857142856 10.857142857142856 10.857142857142856 10.857142857142856 10.857142857142856 10.857142857142856 10.857142857142856 19 10.857142857142856 19 10.857142857142856 19 8.142857142857142 19 8.142857142857142 19 8.142857142857142 19 8.142857142857142 10.857142857142856 8.142857142857142 10.857142857142856 8.142857142857142 10.857142857142856 0 10.857142857142856 0 10.857142857142856 0 10.857142857142856 0 8.142857142857142 0 8.142857142857142 0 8.142857142857142 8.142857142857142 8.142857142857142 8.142857142857142 8.142857142857142 8.142857142857142 8.142857142857142 8.142857142857142 0 8.142857142857142 0 8.142857142857142 0 10.857142857142856 0 10.857142857142856 0 10.857142857142856 0 10.857142857142856 8.142857142857142 10.857142857142856 8.142857142857142 10.857142857142856 8.142857142857142 19 8.142857142857142 19 8.142857142857142 19 8.142857142857142 19 10.857142857142856 19 10.857142857142856 19 10.857142857142856 19 10.857142857142856 19 10.857142857142856" stroke-width="0" stroke="none" stroke-dasharray="none" stroke-dashoffset="none" fill="rgb(114,187,83)" fill-rule="evenOdd"></path></svg></g>
+                  {% trans "Створити нову сторінку" %}
+              </button>
+            </a>
+          </div>
+          <table class="table_page_info">
+            <tr class="tr_page_info">
+              <th class="th_page_info">{% trans "Назва" %}</th>
+              <th class="th_page_info">{% trans "Дата створення" %}</th>
+              <th class="th_page_info">{% trans "Статус" %}</th>
+              <th class="th_page_info">{% trans "Редагування" %}</th>
+              <th class="th_page_info">{% trans "Видалення" %}</th>
+            </tr>
+             {% if model.pk %}
+            <tr class="tr_page_info">
+              <td class="td_page_info">{% trans "Головна сторінка" %}</td>
+              <td class="td_page_info">{{ model.data_published }}</td>
+              {% if model.is_active == True %}
+                <td class="td_page_info">{% trans "Активний" %}</td>
+              {% else %}
+                <td class="td_page_info">{% trans "Неактивний" %}</td>
+              {% endif %}
+              <td class="td_page_info">
+                <a href="{% url 'edit_main_page' model.pk %}">
+                  <i class="bi bi-pencil-square fa-2x"></i>
+                </a>
+              </td>
+
+            </tr>
+            {% endif %}
+
+<!--              contact-->
+            {% if contact.pk %}
+                <tr class="tr_page_info">
+                  <td class="td_page_info">{% trans "Контакти" %}</td>
+                  <td class="td_page_info">{{ contact.data_published }}</td>
+                  {% if contact.is_published == True %}
+                    <td class="td_page_info">{% trans "Активний" %}</td>
+                  {% else %}
+                    <td class="td_page_info">{% trans "Неактивний" %}</td>
+                  {% endif %}
+                  <td class="td_page_info">
+                    <a href="{% url 'edit_contact_page' model.pk %}">
+                      <i class="bi bi-pencil-square fa-2x"></i>
+                    </a>
+                  </td>
+
+                </tr>
+            {% endif %}
+<!--              endcontact-->
+
+            {% for item in other_model %}
+              <tr class="tr_page_info">
+                <td class="td_page_info">{{ item.title }}</td>
+                <td class="td_page_info">{{ item.data_published }}</td>
+                   {% if item.is_published == True %}
+                    <td class="td_page_info">{% trans "Активний" %}</td>
+                  {% else %}
+                    <td class="td_page_info">{% trans "Неактивний" %}</td>
+                  {% endif %}
+                <td class="td_page_info">
+                    <a href="{% url 'edit_other_page' item.pk %}">
+                        <i class="bi bi-pencil-square fa-2x"></i>
+                    </a>
+
+                </td>
+                  <td class="td_page_info">
+                      <a href="" data-id="{{item.id}}" data-url="{% url 'delete_page' item.id %}" class="delete_post">
+                          <i class="bi bi-trash fa-2x"></i>
+                      </a>
+                  </td>
+              </tr>
+            {% endfor %}
+          </table>
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+    {% for m in messages %}
+        <script>
+            Swal.fire({
+                "title": "Congratulations",
+                "text": "{{m}}",
+                "icon":"success"
+            })
+        </script>
+    {% endfor %}
+{% endif %}
+<script>
+    const deleteButtons = document.getElementsByClassName('delete_post')
+    for (const deleteButtonElement of deleteButtons) {
+        deleteButtonElement.addEventListener('click', (e)=>{
+            e.preventDefault()
+            Swal.fire({
+              title: 'Ви впевнені?',
+              text: "Ви видаляєте дані з цієї таблиці!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Так, видалити це!',
+              cancelButtonText: 'Ні!'
+            })
+            .then(function(result){
+              if(result.isConfirmed){
+                 fetch(`${deleteButtonElement.dataset.url}`)
+                    .then((res)=>{
+                       if (res.status===200){
+                           window.location.replace('/info')
+                       }
+                    })
+                    .catch((e)=>{
+                           Swal.fire(
+                          'Deleted!',
+                          'Your user has been deleted.',
+                          'success'
+                        )
+                    })
+
+                }
+              })
+        })
+    }
+
+</script>
+
+
+
+
+{% endblock %}
