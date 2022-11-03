@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'administrator/css/film.css' %}">
     <link rel="stylesheet" href="{% static 'administrator/css/page_info.css' %}">
     <link rel="stylesheet" href="{% static 'administrator/css/news.css' %}">
+    <link rel="stylesheet" href="{% static 'administrator/css/send_email.css' %}">
 
 
 
@@ -156,12 +157,12 @@
                         <ul class="list">
                           <div>
                             <li class="sidebar-dropdown">
-                              <a class="navigation" href="./letter.html">
+                              <a class="navigation" href="{% url 'upload_file' %}">
                                 <i class="fa fa-sitemap"></i>
                                 <span>{% trans "Розсилання" %}</span>
                               </a>
-                              <i class="fa fa-arrow-right dropdown_i" style="margin-right: 30px; color: #fff; cursor: pointer;"></i>
-                              <li class="sub"><p><a href="./choice_user.html">Вибір користувачів</a></p></li>
+<!--                              <i class="fa fa-arrow-right dropdown_i" style="margin-right: 30px; color: #fff; cursor: pointer;"></i>-->
+<!--                              <li class="sub"><p><a href="./choice_user.html">Вибір користувачів</a></p></li>-->
                             </li>
                           </div>
                         </ul>

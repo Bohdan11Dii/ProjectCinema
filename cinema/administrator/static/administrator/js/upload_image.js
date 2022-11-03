@@ -36,3 +36,10 @@ function deletePreview(name, event) {
 function delete_preview_logo(index) {
 	$('#' + index + '-logo').attr('src', "/static/administrator/images/preview_upload.png");
 }
+
+function showFile() {
+    var input = document.getElementById("id_file").value;
+    file = input.split('\\')
+    document.getElementById("demo").innerHTML = file[2];
+}
+

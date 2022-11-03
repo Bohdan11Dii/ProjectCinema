@@ -3,7 +3,10 @@
 
 {% block content %}
 <form  method="post" enctype="multipart/form-data"  style="margin: 0 10%">{% csrf_token %}
-
+<!--            <div class="choice">-->
+<!--                <a href="{% url 'set_language' 'uk'%}">UK</a>-->
+<!--                <a href="{% url 'set_language' 'en'%}">EN</a>-->
+<!--            </div>-->
              <div class="button__position_">
                 {{ form.is_published }}
                 <label class="id_is_published" for="id_is_published"></label>

@@ -2,13 +2,13 @@ import datetime
 from django.forms import modelformset_factory, HiddenInput
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import NewsAndPromotions, SeoBlock, Images, FilmModel, CinemaModel, HallModel, OtherPageModel, \
-    ContactPageModel, ContactModel, MainPageModel, BackgroundBannerModel, BannerModel
+from .models import *
 from django.core import validators
 from phonenumber_field.formfields import PhoneNumberField
+from modeltranslation.forms import TranslationModelForm
 
 
-class CreateNewsAndPromotions(forms.ModelForm):
+class CreateNewsAndPromotions(TranslationModelForm):
     is_published = forms.BooleanField(required=False)
     data_published = forms.DateField(widget=forms.DateInput(format='%Y-%m-%d',attrs={'type': 'date'}),
                                      initial=datetime.date.today(), localize=True,
@@ -17,11 +17,11 @@ class CreateNewsAndPromotions(forms.ModelForm):
 
     class Meta:
         model = NewsAndPromotions
-        exclude = ('seo', 'collection_image', 'page_type', )
+        exclude = ('seo', 'collection_image', 'page_type')
         fields = '__all__'
 
 
-class SeoBlockForm(forms.ModelForm):
+class SeoBlockForm(TranslationModelForm):
     class Meta:
         model = SeoBlock
         fields = '__all__'
@@ -40,7 +40,7 @@ ImageInlineFormset = modelformset_factory(model=Images, form=ImagesForm,
 ImageInlineFormset.deletion_widget = HiddenInput
 
 
-class FilmForm(forms.ModelForm):
+class FilmForm(TranslationModelForm):
     # images = forms.ImageField(widget=forms.FileInput, label="Головна картинка")
     type_of_film_3D = forms.BooleanField(required=False)
     type_of_film_2D = forms.BooleanField(required=False)
@@ -52,7 +52,7 @@ class FilmForm(forms.ModelForm):
         fields = '__all__'
 
 
-class CinemaForm(forms.ModelForm):
+class CinemaForm(TranslationModelForm):
     # logo = forms.FileInput()
     # banner = forms.FileInput()
     class Meta:
@@ -61,14 +61,14 @@ class CinemaForm(forms.ModelForm):
         fields = '__all__'
 
 
-class HallForm(forms.ModelForm):
+class HallForm(TranslationModelForm):
     class Meta:
         model = HallModel
         exclude = ('seo', 'collection_image', 'cinema', 'data_published')
         fields = '__all__'
 
 
-class MainPageForm(forms.ModelForm):
+class MainPageForm(TranslationModelForm):
     phone_1 = PhoneNumberField(widget=forms.TextInput(attrs={'class': 'phone-format', 'placeholder': "+380975647384"}))
     phone_2 = PhoneNumberField(widget=forms.TextInput(attrs={'class': 'phone-format', 'placeholder': "+380975647384"}))
 
@@ -79,21 +79,21 @@ class MainPageForm(forms.ModelForm):
         fields = '__all__'
 
 
-class OtherPageForm(forms.ModelForm):
+class OtherPageForm(TranslationModelForm):
     class Meta:
         model = OtherPageModel
         exclude = ('seo', 'data_published', "collection_image")
         fields = "__all__"
 
 
-class ContactPageForm(forms.ModelForm):
+class ContactPageForm(TranslationModelForm):
     class Meta:
         model = ContactPageModel
         exclude = ('title', 'data_published', 'seo')
         fields = "__all__"
 
 
-class ContactForm(forms.ModelForm):
+class ContactForm(TranslationModelForm):
     class Meta:
         model = ContactModel
         exclude = ('contact_page',)
@@ -126,3 +126,10 @@ NewsBannerFormset = modelformset_factory(model=Images, form=ImagesForm, fields=(
 
 MainBannerFormset.deletion_widget = HiddenInput
 NewsBannerFormset.deletion_widget = HiddenInput
+
+
+class SendMailForm(forms.ModelForm):
+    class Meta:
+        model = SendMail
+        exclude = ('data_published', )
+        fields = '__all__'

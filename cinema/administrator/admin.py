@@ -9,9 +9,9 @@ class NewsAndPromotionsTranslationAdmin(TranslationAdmin):
     pass
 
 
-# @admin.register(SeoBlock)
-# class SeoBlockTranslationAdmin(TranslationAdmin):
-#     pass
+@admin.register(SeoBlock)
+class SeoBlockTranslationAdmin(TranslationAdmin):
+    pass
 
 
 # @admin.register(Images)
@@ -72,3 +72,4 @@ admin.site.register(BannerModel)
 admin.site.register(BackgroundBannerModel)
 admin.site.register(ImagesTitle)
 admin.site.register(ContactPageModel)
+admin.site.register(SendMail)

@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from administrator.models import FilmModel, MainPageModel, BannerModel, Images, CinemaModel, NewsAndPromotions, \
-    OtherPageModel, ContactModel, ContactPageModel
+    OtherPageModel, ContactModel, ContactPageModel, BackgroundBannerModel
 from user.models import ProjectUser
 from .forms import CustomUserCreationForm, LoginUserForm
 
@@ -34,12 +34,23 @@ def logout_user(request):
     return redirect('login')
 
 
+def base():
+    model_background_model = BackgroundBannerModel()
+    context = {}
+    context['model_background_model'] = model_background_model.__class__.objects.all()
+
+    for item in context['model_background_model']:
+        context['back_image'] = item.image
+    return context['back_image']
+
+
 def index(request):
     """Вивід головної сторінки"""
     model_film = FilmModel()
     model_page = MainPageModel()
     model_banner_news = BannerModel.objects.filter(name=1)
     model_banner_main = BannerModel.objects.filter(name=0)
+    model_background_model = BackgroundBannerModel()
     context = {}
     context['actual_film'] = model_film.__class__.objects.filter(is_active=0)
     context['show_film'] = model_film.__class__.objects.filter(is_active=1)
@@ -47,23 +58,26 @@ def index(request):
 
     context['news_banner'] = model_banner_news
     context['main_banner'] = model_banner_main
+    context['model_background_model'] = model_background_model.__class__.objects.all()
 
     for item in model_banner_main:
-       item = item.collection_image.images_set.all()
-       context['item'] = item
+        item = item.collection_image.images_set.all()
+        context['item'] = item
     #
     for image in model_banner_news:
-       images = image.collection_image.images_set.all()
-       context['item_news'] = images
+        images = image.collection_image.images_set.all()
+        context['item_news'] = images
 
-    print("context['news_banner']",  context['news_banner'])
+    for item in context['model_background_model']:
+        context['back_image'] = item.image
+
     return render(request, 'main_page/index/index.html', context)
-
 
 def poster(request):
     model_film = FilmModel()
     context = {}
     context['actual_film'] = model_film.__class__.objects.filter(is_active=0)
+    context['back_image'] = base()
     return render(request, 'main_page/poster/poster.html', context)
 
 
@@ -71,6 +85,7 @@ def soon(request):
     model_film = FilmModel()
     context = {}
     context['show_film'] = model_film.__class__.objects.filter(is_active=1)
+    context['back_image'] = base()
     return render(request, 'main_page/soon/soon.html', context)
 
 
@@ -78,6 +93,7 @@ def cinema_(request):
     model_cinema = CinemaModel.objects.all()
     context = {}
     context['cinemas'] = model_cinema
+    context['back_image'] = base()
 
     # print("context['cinemas']", context['cinemas'])
     return render(request, 'main_page/cinema/cinema.html', context)
@@ -87,6 +103,7 @@ def action_(request):
     model_action = NewsAndPromotions.objects.filter(page_type=0)
     context = {}
     context['action'] = model_action
+    context['back_image'] = base()
 
     print("context['action']", context['action'])
     return render(request, 'main_page/action/promotions.html', context)
@@ -100,6 +117,8 @@ def about_cinema_history(request):
     context = {}
     context['model_cinema_history'] = model_cinema_history
     context['model_cinema_history_images'] = model_cinema_history.collection_image.images_set.all()
+    context['back_image'] = base()
+
     print("context['model_cinema_history']", model_cinema_history.description)
     return render(request, 'main_page/about_cinema___/about_cinema.html', context)
 
@@ -111,6 +130,8 @@ def cafe_bar(request):
     context = {}
     context['model_cafe_bar'] = model_cafe_bar
     context['model_cafe_bar_images'] = model_cafe_bar.collection_image.images_set.all()
+    context['back_image'] = base()
+
     print("context['model_cafe_bar']", context['model_cafe_bar'])
     return render(request, 'main_page/cafe_bar/cafe_bar.html', context)
 
@@ -119,6 +140,7 @@ def news_page(request):
     model_news = NewsAndPromotions.objects.filter(page_type=1)
     context = {}
     context['news'] = model_news
+    context['back_image'] = base()
 
     print("context['news']", context['news'])
     return render(request, 'main_page/news_page/news.html', context)
@@ -130,6 +152,7 @@ def vip_hall(request):
     context = {}
     context['model_vip_hall'] = model_vip_hall
     context['model_vip_hall_images'] = model_vip_hall.collection_image.images_set.all()
+    context['back_image'] = base()
 
     return render(request, 'main_page/vip_hall/vip.html', context)
 
@@ -142,6 +165,7 @@ def childrean_room(request):
     context['childrean_room'] = model_childrean_room
     context['childrean_room_images'] = model_childrean_room.collection_image.images_set.all()
 
+    context['back_image'] = base()
     return render(request, 'main_page/childrean_room/childrean_room.html', context)
 
 
@@ -152,6 +176,7 @@ def advertising_page(request):
     context = {}
     context['advertising_page'] = advertising_page
     context['advertising_page_images'] = advertising_page.collection_image.images_set.all()
+    context['back_image'] = base()
 
     return render(request, 'main_page/advertising_page/advertising.html', context)
 
@@ -163,7 +188,16 @@ def mobile_page(request):
     context = {}
     context['mobile_page'] = mobile_page
     context['mobile_page_images'] = mobile_page.collection_image.images_set.all()
+    context['back_image'] = base()
 
     return render(request, 'main_page/mobile_page/mobile_app.html', context)
 
 
+def contact_page(request):
+    contact_page = ContactModel.objects.all()
+    context = {}
+    context['contact_page'] = contact_page
+    context['back_image'] = base()
+
+    print("context['contact_page']", context['contact_page'])
+    return render(request, 'main_page/contact_page/contact.html', context)

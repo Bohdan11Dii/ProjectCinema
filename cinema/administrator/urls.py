@@ -36,4 +36,8 @@ urlpatterns = [
 
     path('banner/', banner, name='banner'),
     path('statistic/', statistic, name='statistic'),
+
+    path('send_mail/', upload_file, name='upload_file'),
+    path('delete_email/<str:pk>/', delete_email, name='delete_email'),
+    path('get_users/', get_users, name='get_users'),
 ]

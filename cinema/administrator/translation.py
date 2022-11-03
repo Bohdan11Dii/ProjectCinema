@@ -12,9 +12,9 @@ from .models import *
 #     fields = ('title',)
 
 
-# @register(SeoBlock)
-# class SeoBlockTranslationOptions(TranslationOptions):
-#     fields = ('seo_title', 'seo_keywords', 'seo_description')
+@register(SeoBlock)
+class SeoBlockTranslationOptions(TranslationOptions):
+    fields = ('seo_title', 'seo_keywords', 'seo_description')
 
 
 @register(NewsAndPromotions)

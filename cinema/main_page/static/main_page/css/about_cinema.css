@@ -319,7 +319,7 @@
 
   .contact_block{
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     margin-top: 30px;
   }
 

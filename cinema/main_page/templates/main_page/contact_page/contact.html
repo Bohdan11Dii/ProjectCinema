@@ -2,10 +2,9 @@
 {% load  i18n static%}
 
 {% block content %}
-{% if  contact_page.is_published == True %}
 <!-----------------------------------------IMG_BLOCK---------------------->
 <section class="img_block_title">
-    <img src="{{contact_page.images.url }}" alt="">
+    <img src="/static/main_page/images/news/new_2.jpeg" alt="">
 </section>
 
 
@@ -16,81 +15,82 @@
     <div class="right_contact_info">
        <div class="contact_title">
             <h1>
-                Контакти
+                {% trans "Контакти" %}
             </h1>
        </div>
+    {% for form in contact_page %}
        <div class="contact_block">
             <div class="logo_contact">
                 <div class="logo_title_contact">
                     <h3>
-                        Кінотеатр 1
+                        {{ form.title }}
                     </h3>
-                    <g transform="matrix(1 0 0 1 290 599)" class="stencil"><svg width="139.11650485436894" height="89" x="0.5" y="0.5" class="" style="opacity: 1;"><defs></defs><path d="M0 0 L139.11650485436894 0 C139.11650485436894 0 139.11650485436894 0 139.11650485436894 0 L139.11650485436894 89 C139.11650485436894 89 139.11650485436894 89 139.11650485436894 89 L0 89 C0 89 0 89 0 89 L0 0 C0 0 0 0 0 0 Z" stroke-width="0" stroke="none" stroke-dasharray="none" fill="#E6E6E6"></path><path d="M97.08907826696841 34.65234620746778C97.08907826696841 39.57617310373389 92.95118984030363 43.679362183955654 87.98572372830586 43.679362183955654 83.0202576163081 43.679362183955654 79.29615803230979 39.16585419571172 79.29615803230979 34.65234620746778 79.29615803230979 29.72851931120167 83.02025761630811 25.62533023097991 87.98572372830586 25.62533023097991 92.95118984030361 25.62533023097991 97.08907826696841 29.72851931120167 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778M76.39963613364444 44.5C74.33069192031203 41.21744873582259 71.0203811789802 41.21744873582259 68.9514369656478 44.5 68.9514369656478 44.5 68.53764812298132 44.91031890802218 68.53764812298132 44.91031890802218 66.8824927523154 42.448405459889116 65.22733738164948 39.57617310373389 63.985970853650045 37.11425965560083 61.08944895498469 32.190432759334726 56.53777168565341 32.190432759334726 53.64124978698805 37.11425965560083 50.74472788832269 42.03808655186695 46.193050618991414 49.83414580428829 43.29652872032606 54.757972700554404 40.4000068216607 59.68179959682051 42.88273987765958 63.37466976902009 48.6757836749903 63.37466976902009 48.6757836749903 63.37466976902009 80.53752456030924 63.37466976902009 80.53752456030924 63.37466976902009 84.67541298697404 63.37466976902009 86.33056835763995 60.91275632088704 84.26162414430755 57.21988614868746 82.19267993097515 53.527015976487874 78.88236918964331 48.19287017219959 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5" fill="#B3B3B3" fill-rule="evenOdd"></path></svg></g>
                 </div>
-                <img src="./img/contact/contact_1.jpg" alt="">
+                <img src="{{ form.logo.url  }}" alt="">
+
             </div>
             <div class="map_info_contact">
                 <p>
-                    Lorem ipsum dolor sit, 
-                    amet consectetur adipisicing elit. 
-                    Consequatur incidunt quibusdam, error saepe vitae
-                    eaque soluta consectetur 
+                    {{ form.address }}
                 </p>
-                <div style="width: 100%"><iframe width="100%" height="auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/sport-gps/">fitness tracker</a></iframe></div>
+                <div style="width: 100%">
+                    <iframe width="100%" height="auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{{form.coordinates}}"><a href="https://www.gps.ie/sport-gps/">fitness tracker</a></iframe></div>
             </div>
        </div>
-       <div class="contact_block">
-            <div class="logo_contact">
-                <div class="logo_title_contact">
-                    <h3>
-                        Кінотеатр 2
-                    </h3>
-                    <g transform="matrix(1 0 0 1 290 599)" class="stencil"><svg width="139.11650485436894" height="89" x="0.5" y="0.5" class="" style="opacity: 1;"><defs></defs><path d="M0 0 L139.11650485436894 0 C139.11650485436894 0 139.11650485436894 0 139.11650485436894 0 L139.11650485436894 89 C139.11650485436894 89 139.11650485436894 89 139.11650485436894 89 L0 89 C0 89 0 89 0 89 L0 0 C0 0 0 0 0 0 Z" stroke-width="0" stroke="none" stroke-dasharray="none" fill="#E6E6E6"></path><path d="M97.08907826696841 34.65234620746778C97.08907826696841 39.57617310373389 92.95118984030363 43.679362183955654 87.98572372830586 43.679362183955654 83.0202576163081 43.679362183955654 79.29615803230979 39.16585419571172 79.29615803230979 34.65234620746778 79.29615803230979 29.72851931120167 83.02025761630811 25.62533023097991 87.98572372830586 25.62533023097991 92.95118984030361 25.62533023097991 97.08907826696841 29.72851931120167 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778M76.39963613364444 44.5C74.33069192031203 41.21744873582259 71.0203811789802 41.21744873582259 68.9514369656478 44.5 68.9514369656478 44.5 68.53764812298132 44.91031890802218 68.53764812298132 44.91031890802218 66.8824927523154 42.448405459889116 65.22733738164948 39.57617310373389 63.985970853650045 37.11425965560083 61.08944895498469 32.190432759334726 56.53777168565341 32.190432759334726 53.64124978698805 37.11425965560083 50.74472788832269 42.03808655186695 46.193050618991414 49.83414580428829 43.29652872032606 54.757972700554404 40.4000068216607 59.68179959682051 42.88273987765958 63.37466976902009 48.6757836749903 63.37466976902009 48.6757836749903 63.37466976902009 80.53752456030924 63.37466976902009 80.53752456030924 63.37466976902009 84.67541298697404 63.37466976902009 86.33056835763995 60.91275632088704 84.26162414430755 57.21988614868746 82.19267993097515 53.527015976487874 78.88236918964331 48.19287017219959 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5" fill="#B3B3B3" fill-rule="evenOdd"></path></svg></g>
-                </div>
-                <img src="./img/contact/contact_1.jpg" alt="">
-            </div>
-            <div class="map_info_contact">
-                <p>
-                    Lorem ipsum dolor sit, 
-                    amet consectetur adipisicing elit. 
-                    Consequatur incidunt quibusdam, error saepe vitae
-                    eaque soluta consectetur 
-                </p>
-                <div style="width: 100%"><iframe width="100%" height="auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/sport-gps/">fitness tracker</a></iframe></div>
-            </div>
-        </div>
-        <div class="contact_block">
-            <div class="logo_contact">
-                <div class="logo_title_contact">
-                    <h3>
-                        Кінотеатр 3
-                    </h3>
-                    <g transform="matrix(1 0 0 1 290 599)" class="stencil"><svg width="139.11650485436894" height="89" x="0.5" y="0.5" class="" style="opacity: 1;"><defs></defs><path d="M0 0 L139.11650485436894 0 C139.11650485436894 0 139.11650485436894 0 139.11650485436894 0 L139.11650485436894 89 C139.11650485436894 89 139.11650485436894 89 139.11650485436894 89 L0 89 C0 89 0 89 0 89 L0 0 C0 0 0 0 0 0 Z" stroke-width="0" stroke="none" stroke-dasharray="none" fill="#E6E6E6"></path><path d="M97.08907826696841 34.65234620746778C97.08907826696841 39.57617310373389 92.95118984030363 43.679362183955654 87.98572372830586 43.679362183955654 83.0202576163081 43.679362183955654 79.29615803230979 39.16585419571172 79.29615803230979 34.65234620746778 79.29615803230979 29.72851931120167 83.02025761630811 25.62533023097991 87.98572372830586 25.62533023097991 92.95118984030361 25.62533023097991 97.08907826696841 29.72851931120167 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778M76.39963613364444 44.5C74.33069192031203 41.21744873582259 71.0203811789802 41.21744873582259 68.9514369656478 44.5 68.9514369656478 44.5 68.53764812298132 44.91031890802218 68.53764812298132 44.91031890802218 66.8824927523154 42.448405459889116 65.22733738164948 39.57617310373389 63.985970853650045 37.11425965560083 61.08944895498469 32.190432759334726 56.53777168565341 32.190432759334726 53.64124978698805 37.11425965560083 50.74472788832269 42.03808655186695 46.193050618991414 49.83414580428829 43.29652872032606 54.757972700554404 40.4000068216607 59.68179959682051 42.88273987765958 63.37466976902009 48.6757836749903 63.37466976902009 48.6757836749903 63.37466976902009 80.53752456030924 63.37466976902009 80.53752456030924 63.37466976902009 84.67541298697404 63.37466976902009 86.33056835763995 60.91275632088704 84.26162414430755 57.21988614868746 82.19267993097515 53.527015976487874 78.88236918964331 48.19287017219959 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5" fill="#B3B3B3" fill-rule="evenOdd"></path></svg></g>
-                </div>
-                <img src="./img/contact/contact_1.jpg" alt="">
-            </div>
-            <div class="map_info_contact">
-                <p>
-                    Lorem ipsum dolor sit, 
-                    amet consectetur adipisicing elit. 
-                    Consequatur incidunt quibusdam, error saepe vitae
-                    eaque soluta consectetur 
-                </p>
-                <div style="width: 100%"><iframe width="100%" height="auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/sport-gps/">fitness tracker</a></iframe></div>
-            </div>
-        </div>
+    {% endfor %}
+<!--        <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Ukraine&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">how to add map to website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>-->
+<!--        <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">how to add map to website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>-->
+<!--       <div class="contact_block">-->
+<!--            <div class="logo_contact">-->
+<!--                <div class="logo_title_contact">-->
+<!--                    <h3>-->
+<!--                        Кінотеатр 2-->
+<!--                    </h3>-->
+<!--                    <g transform="matrix(1 0 0 1 290 599)" class="stencil"><svg width="139.11650485436894" height="89" x="0.5" y="0.5" class="" style="opacity: 1;"><defs></defs><path d="M0 0 L139.11650485436894 0 C139.11650485436894 0 139.11650485436894 0 139.11650485436894 0 L139.11650485436894 89 C139.11650485436894 89 139.11650485436894 89 139.11650485436894 89 L0 89 C0 89 0 89 0 89 L0 0 C0 0 0 0 0 0 Z" stroke-width="0" stroke="none" stroke-dasharray="none" fill="#E6E6E6"></path><path d="M97.08907826696841 34.65234620746778C97.08907826696841 39.57617310373389 92.95118984030363 43.679362183955654 87.98572372830586 43.679362183955654 83.0202576163081 43.679362183955654 79.29615803230979 39.16585419571172 79.29615803230979 34.65234620746778 79.29615803230979 29.72851931120167 83.02025761630811 25.62533023097991 87.98572372830586 25.62533023097991 92.95118984030361 25.62533023097991 97.08907826696841 29.72851931120167 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778M76.39963613364444 44.5C74.33069192031203 41.21744873582259 71.0203811789802 41.21744873582259 68.9514369656478 44.5 68.9514369656478 44.5 68.53764812298132 44.91031890802218 68.53764812298132 44.91031890802218 66.8824927523154 42.448405459889116 65.22733738164948 39.57617310373389 63.985970853650045 37.11425965560083 61.08944895498469 32.190432759334726 56.53777168565341 32.190432759334726 53.64124978698805 37.11425965560083 50.74472788832269 42.03808655186695 46.193050618991414 49.83414580428829 43.29652872032606 54.757972700554404 40.4000068216607 59.68179959682051 42.88273987765958 63.37466976902009 48.6757836749903 63.37466976902009 48.6757836749903 63.37466976902009 80.53752456030924 63.37466976902009 80.53752456030924 63.37466976902009 84.67541298697404 63.37466976902009 86.33056835763995 60.91275632088704 84.26162414430755 57.21988614868746 82.19267993097515 53.527015976487874 78.88236918964331 48.19287017219959 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5" fill="#B3B3B3" fill-rule="evenOdd"></path></svg></g>-->
+<!--                </div>-->
+<!--                <img src="./img/contact/contact_1.jpg" alt="">-->
+<!--            </div>-->
+<!--            <div class="map_info_contact">-->
+<!--                <p>-->
+<!--                    Lorem ipsum dolor sit,-->
+<!--                    amet consectetur adipisicing elit.-->
+<!--                    Consequatur incidunt quibusdam, error saepe vitae-->
+<!--                    eaque soluta consectetur-->
+<!--                </p>-->
+<!--                <div style="width: 100%"><iframe width="100%" height="auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/sport-gps/">fitness tracker</a></iframe></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="contact_block">-->
+<!--            <div class="logo_contact">-->
+<!--                <div class="logo_title_contact">-->
+<!--                    <h3>-->
+<!--                        Кінотеатр 3-->
+<!--                    </h3>-->
+<!--                    <g transform="matrix(1 0 0 1 290 599)" class="stencil"><svg width="139.11650485436894" height="89" x="0.5" y="0.5" class="" style="opacity: 1;"><defs></defs><path d="M0 0 L139.11650485436894 0 C139.11650485436894 0 139.11650485436894 0 139.11650485436894 0 L139.11650485436894 89 C139.11650485436894 89 139.11650485436894 89 139.11650485436894 89 L0 89 C0 89 0 89 0 89 L0 0 C0 0 0 0 0 0 Z" stroke-width="0" stroke="none" stroke-dasharray="none" fill="#E6E6E6"></path><path d="M97.08907826696841 34.65234620746778C97.08907826696841 39.57617310373389 92.95118984030363 43.679362183955654 87.98572372830586 43.679362183955654 83.0202576163081 43.679362183955654 79.29615803230979 39.16585419571172 79.29615803230979 34.65234620746778 79.29615803230979 29.72851931120167 83.02025761630811 25.62533023097991 87.98572372830586 25.62533023097991 92.95118984030361 25.62533023097991 97.08907826696841 29.72851931120167 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778 97.08907826696841 34.65234620746778M76.39963613364444 44.5C74.33069192031203 41.21744873582259 71.0203811789802 41.21744873582259 68.9514369656478 44.5 68.9514369656478 44.5 68.53764812298132 44.91031890802218 68.53764812298132 44.91031890802218 66.8824927523154 42.448405459889116 65.22733738164948 39.57617310373389 63.985970853650045 37.11425965560083 61.08944895498469 32.190432759334726 56.53777168565341 32.190432759334726 53.64124978698805 37.11425965560083 50.74472788832269 42.03808655186695 46.193050618991414 49.83414580428829 43.29652872032606 54.757972700554404 40.4000068216607 59.68179959682051 42.88273987765958 63.37466976902009 48.6757836749903 63.37466976902009 48.6757836749903 63.37466976902009 80.53752456030924 63.37466976902009 80.53752456030924 63.37466976902009 84.67541298697404 63.37466976902009 86.33056835763995 60.91275632088704 84.26162414430755 57.21988614868746 82.19267993097515 53.527015976487874 78.88236918964331 48.19287017219959 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5 76.39963613364444 44.5" fill="#B3B3B3" fill-rule="evenOdd"></path></svg></g>-->
+<!--                </div>-->
+<!--                <img src="./img/contact/contact_1.jpg" alt="">-->
+<!--            </div>-->
+<!--            <div class="map_info_contact">-->
+<!--                <p>-->
+<!--                    Lorem ipsum dolor sit, -->
+<!--                    amet consectetur adipisicing elit. -->
+<!--                    Consequatur incidunt quibusdam, error saepe vitae-->
+<!--                    eaque soluta consectetur -->
+<!--                </p>-->
+<!--                <div style="width: 100%"><iframe width="100%" height="auto" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Malet%20St,%20London%20WC1E%207HU,%20United%20Kingdom+(Your%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/sport-gps/">fitness tracker</a></iframe></div>-->
+<!--            </div>-->
+<!--        </div>-->
 
     </div>
     <div class="left_content_block_info">
         <div class="left_content_block_info_position position_contact">
-            <img src="img/about_cinema/1.png" alt="">
-            <img src="img/about_cinema/1.png" alt="">
-            <img src="img/about_cinema/1.png" alt="">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
         </div>
     </div>
 </div>
 
-{% endif %}
 
 <!---------------------FOOTER----------------------------------------------->
 {% endblock %}

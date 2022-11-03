@@ -12,12 +12,36 @@ from django.urls import reverse_lazy
 from django.utils.dateparse import parse_datetime
 from django.views.generic import CreateView
 
+from urllib.parse import urlparse
+from django.conf import settings
+from django.http import HttpResponseRedirect
+from django.urls.base import resolve, reverse
+from django.urls.exceptions import Resolver404
+from django.utils import translation
+
 from user.models import ProjectUser
-from .forms import CreateNewsAndPromotions, SeoBlockForm, ImagesForm, ImageInlineFormset, FilmForm, CinemaForm, \
-    HallForm, MainPageForm, OtherPageForm, ContactPageForm, ContactFormset, BackgroundBannerForm, BannerForm, \
-    NewsBannerFormset, MainBannerFormset
-from .models import NewsAndPromotions, Images, SeoBlock, ImagesTitle, FilmModel, CinemaModel, HallModel, MainPageModel, \
-    ContactPageModel, OtherPageModel, BackgroundBannerModel, BannerModel
+from .forms import *
+from .models import *
+
+
+#Tranlation language
+def set_language(request, language):
+    for lang, _ in settings.LANGUAGES:
+        translation.activate(lang)
+        try:
+            view = resolve(urlparse(request.META.get("HTTP_REFERER")).path)
+        except Resolver404:
+            view = None
+        if view:
+            break
+    if view:
+        translation.activate(language)
+        next_url = reverse(view.url_name, args=view.args, kwargs=view.kwargs)
+        response = HttpResponseRedirect(next_url)
+        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
+    else:
+        response = HttpResponseRedirect('/')
+    return response
 
 
 # News
@@ -655,6 +679,7 @@ def edit_other_page(request, pk):
 
 
 def edit_contact_page(request, pk):
+    """Редагування всі контактів"""
     contacts_page_model = apps.get_model('administrator', 'ContactPageModel')
     contact_model = apps.get_model('administrator', 'ContactModel')
 
@@ -688,6 +713,7 @@ def edit_contact_page(request, pk):
 
 
 def delete_page(request, pk):
+    """Видалення сторінок"""
     model = OtherPageModel.objects.get(id=pk)
     seo_model = SeoBlock.objects.get(id=model.seo.pk)
     collection_image_model = ImagesTitle.objects.get(id=model.collection_image.pk)
@@ -700,6 +726,7 @@ def delete_page(request, pk):
 
 
 def banner(request):
+    """Створення банерів та їх редагування"""
     back_banner_model = BackgroundBannerModel()
     banner_model = BannerModel()
     collection_image_model = ImagesTitle()
@@ -784,6 +811,7 @@ def banner(request):
 
 
 def statistic(request):
+    """Вивід даних у статистику"""
     model_user = ProjectUser()
     model_film = FilmModel()
 
@@ -818,29 +846,33 @@ def statistic(request):
     return render(request, 'administrator/statistic/index.html', context)
 
 
-
-from urllib.parse import urlparse
-from django.conf import settings
-from django.http import HttpResponseRedirect
-from django.urls.base import resolve, reverse
-from django.urls.exceptions import Resolver404
-from django.utils import translation
-
-
-def set_language(request, language):
-    for lang, _ in settings.LANGUAGES:
-        translation.activate(lang)
-        try:
-            view = resolve(urlparse(request.META.get("HTTP_REFERER")).path)
-        except Resolver404:
-            view = None
-        if view:
-            break
-    if view:
-        translation.activate(language)
-        next_url = reverse(view.url_name, args=view.args, kwargs=view.kwargs)
-        response = HttpResponseRedirect(next_url)
-        response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
+def upload_file(request):
+    """Завантаження файлів"""
+    model_user = ProjectUser.objects.all()
+    print("model_user", model_user.values("email"))
+    model = SendMail.objects.all()
+    form = SendMailForm(request.POST, request.FILES)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
     else:
-        response = HttpResponseRedirect('/')
-    return response
+        form = SendMailForm()
+    context = {
+        'form': form,
+        'model': model,
+        'users': model_user,
+    }
+
+    return render(request, 'administrator/send_email/send_email.html', context)
+
+
+def get_users(request):
+
+    return redirect('/newsletter')
+
+
+def delete_email(request, pk):
+    """Видалення файлів"""
+    model = SendMail.objects.get(id=pk)
+    model.delete()
+    return redirect('/send_mail')

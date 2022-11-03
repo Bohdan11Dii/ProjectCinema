@@ -1,0 +1,212 @@
+{% extends 'user/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+          <!-- EMAIL -->
+          <div class="newsletter_block_border" id="close">
+            <h1>
+              <strong>E-mail</strong>
+            </h1>
+            <div  class="choice_user_newsletter_all">
+                <p>
+                    Вибрати e-mail користувачів для відправки
+                </p>
+                <p><input  type="radio" class="radio_option" name="radio"  > Всі користувачі</p>
+                <p><input type="radio" class="radio_option" name="radio" value="1">Вибрані</p>
+                <div style="display: none;" id='block-1'>
+                    <button class="hideText" value="a" data-toggle="modal" data-target="#exampleModalCenter">
+                        Вибір користувачів
+                    </button>
+                </div>
+            </div>
+           <div class="email_newsletter_block">
+            <div class="first_block_newsletter">
+                <div class="html_file">
+                    <p>
+                        Загрузити HTML-письмо
+                    </p>
+<!--                    {{ form.file }}-->
+                    <button     type="button"
+                                onchange="showFile()"
+                                class="" style="border: none;background: white;">
+                        <input type="file"  name="file" required="" id="id_file">
+                        <label for="id_file">Завантажити</label>
+                   </button>
+
+                </div>
+                {% if form.errors  %}
+                    <p class="error_format">Файл повинен мати формат .html</p>
+                {% endif %}
+                <p>
+                    Завантажений файл: <span style="color: #1ea7d6" id="demo"></span>
+                </p>
+                <p>
+                    Шаблон, який використовується в даній розсилці: <span style="color: #1ea7d6">{{ form.instance.file }}</span>
+                </p>
+                <div class="all_list">
+                    <p>
+                        К-сть листів: <span style="color: #1ea7d6">{{ model.count }}</span>
+                    </p>
+                    <p>
+                        Розсилка виконана на : <span style="color: #1ea7d6">45%</span>
+                    </p>
+                </div>
+            </div>
+            <div class="second_block_newsletter">
+                <p>
+                    Список послідніх завантажених файлів
+                </p>
+                 {% for item in model %}
+                <div class="checkbox_and_p_file">
+                    <input type="radio" name="item_">
+                    <p>
+                       {{item.file}}
+                    </p>
+                     <a href="" data-id="{{item.id}}" data-url="{% url 'delete_email' item.id %}" class="delete_post">
+                        <i class="bi bi-trash fa-2x"></i>
+                     </a>
+                </div>
+                {% endfor %}
+
+            </div>
+
+           </div>
+
+            <div class="btn_newsletter_go">
+
+                    <button type="submit">
+                        Почати розсилку
+                    </button>
+
+
+            </div>
+
+          </div>
+</form>
+<!--get_users-->
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered send_email" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div >
+         <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-field="code" data-sortable="true"></th>
+                    <th data-field="code" data-sortable="true">ID</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="int-percentage-plusminus">{% trans "Дата реєстрації" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="int-percentage-plusminus-muted">{% trans "День народження" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float1-percentage-plusminus">{% trans "E-mail" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float1-percentage-plusminus-muted">{% trans "Телефон" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float2-percentage-plusminus">{% trans "ПІБ" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float2-percentage-plusminus-muted">{% trans "Псевдонім" %}</th>
+                    <th data-field="value1p" data-sortable="true" data-value-type="float3-percentage-plusminus">{% trans "Місто" %}</th>
+                </tr>
+            </thead>
+    {% for user in users %}
+                <tr>
+                    <td>
+                        <input type="checkbox">
+                    </td>
+                    <a href="">
+                        <td>{{user.id}}</td>
+                    </a>
+                    <td>{{user.date_joined}}</td>
+                    <td>{{user.data_birthday}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.username}} {{user.last_name}} </td>
+                    <td>{{user.anonym}}</td>
+                    <td>{{user.choice_city}}</td>
+                </tr>
+
+    {% endfor %}
+            </table>
+
+
+      </div>
+      </div>
+      <div class="modal-footer">
+
+        <button type="submit" class="btn btn-primary">Вибрати</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</form>
+
+      <!-- ----------------------CONTENT---------------------- -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+const radio = document.querySelectorAll('input[type="radio"]')
+const button = document.querySelector('#block-1')
+
+
+radio.forEach(el => {
+	el.onclick = (e) => {
+  	show(e.target.value)
+  }
+})
+
+function show(val) {
+	if (val == 1) {
+  	button.style.display = 'block'
+  }
+    else {
+        button.style.display = 'none'
+    }
+
+}
+</script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const deleteButtons = document.getElementsByClassName('delete_post')
+    for (const deleteButtonElement of deleteButtons) {
+        deleteButtonElement.addEventListener('click', (e)=>{
+            e.preventDefault()
+            Swal.fire({
+              title: 'Ви впевнені?',
+              text: "Ви видаляєте дані з цієї таблиці!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Так, видалити це!',
+              cancelButtonText: 'Ні!'
+            })
+            .then(function(result){
+              if(result.isConfirmed){
+                 fetch(`${deleteButtonElement.dataset.url}`)
+                    .then((res)=>{
+                       if (res.status===200){
+                           window.location.replace('/send_mail')
+                       }
+                    })
+                    .catch((e)=>{
+                           Swal.fire(
+                          'Deleted!',
+                          'Your user has been deleted.',
+                          'success'
+                        )
+                    })
+
+                }
+              })
+        })
+    }
+
+</script>
+{% endblock %}

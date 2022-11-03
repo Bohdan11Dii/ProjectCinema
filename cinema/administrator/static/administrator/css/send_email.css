@@ -1,0 +1,135 @@
+.newsletter_choice_user{
+    text-align: center;
+}
+.newsletter_choice_user button{
+    background-color: white;
+    border-radius: 10px;
+    width: 300px;
+    cursor: pointer;
+}
+
+.newsletter_choice_user button:hover{
+    background-color: #16c7ff;
+    transform: scale(1.1);
+    transition: .3s;
+    
+}
+.newsletter_block_border{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 40px 50px;
+    padding: 20px;
+}
+
+
+.newsletter_block_border h1{
+    text-align: center;
+}
+
+.choice_user_newsletter_all{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px ;
+}
+.choice_user_newsletter_all p{
+    margin:30px 0px ;
+}
+
+.choice_user_newsletter_all button{
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.newsletter_p_block{
+    display: flex;
+    flex-wrap: wrap;
+}
+.newsletter_p_block p{
+    margin-right: 400px;
+}
+
+.text_for_user{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.text_for_user textarea{
+    width: 100%;
+    max-width: 530px;
+}
+
+.btn_newsletter_go{
+    text-align: center;
+    margin: 25px auto;
+}
+.btn_newsletter_go button{
+    border-radius: 10px;
+    background-color: white;
+    cursor: pointer;
+}
+
+
+.email_newsletter_block{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.html_file{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.html_file button{
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.all_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.second_block_newsletter{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.checkbox_and_p_file{
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.checkbox_and_p_file p{
+    margin: 0 20px;
+}
+.checkbox_and_p_file button{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: red;
+}
+.checkbox_and_p_file button:focus{
+    outline: none;
+}
+
+.send_email{
+    width: 100% !important;
+    max-width: 1500px!important;
+    }
+
+.error_format{
+    color: red;
+    font-size: 20px;
+}

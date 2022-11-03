@@ -15,8 +15,24 @@
 <!--    <link rel="stylesheet" href="css/loader.css">-->
     <title>Document</title>
 </head>
+<!--<style>-->
+<!--    body {-->
+<!--    margin: 0;-->
+<!--    font-family: Arial;-->
+<!--    -webkit-font-smoothing: antialiased;-->
+<!--    /*background-image: url("{{back_image.url}}");*/-->
+<!--    background-repeat: no-repeat;-->
+<!--    background-position: center center;-->
+<!--    background-attachment: fixed;-->
+<!--    -webkit-background-size: cover;-->
+<!--    -moz-background-size: cover;-->
+<!--    -o-background-size: cover;-->
+<!--    background-size: cover;-->
+<!--}-->
+<!--</style>-->
 <body>
 
+<!--  <img class="body" src="/static/main_page/images/main/loader.jpg" alt="">-->
 
 
 
@@ -88,17 +104,20 @@
                        <li class="block__list">
                             <img src="{% static 'main_page/images/main/internet.png' %}" alt="">
                        </li>
+
                      {% for form in model_page  %}
-                       <li class="block__list">
-                            <div class="phone_info">
-                                <h1>
-                                   {{ form.phone_1 }}
-                                </h1>
-                                <h1>
-                                    {{ form.phone_2 }}
-                                </h1>
-                            </div>
-                       </li>
+                        {% if form.is_active is True %}
+                               <li class="block__list">
+                                    <div class="phone_info">
+                                        <h1>
+                                           {{ form.phone_1 }}
+                                        </h1>
+                                        <h1>
+                                            {{ form.phone_2 }}
+                                        </h1>
+                                    </div>
+                               </li>
+                        {% endif %}
                     {% endfor %}
                    </ul>
                 <div class="down_colum">
@@ -144,7 +163,7 @@
                                     <a href="{% url 'vip_hall' %}">{% trans "Vip-зал" %} </a>
                                     <a href="{% url 'childrean_room' %}">{% trans "Дитяча кімната" %} </a>
                                     <a href="{% url 'mobile_page' %}">{% trans "Мобільний додаток" %} </a>
-                                    <a href="">{% trans "Контакти" %} </a>
+                                    <a href="{% url 'contact_page' %}">{% trans "Контакти" %} </a>
                                   </div>
                                 </div>
 
@@ -265,7 +284,11 @@ window.onclick = function(event) {
 <!-- <script src="js/hamburger.js"></script> -->
 <script src="{% static 'main_page/js/choiceLanguage.js' %}"></script>
 
+<script>
+    window.back_image = "{{back_image.url}}"
+</script>
 
+<script src="{% static 'main_page/js/choiceLanguage.js' %}"></script>
 
 </body>
 </html>

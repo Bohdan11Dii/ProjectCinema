@@ -203,6 +203,13 @@
     .left__block{
         margin-left: 0!important;
     }
+    .contact_block{
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .logo_contact{
+        margin-right: 0!important;
+    }
 
 }
 

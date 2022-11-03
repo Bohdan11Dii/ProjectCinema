@@ -19,4 +19,5 @@ urlpatterns = [
     path('childrean_room', childrean_room, name='childrean_room'),
     path('advertising_page', advertising_page, name='advertising_page'),
     path('mobile_page', mobile_page, name='mobile_page'),
+    path('contact_page', contact_page, name='contact_page'),
 ]

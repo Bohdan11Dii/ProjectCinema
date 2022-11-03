@@ -2,6 +2,11 @@ from django.db import models
 from django.utils import timezone
 from phonenumber_field.modelfields import PhoneNumberField
 
+from django.core import validators
+
+from cinema.settings import MEDIA_URL
+from user.models import ProjectUser
+
 
 class ImagesTitle(models.Model):
     title = models.CharField(max_length=50)
@@ -181,7 +186,7 @@ class ContactPageModel(models.Model):
 class ContactModel(models.Model):
     title = models.CharField(max_length=50)
     address = models.TextField(blank=True)
-    coordinates = models.CharField(max_length=100, blank=True)
+    coordinates = models.URLField(blank=True)
     is_active = models.BooleanField(default=False)
     logo = models.ImageField(upload_to='contact/')
 
@@ -220,3 +225,13 @@ class BannerModel(models.Model):
 
     class Meta:
         db_table = 'banner'
+
+
+class SendMail(models.Model):
+    file = models.FileField(upload_to='file/',
+                            validators=[validators.FileExtensionValidator(['html'],
+                            message='file повинун бути html файл')])
+    data_published = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'send_mail'

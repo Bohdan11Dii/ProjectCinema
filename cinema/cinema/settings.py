@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'cinema.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'second',
+        'NAME': 'first',
         'USER': 'postgres',
         'PASSWORD': '12345678',
         'HOST': 'localhost',
@@ -129,11 +129,11 @@ USE_L10N = True
 USE_TZ = True
 
 
-gettext = lambda s: s
+
 
 LANGUAGES = (
-    ('en', gettext('English')),
-    ('uk', gettext('Ukrainian')),
+    ('en', 'English'),
+    ('uk', 'Ukrainian'),
 )
 LOCALE_PATHS = (
     'locale',

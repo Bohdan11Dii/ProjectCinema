@@ -24,7 +24,7 @@ body {
     margin: 0;
     font-family: Arial;
     -webkit-font-smoothing: antialiased;
-    background-image: url(../images/main/loader.jpg);
+    /*background-image: url(../images/main/loader.jpg);*/
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -34,6 +34,7 @@ body {
     background-size: cover;
 
 }
+
 .wrapper {
     width: 100%;
     background-color: #eeeeee;
@@ -525,6 +526,14 @@ span.sim-dot {
 .body{
       font-family: sans-serif;
       /*background-color:seagreen;*/
+      background-image: url(../images/main/loader.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -633,3 +642,8 @@ span.sim-dot {
     height: auto;
     max-width: 500px;
 }
+
+
+
+/**/
+
