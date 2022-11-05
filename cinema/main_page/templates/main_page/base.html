@@ -154,16 +154,13 @@
 
 
                             <div class="dropdown">
-                                <a class="title__about__movie" href="{% url 'about_cinema_history'  %}">{% trans "Про кінотеатр" %} </a>
+                                <a class="title__about__movie" href="{% url 'news_page'  %}">{% trans "Новини" %} </a>
                                 <button onclick="myFunction()" class="dropbtn add_content"></button>
                                   <div id="myDropdown" class="dropdown-content">
-                                    <a href="{% url 'news_page' %}">{% trans "Новини" %} </a>
-                                    <a href="{% url 'advertising_page' %}">{% trans "Реклама" %} </a>
-                                    <a href="{% url 'cafe_bar' %}">{% trans "Кафе-Бар" %} </a>
-                                    <a href="{% url 'vip_hall' %}">{% trans "Vip-зал" %} </a>
-                                    <a href="{% url 'childrean_room' %}">{% trans "Дитяча кімната" %} </a>
-                                    <a href="{% url 'mobile_page' %}">{% trans "Мобільний додаток" %} </a>
-                                    <a href="{% url 'contact_page' %}">{% trans "Контакти" %} </a>
+                                    {% for item in model %}
+                                    <a href="{% url 'page' item.id %}">{{ item.title }} </a>
+                                    
+                                    {% endfor %}
                                   </div>
                                 </div>
 

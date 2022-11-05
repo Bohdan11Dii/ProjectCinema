@@ -231,6 +231,8 @@ class SendMail(models.Model):
     file = models.FileField(upload_to='file/',
                             validators=[validators.FileExtensionValidator(['html'],
                             message='file повинун бути html файл')])
+    choice_user = models.CharField(max_length=20, choices=[('Всі користувачі', 'Всі користувачі'), ("Вибрані", "Вибрані")],
+                            default="Всі користувачі")
     data_published = models.DateTimeField(auto_now_add=True)
 
     class Meta:

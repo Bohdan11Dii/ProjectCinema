@@ -1,12 +1,15 @@
 import datetime
 import json
+from time import sleep
 
 from django.apps import apps
 from django.contrib import messages
 from django.core.files.storage import FileSystemStorage
+from django.core.mail import send_mail
 from django.db import transaction, IntegrityError
 from django.forms import modelformset_factory, inlineformset_factory, formset_factory
-from django.http import Http404
+from django.http import FileResponse, Http404
+from django.http.response import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils.dateparse import parse_datetime
@@ -19,10 +22,10 @@ from django.urls.base import resolve, reverse
 from django.urls.exceptions import Resolver404
 from django.utils import translation
 
+
 from user.models import ProjectUser
 from .forms import *
 from .models import *
-
 
 #Tranlation language
 def set_language(request, language):
@@ -842,19 +845,45 @@ def statistic(request):
         ]
     )
 
-    print("context['film']", context['film'])
     return render(request, 'administrator/statistic/index.html', context)
 
 
 def upload_file(request):
+    from .tasks import send_email_task
+    from email.mime.text import MIMEText
+    
+    from django.template.loader import render_to_string 
     """Завантаження файлів"""
     model_user = ProjectUser.objects.all()
-    print("model_user", model_user.values("email"))
+
     model = SendMail.objects.all()
     form = SendMailForm(request.POST, request.FILES)
+    
+   
+   
     if request.method == 'POST':
         if form.is_valid():
+            
+            template = form.cleaned_data['file']
+            contents = template.read()
+            decrypt_message= contents.decode('utf-8')
+            
             form.save()
+            
+            # files = form.instance.file.url
+            
+            if form.instance.choice_user == "Всі користувачі":
+                for item in model_user:
+                    item = item.email
+                    send_email_task(item, decrypt_message)
+            if form.instance.choice_user == "Вибрані":
+                users = request.POST.getlist("email")
+                print("USERS", users)
+                send_email_task(users, decrypt_message)
+            
+               
+            
+
     else:
         form = SendMailForm()
     context = {
@@ -866,9 +895,6 @@ def upload_file(request):
     return render(request, 'administrator/send_email/send_email.html', context)
 
 
-def get_users(request):
-
-    return redirect('/newsletter')
 
 
 def delete_email(request, pk):

@@ -3,10 +3,10 @@
 
 {% block content %}
 
-{% if  advertising_page.is_published == True %}
+{% if  model_other.is_published == True %}
 <!-----------------------------------------IMG_BLOCK---------------------->
 <section class="img_block_title">
-    <img src="{{advertising_page.images.url }}" alt="">
+    <img src="{{model_other.images.url }}" alt="">
 </section>
 
 
@@ -17,15 +17,15 @@
     <div class="right_vip_info">
         <div class="vip_title">
             <h1>
-                 {{advertising_page.title}}
+                 {{model_other.title}}
             </h1>
         </div>
         <p>
-             {{advertising_page.description}}
+             {{model_other.description}}
         </p>
 
         <div class="cafe_bar_img">
-            {% for img in advertising_page_images %}
+            {% for img in model_other_images %}
                 <img src="{{ img.image.url }}" alt="">
             {% endfor %}
         </div>
@@ -39,7 +39,7 @@
             <div class="sim-slider sim-silder-poster">
                 <ul class="sim-slider-list">
                     <li><img  src="/static/main_page/images/carusel/no-image.gif" alt="screen" class="img__carusel"></li> <!-- это экран -->
-                   {% for img in advertising_page_images %}
+                   {% for img in model_other_images %}
                         <li class="sim-slider-element"><img src="{{ img.image.url }}"  class="img__carusel"></li>
                     {% endfor %}
                 </ul>

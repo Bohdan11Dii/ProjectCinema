@@ -129,6 +129,9 @@ NewsBannerFormset.deletion_widget = HiddenInput
 
 
 class SendMailForm(forms.ModelForm):
+    CHOICES = (('Всі користувачі', 'Всі користувачі'), ('Вибрані', 'Вибрані'),)
+    file = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    choice_user = forms.CharField(widget=forms.RadioSelect(choices=CHOICES, attrs={'class': 'radio_option'},))
     class Meta:
         model = SendMail
         exclude = ('data_published', )

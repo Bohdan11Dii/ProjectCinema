@@ -14,8 +14,9 @@
                 <p>
                     Вибрати e-mail користувачів для відправки
                 </p>
-                <p><input  type="radio" class="radio_option" name="radio"  > Всі користувачі</p>
-                <p><input type="radio" class="radio_option" name="radio" value="1">Вибрані</p>
+                <!-- <p><input  type="radio" class="radio_option" name="radio"  > Всі користувачі</p>
+                <p><input type="radio" class="radio_option" name="radio" value="1">Вибрані</p> -->
+                {{ form.choice_user }}
                 <div style="display: none;" id='block-1'>
                     <button class="hideText" value="a" data-toggle="modal" data-target="#exampleModalCenter">
                         Вибір користувачів
@@ -43,9 +44,9 @@
                 <p>
                     Завантажений файл: <span style="color: #1ea7d6" id="demo"></span>
                 </p>
-                <p>
-                    Шаблон, який використовується в даній розсилці: <span style="color: #1ea7d6">{{ form.instance.file }}</span>
-                </p>
+                    <p>
+                        Шаблон, який використовується в даній розсилці: <span style="color: #1ea7d6">{{ form.instance.filel }}</span>
+                    </p>
                 <div class="all_list">
                     <p>
                         К-сть листів: <span style="color: #1ea7d6">{{ model.count }}</span>
@@ -87,7 +88,7 @@
           </div>
 </form>
 <!--get_users-->
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" name="myForm">
     {% csrf_token %}
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered send_email" role="document">
@@ -117,7 +118,7 @@
     {% for user in users %}
                 <tr>
                     <td>
-                        <input type="checkbox">
+                        <input type="checkbox" class="select_user" name="email" value="{{user.email}}">
                     </td>
                     <a href="">
                         <td>{{user.id}}</td>
@@ -162,7 +163,7 @@ radio.forEach(el => {
 })
 
 function show(val) {
-	if (val == 1) {
+	if (val == "Вибрані") {
   	button.style.display = 'block'
   }
     else {
@@ -208,5 +209,21 @@ function show(val) {
         })
     }
 
+</script>
+
+<script>
+    let emails = []
+    const checkbox = document.getElementsByClassName('select_user')
+    for (const iterator of checkbox) {
+        iterator.addEventListener("change",(e)=>{
+            let email = e.target.value
+            if (e.target.checked){
+                emails.push(email)
+            }else{
+                emails = emails.filter(element => element !== email)
+            }
+            console.log(emails);
+        })
+    }
 </script>
 {% endblock %}

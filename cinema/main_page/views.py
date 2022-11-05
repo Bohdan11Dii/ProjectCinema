@@ -51,7 +51,11 @@ def index(request):
     model_banner_news = BannerModel.objects.filter(name=1)
     model_banner_main = BannerModel.objects.filter(name=0)
     model_background_model = BackgroundBannerModel()
+    other_model = OtherPageModel.objects.all()
+
     context = {}
+
+    context['model'] = other_model
     context['actual_film'] = model_film.__class__.objects.filter(is_active=0)
     context['show_film'] = model_film.__class__.objects.filter(is_active=1)
     context["model_page"] = model_page.__class__.objects.all()
@@ -73,9 +77,14 @@ def index(request):
 
     return render(request, 'main_page/index/index.html', context)
 
+
 def poster(request):
     model_film = FilmModel()
+    other_model = OtherPageModel.objects.all()
+
     context = {}
+
+    context['model'] = other_model
     context['actual_film'] = model_film.__class__.objects.filter(is_active=0)
     context['back_image'] = base()
     return render(request, 'main_page/poster/poster.html', context)
@@ -83,7 +92,11 @@ def poster(request):
 
 def soon(request):
     model_film = FilmModel()
+    other_model = OtherPageModel.objects.all()
+
     context = {}
+
+    context['model'] = other_model
     context['show_film'] = model_film.__class__.objects.filter(is_active=1)
     context['back_image'] = base()
     return render(request, 'main_page/soon/soon.html', context)
@@ -91,113 +104,76 @@ def soon(request):
 
 def cinema_(request):
     model_cinema = CinemaModel.objects.all()
+    other_model = OtherPageModel.objects.all()
+
     context = {}
+
+    context['model'] = other_model
     context['cinemas'] = model_cinema
     context['back_image'] = base()
 
-    # print("context['cinemas']", context['cinemas'])
     return render(request, 'main_page/cinema/cinema.html', context)
 
 
 def action_(request):
     model_action = NewsAndPromotions.objects.filter(page_type=0)
+    other_model = OtherPageModel.objects.all()
+
     context = {}
+
+    context['model'] = other_model
     context['action'] = model_action
     context['back_image'] = base()
 
-    print("context['action']", context['action'])
     return render(request, 'main_page/action/promotions.html', context)
 
 
-def about_cinema_history(request):
-    value_1 = OtherPageModel.objects.get(title_uk='Про кінотеатр')
-    value_2 = OtherPageModel.objects.get(title_en='About the cinema')
-    model_cinema_history = OtherPageModel.objects.get(title__in=(value_1, value_2))
-    # model_cinema_history = OtherPageModel.objects.get()
-    context = {}
-    context['model_cinema_history'] = model_cinema_history
-    context['model_cinema_history_images'] = model_cinema_history.collection_image.images_set.all()
-    context['back_image'] = base()
-
-    print("context['model_cinema_history']", model_cinema_history.description)
-    return render(request, 'main_page/about_cinema___/about_cinema.html', context)
-
-
-def cafe_bar(request):
-    value_1 = OtherPageModel.objects.get(title_uk='Кафе-Бар')
-    value_2 = OtherPageModel.objects.get(title_en='Cafe-Bar')
-    model_cafe_bar = OtherPageModel.objects.get(title__in=(value_1, value_2))
-    context = {}
-    context['model_cafe_bar'] = model_cafe_bar
-    context['model_cafe_bar_images'] = model_cafe_bar.collection_image.images_set.all()
-    context['back_image'] = base()
-
-    print("context['model_cafe_bar']", context['model_cafe_bar'])
-    return render(request, 'main_page/cafe_bar/cafe_bar.html', context)
+def other_pages(request):
+    other_model = OtherPageModel.objects.all()
+    context = {
+        'model': other_model
+    }
+    print()
+    return render(request, 'main_page/base.html', context)
 
 
 def news_page(request):
     model_news = NewsAndPromotions.objects.filter(page_type=1)
+    other_model = OtherPageModel.objects.all()
+
     context = {}
+
+    context['model'] = other_model
     context['news'] = model_news
     context['back_image'] = base()
 
-    print("context['news']", context['news'])
+    # print("context['news']", context['news'])
     return render(request, 'main_page/news_page/news.html', context)
 
-def vip_hall(request):
-    value_1 = OtherPageModel.objects.get(title_uk='Vip-зал')
-    value_2 = OtherPageModel.objects.get(title_en='Vip-room')
-    model_vip_hall = OtherPageModel.objects.get(title__in=(value_1, value_2))
+
+def advertising_page(request, pk):
+    other_model = OtherPageModel.objects.get(id=pk)
+    model = OtherPageModel.objects.all()
+
     context = {}
-    context['model_vip_hall'] = model_vip_hall
-    context['model_vip_hall_images'] = model_vip_hall.collection_image.images_set.all()
+
+    context['model'] = model
     context['back_image'] = base()
-
-    return render(request, 'main_page/vip_hall/vip.html', context)
-
-
-def childrean_room(request):
-    value_1 = OtherPageModel.objects.get(title_uk='Дитяча кімната')
-    value_2 = OtherPageModel.objects.get(title_en='Children room')
-    model_childrean_room = OtherPageModel.objects.get(title__in=(value_1, value_2))
-    context = {}
-    context['childrean_room'] = model_childrean_room
-    context['childrean_room_images'] = model_childrean_room.collection_image.images_set.all()
-
-    context['back_image'] = base()
-    return render(request, 'main_page/childrean_room/childrean_room.html', context)
-
-
-def advertising_page(request):
-    value_1 = OtherPageModel.objects.get(title_uk='Реклама')
-    value_2 = OtherPageModel.objects.get(title_en='Advertising')
-    advertising_page = OtherPageModel.objects.get(title__in=(value_1, value_2))
-    context = {}
-    context['advertising_page'] = advertising_page
-    context['advertising_page_images'] = advertising_page.collection_image.images_set.all()
-    context['back_image'] = base()
-
+    context['model_other'] = other_model
+    context['model_other_images'] = other_model.collection_image.images_set.all()
+    # print("context['model_other']", context['model_other'])
     return render(request, 'main_page/advertising_page/advertising.html', context)
-
-
-def mobile_page(request):
-    value_1 = OtherPageModel.objects.get(title_uk='Мобільний додаток')
-    value_2 = OtherPageModel.objects.get(title_en='Mobile application')
-    mobile_page = OtherPageModel.objects.get(title__in=(value_1, value_2))
-    context = {}
-    context['mobile_page'] = mobile_page
-    context['mobile_page_images'] = mobile_page.collection_image.images_set.all()
-    context['back_image'] = base()
-
-    return render(request, 'main_page/mobile_page/mobile_app.html', context)
 
 
 def contact_page(request):
     contact_page = ContactModel.objects.all()
+    other_model = OtherPageModel.objects.all()
+
     context = {}
+
+    context['model'] = other_model
     context['contact_page'] = contact_page
     context['back_image'] = base()
 
-    print("context['contact_page']", context['contact_page'])
+    # print("context['contact_page']", context['contact_page'])
     return render(request, 'main_page/contact_page/contact.html', context)
