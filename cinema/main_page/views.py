@@ -6,7 +6,8 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from administrator.models import FilmModel, MainPageModel, BannerModel, Images, CinemaModel, NewsAndPromotions, \
-    OtherPageModel, ContactModel, ContactPageModel, BackgroundBannerModel
+    OtherPageModel, ContactModel, ContactPageModel, BackgroundBannerModel, HallModel, SeanceModel
+
 from user.models import ProjectUser
 from .forms import CustomUserCreationForm, LoginUserForm
 
@@ -41,7 +42,7 @@ def base():
 
     for item in context['model_background_model']:
         context['back_image'] = item.image
-    return context['back_image']
+        return context['back_image']
 
 
 def index(request):
@@ -64,13 +65,20 @@ def index(request):
     context['main_banner'] = model_banner_main
     context['model_background_model'] = model_background_model.__class__.objects.all()
 
+    
     for item in model_banner_main:
-        item = item.collection_image.images_set.all()
-        context['item'] = item
+        if item is not None:
+            pass
+        else:
+            item = item.collection_image.images_set.all()
+            context['item'] = item
     #
     for image in model_banner_news:
-        images = image.collection_image.images_set.all()
-        context['item_news'] = images
+        if image is not None:
+            pass
+        else:
+            images = image.collection_image.images_set.all()
+            context['item_news'] = images
 
     for item in context['model_background_model']:
         context['back_image'] = item.image
@@ -177,3 +185,88 @@ def contact_page(request):
 
     # print("context['contact_page']", context['contact_page'])
     return render(request, 'main_page/contact_page/contact.html', context)
+
+
+def get_action(request, pk):
+    model_action = NewsAndPromotions.objects.get(id=pk)
+    model_action_images = model_action.collection_image.images_set.all()
+    other_model = OtherPageModel.objects.all()
+    print("model_action", model_action)
+    context = {
+        "action": model_action,
+        "back_image": base(),
+        "images": model_action_images,
+        "model": other_model
+    }
+    return render(request, 'main_page/action/card_promotions.html', context)
+
+
+def get_cinema(request, pk):
+    cinema_model = CinemaModel.objects.get(id=pk)
+    hall_model = HallModel.objects.filter(cinema=pk)
+    other_model = OtherPageModel.objects.all()
+
+    model_cinema_images = cinema_model.collection_image.images_set.all()
+    context = {
+        "cinema": cinema_model,
+        "back_image": base(),
+        "images": model_cinema_images,
+        'hall': hall_model.count(),
+        'hall_model_': hall_model,
+        "model": other_model
+    }
+    return render(request, 'main_page/cinema/cinema_card.html', context)
+
+
+def get_hall(request, pk):
+    hall_model = HallModel.objects.get(id=pk)
+    other_model = OtherPageModel.objects.all()
+    model_hall_images = hall_model.collection_image.images_set.all()
+    context = {
+        "hall": hall_model,
+        "back_image": base(),
+        "images": model_hall_images,
+        "model": other_model
+
+    }
+    return render(request, 'main_page/cinema/hall_card.html', context)
+
+
+def get_seance(request):
+    from .script import script
+    script()
+    
+    
+    
+    seance_model = SeanceModel.objects.all()
+    hall_model = HallModel.objects.all()
+    film_model = FilmModel.objects.all()
+    cinema_model = CinemaModel.objects.all()
+    other_model = OtherPageModel.objects.all()
+    
+    context = {
+        "seance": seance_model,
+        "back_image": base(),
+        "hall": hall_model,
+        "film": film_model,
+        "cinema": cinema_model,
+        "model": other_model
+    }
+    return render(request, 'main_page/seance/seance.html', context)
+
+def get_all(request, pk):
+    
+    return render(request, 'main_page/seance/seance_get.html')
+
+def get_ticket(request, pk):
+    ticket_model = FilmModel.objects.get(id=pk)
+    print("TICKET", ticket_model.link)
+    other_model = OtherPageModel.objects.all()
+    context = {
+        "back_image": base(),
+        "film": ticket_model,
+        "model": other_model
+    }
+    return render(request, 'main_page/seance/ticket.html', context)
+
+

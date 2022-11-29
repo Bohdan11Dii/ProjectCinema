@@ -22,7 +22,7 @@
   {% if item.is_published == True %}
         <div class="display_flex_news">
             <img src="{{ item.images.url }}" alt="">
-            <a href="">
+            <a href="{% url 'get_action' item.id %}">
                 {{ item.title }}
             </a>
             <div>

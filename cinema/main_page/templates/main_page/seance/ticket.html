@@ -1,0 +1,349 @@
+{% extends 'main_page/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+
+<!-----------------------------------------IMG_BLOCK---------------------->
+<section class="img_block_title">
+    <iframe width="100%" height="500" src="{{ film.link}}" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<!-----------------------------------------CONTENT---------------------->
+ 
+<div class="content_block_info">
+    <div class="left_content_block_info">
+        <div class="left_content_block_info_position card_cinema__">
+            <img style="width: 100%;" src="{{ film.images.url }}" alt="">
+           
+            <img src="/static/main_page/images/about_cinema/1.png" alt="">
+            <div>
+                <img src="/static/main_page/images/seance/24.png" alt="">
+                <img src="/static/main_page/images/seance/card.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="right_content_block_promo">
+          
+        <div class="display_flex_cinema_card">
+            <div class="card_conema_title__">
+                <a href="./card_promotions.html" >
+                    {{film.title}}
+                </a>
+                
+                
+            </div>
+            <a href="" >
+                22.11, 10:10, Зал №3
+            </a>
+            <div class="container_for_balanc">
+                <div class="container_balanc">
+                    <p>
+                        Ціна в грн: 
+                    </p>
+                    <p>
+                        55
+                    </p>
+                </div>
+                <div class="container_balanc">
+                    <p>
+                        Заброньовано: 
+                    </p>
+                    <p>
+                        55
+                    </p>
+                </div>
+                <div class="container_balanc">
+                    <p>
+                        Ваш заказ: 
+                    </p>
+                    <div class="container_ticket_and_money">
+                        <div class="container_ticket">
+                            <p>
+                                Баланс:
+                            </p>
+                            <p>
+                                0
+                            </p>
+                        </div>
+                        <div class="container_money">
+                            <p>
+                                Сума:
+                            </p>
+                            <p>
+                                0 грн
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="line__"></div>
+        </div>
+
+<!-- //////// -->
+
+        <div>
+
+            <ul class="showcase" id="movie">
+                <li>
+                    <div class="seat"></div>
+                    <small>Available</small>
+                </li>
+                <li>
+                    <div class="seat selected"></div>
+                    <small>Selected</small>
+                </li>
+                <li>
+                    <div class="seat occupied"></div>
+                    <small>Occupied</small>
+                </li>
+            </ul>
+
+            <div class="container">
+                <div class="screen"></div>
+                <div class="row">
+                    <div class="hall_place">Ряд 1</div>
+                    <div class="seat">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat ">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+
+                <div class="row">
+                    <div class="hall_place">Ряд 2</div>
+                    <div class="seat">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+
+                <div class="row">
+                    <div class="hall_place">Ряд 3</div>
+                    <div class="seat">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+
+                <div class="row">
+                    <div class="hall_place">Ряд 4</div>
+                    <div class="seat">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+
+                <div class="row">
+                    <div class="hall_place">Ряд 5</div>
+                    <div class="seat">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+
+                <div class="row">
+                    <div class="hall_place">Ряд 6</div>
+                    <div class="seat">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+
+                <div class="row">
+                    <div class="hall_place">Ряд 7</div>
+                    <div class="seat">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+
+                <div class="row">
+                    <div class="hall_place">Ряд 8</div>
+                    <div class="seat">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+                <div class="row">
+                    <div class="hall_place">Ряд 9</div>
+                    <div class="seat">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+                <div class="row">
+                    <div class="hall_place">Ряд 10</div>
+                    <div class="seat seat__">1</div>
+                    <div class="seat">2</div>
+                    <div class="seat">3</div>
+                    <div class="seat">4</div>
+                    <div class="seat">5</div>
+                    <div class="seat">6</div>
+                    <div class="seat">7</div>
+                    <div class="seat">8</div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+    
+    
+</div>
+<h3 style="color: white;">
+    Вартість послуг бронювання - 3грн за кожне місце.
+</h3>
+<h2 style="color: white;">
+    ЗАБРОНЬОВАНІ БІЛЕТИ ПОТРІБНО ВИКУПИТИ В КАССІ КІНОТЕАТРА НЕ РАНІШЕ ЧИМ ЗА ПІВ ГОДИНИ ДО ПОЧАТКУ СЕАНСАЮ
+</h2>
+<div class="buy_ticket">
+    <button class="buy_ticket_" onclick="OccupiedSeats()">
+        Забронбвати
+    </button>
+    <button class="buy_ticket__"> 
+        Купити
+    </button>
+</div>
+
+<!---------------------FOOTER----------------------------------------------->
+
+
+
+
+
+<!-- -----------------------------------------SCRIPT---------------------- -->
+
+<!--<script>-->
+<!--    /* When the user clicks on the button,-->
+<!--    toggle between hiding and showing the dropdown content */-->
+<!--    function myFunction() {-->
+<!--        document.getElementById("myDropdown").classList.toggle("show");-->
+<!--    }-->
+<!--    -->
+<!--    // Close the dropdown if the user clicks outside of it-->
+<!--    window.onclick = function(event) {-->
+<!--        if (!event.target.matches('.dropbtn')) {-->
+<!--    -->
+<!--        var dropdowns = document.getElementsByClassName("dropdown-content");-->
+<!--        var i;-->
+<!--        for (i = 0; i < dropdowns.length; i++) {-->
+<!--            var openDropdown = dropdowns[i];-->
+<!--            if (openDropdown.classList.contains('show')) {-->
+<!--            openDropdown.classList.remove('show');-->
+<!--            }-->
+<!--        }-->
+<!--        }-->
+<!--    }-->
+<!--    </script>-->
+<script>
+    const container = document.querySelector('.container');
+const seats = document.querySelectorAll('.row .seat:not(.occupied)');
+const count = document.getElementById('count');
+const total = document.getElementById('total');
+const movieSelect = document.getElementById('movie');
+
+populateUI();
+
+let ticketPrice = +movieSelect.value;
+
+//save selected movie index and price
+function setMovieData(movieIndex, moviePrice){
+    localStorage.setItem('selectedMovieIndex', movieIndex);
+    localStorage.setItem('selectedMoviePrice', moviePrice);
+}
+
+//update total and count
+function updateSelectedCount() {
+    const selectedSeats = document.querySelectorAll('.row .seat.selected');
+
+    const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
+
+    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+
+    const selectedSeatsCount = selectedSeats.length;
+
+}
+function OccupiedSeats(){
+    const selectedSeats = document.querySelectorAll('.row .seat.selected');
+    for (const iterator of selectedSeats) {
+        iterator.classList.remove(".select")
+        iterator.classList.add("occupied")
+    }
+}
+//get data from local storage & populate UI
+function populateUI() {
+    const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+
+    if (selectedSeats !== null && selectedSeats.length > 0) {
+        seats.forEach((seat, index) => {
+          if (selectedSeats.indexOf(index) > -1) {
+            seat.classList.add('selected');
+          }
+        });
+      }
+
+    const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
+
+    if (selectedMovieIndex !== null) {
+        movieSelect.selectedIndex = selectedMovieIndex;
+    }
+}
+
+//movie select event
+movieSelect.addEventListener('change', e => {
+    ticketPrice = +e.target.value;
+    setMovieData(e.target.selectedIndex, e.target.value)
+    updateSelectedCount();
+});
+
+//seat click event
+container.addEventListener('click', e => {
+ if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied'))
+ {
+    e.target.classList.toggle('selected');
+    
+    updateSelectedCount();
+ }
+});
+
+//initial count and total set
+updateSelectedCount();
+</script>
+
+
+{% endblock %}

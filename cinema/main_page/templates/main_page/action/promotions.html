@@ -20,7 +20,7 @@
             {% if item.is_published == True %}
                 <div class="display_flex_news">
                     <img src="{{ item.images.url }}" alt="">
-                    <a href="../card_promotions.html">
+                    <a href="{% url 'get_action' item.id %}">
                         {{ item.title }}
                     </a>
                     <div>
@@ -86,11 +86,11 @@
 <!--    function myFunction() {-->
 <!--        document.getElementById("myDropdown").classList.toggle("show");-->
 <!--    }-->
-<!--    -->
+
 <!--    // Close the dropdown if the user clicks outside of it-->
 <!--    window.onclick = function(event) {-->
 <!--        if (!event.target.matches('.dropbtn')) {-->
-<!--    -->
+
 <!--        var dropdowns = document.getElementsByClassName("dropdown-content");-->
 <!--        var i;-->
 <!--        for (i = 0; i < dropdowns.length; i++) {-->
@@ -101,5 +101,5 @@
 <!--        }-->
 <!--        }-->
 <!--    }-->
-    </script>
+<!--    </script>-->
 {% endblock %}

@@ -73,3 +73,5 @@ admin.site.register(BackgroundBannerModel)
 admin.site.register(ImagesTitle)
 admin.site.register(ContactPageModel)
 admin.site.register(SendMail)
+
+admin.site.register(SeanceModel)

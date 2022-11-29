@@ -235,6 +235,7 @@ a{
     top: 25px;
     border: 1px solid blue;
     border-radius: 5px;
+    margin-left: -15px;
 }
 
 .dropdown-content a {
@@ -647,3 +648,340 @@ span.sim-dot {
 
 /**/
 
+/* CINEMA___CARD */
+.card_cinema__{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card_conema_title{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.card_conema_title_img {
+    width: 200px;
+    height: 200px;
+}
+
+.card_conema_title_button{
+    color: white;
+    background-color: gray;
+    width: 150px;
+    height: auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.card_conema_title_button:hover{
+    transform: scale(1.2);
+}
+
+.second_card_conema_title img{
+    width: 100%;
+}
+
+
+.second_card_conema_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.display_flex_cinema_card {
+    color: white;
+    font-size: 20px;
+}
+.display_flex_cinema_card a{
+    background-color: #000000;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.card_cinema__table{
+    cursor: pointer;
+}
+.card_cinema__ p{
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+
+/* HALL CARD */
+
+.hall_card_{
+    margin: 30px auto;
+    text-align: center;
+}
+
+.hall_card_imag{
+    width: 100%;
+    max-width: 1000px;
+}
+
+
+/* SCHEDULE */
+.dropbtn__ {
+    background-color: #824caf;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown__ {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown_content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown_content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown_content a:hover {background-color: #f1f1f1}
+
+  .dropdown__:hover .dropdown_content {
+    display: block;
+  }
+
+  .dropdown__:hover .dropbtn__ {
+    background-color: purple;
+  }
+
+
+  .schedule_container__{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .schedule_container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .information{
+    justify-content: space-around;
+  }
+
+  .schedule_container_3d {
+    background: purple;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  .schedule_container_DBOX {
+    background: rgb(76, 76, 244);
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  .schedule_container_VIP {
+    background: red;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+.td_cafe_bar img{
+    cursor: pointer;
+}
+
+/* TICKET */
+.card_conema_title__{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+
+}
+
+.card_conema_title__ a{
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(to top, darkred, darkorange);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.container_for_balanc{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #000;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.container_balanc{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 100px;
+
+}
+.container_balanc p{
+    margin-right: 10px;
+}
+.container_ticket_and_money{
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid red;
+    padding:10px;
+}
+
+.container_ticket{
+    display: flex;
+    margin: 0 10px;
+}
+
+.container_money{
+    display: flex;
+    margin: 0 10px;
+}
+
+.line__{
+    border-bottom: 5px solid orange;
+}
+
+
+/* seats */
+.seat {
+    background-color: #444451;
+    color: white;
+    height: 70px;
+    width: 70px;
+    margin: 3px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.seat.selected {
+    background-color: #6feaf6;
+}
+
+.seat.occupied {
+    background-color: #fff;
+}
+
+.seat:nth-of-type(2) {
+    margin-right: 10px;
+}
+
+.seat:nth-last-of-type(2) {
+    margin-left: 10px;
+}
+
+.seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.showcase .seat:not(.occupied):hover {
+    cursor: pointer;
+    transform: scale(1);
+}
+
+.showcase {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.showcase li small {
+    margin-left: 2px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.screen {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7)
+}
+
+p.text {
+    margin: 5px 0;
+}
+
+p.text span {
+    color: #6feaf6;
+}
+
+
+.hall_place{
+    margin-right: 40px;
+    color: white;
+}
+
+.seat__{
+    margin-left: -5px;
+}
+
+.buy_ticket{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.buy_ticket_{
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    background: gray;
+    margin-right: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.buy_ticket__{
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    background: #ff9e04;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.buy_ticket_:hover{
+    transform: scale(1.2);
+}
+.buy_ticket__:hover{
+    transform: scale(1.2);
+}

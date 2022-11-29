@@ -19,5 +19,12 @@ urlpatterns = [
 
     path('other_pages', other_pages, name='other_pages'),
 
+    path('get_action/<str:pk>/', get_action, name='get_action'),
+    path('get_cinema/<str:pk>/', get_cinema, name='get_cinema'),
+    path('get_hall/<str:pk>/', get_hall, name='get_hall'),
+    path('get_seance', get_seance, name='get_seance'),
+    path('get_ticket/<str:pk>/', get_ticket, name='get_ticket'),
+    
+    path('get_all/<str:pk>/', get_all, name='get_all'),
 
 ]

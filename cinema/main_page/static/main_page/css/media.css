@@ -192,6 +192,9 @@
     .position_contact{
         display: block;
     }
+    .container_balanc{
+        margin-left: 0;
+    }
     
 }
 

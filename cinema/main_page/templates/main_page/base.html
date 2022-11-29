@@ -71,7 +71,7 @@
                     </a>
                 </li>
                 {% endif %}
-                {% if request.user.is_superuser %}
+                {% if request.user.username == "admin" %}
                 <a href="{% url 'user' %}" style="cursor: pointer">{% trans "Адмін" %}</a>
                 {% endif %}
             </ul>
@@ -129,7 +129,7 @@
                             </li>
 
                          <li class="about">
-                         <a href="" >
+                         <a href="{% url 'get_seance' %}" >
                                 {% trans "Розклад" %}
                             </a>
                             </li>
@@ -161,6 +161,7 @@
                                     <a href="{% url 'page' item.id %}">{{ item.title }} </a>
                                     
                                     {% endfor %}
+                                       <a class="title__about__movie" href="{% url 'contact_page'  %}">{% trans "Контакти" %} </a>
                                   </div>
                                 </div>
 

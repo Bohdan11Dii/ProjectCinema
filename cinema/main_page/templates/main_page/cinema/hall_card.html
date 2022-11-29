@@ -1,0 +1,86 @@
+{% extends 'main_page/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+<!-----------------------------------------IMG_BLOCK---------------------->
+<section class="img_block_title">
+    <img src="{{ hall.banner.url }}" alt="">
+</section>
+
+<!-----------------------------------------CONTENT---------------------->
+ 
+<div class="content_block_info">
+    <div class="left_content_block_info">
+        <div class="left_content_block_info_position card_cinema__">
+            <img src="img/about_cinema/1.png" alt="">
+            <p>
+                Дивіться сьогодні
+            </p>
+            <table class="table_cafe_bar">
+                <tr class="tr_cafe_bar">
+                  <td class="td_cafe_bar card_cinema__table">Sessions 1</td>
+                </tr>
+                <tr class="tr_cafe_bar">
+                    <td class="td_cafe_bar card_cinema__table">Sessions 1</td>
+                </tr>
+                <tr class="tr_cafe_bar">
+                    <td class="td_cafe_bar card_cinema__table">Sessions 1</td>
+                </tr>
+                <tr class="tr_cafe_bar">
+                    <td class="td_cafe_bar card_cinema__table">Sessions 1</td>
+                </tr>
+              </table>
+              <button class="card_conema_title_button">
+                Розклад всіх сеансів
+            </button>
+        </div>
+    </div>
+    <div class="right_content_block_promo">
+          
+        <div class="display_flex_cinema_card">
+            <div class="card_conema_title">
+                <a href="./card_promotions.html" style="color:white;">
+                    {{hall.title}}
+                </a>
+                
+            </div>
+            <p>
+                {{hall.description}}
+            </p>
+            <h1 style="text-align: center;">
+                Карта зала
+            </h1>
+            <div class="hall_card_">
+                <img class="hall_card_imag" src="{{ hall.sceme_hall.url }}" alt="">
+            </div>
+        </div>
+        
+         <h1 style="text-align: center;">
+                ФОТОГАЛЕРЕЯ
+         </h1>
+            <div class="carusel__block carusel__block_poster">
+                <div class="sim-slider sim-silder-poster">
+                    <ul class="sim-slider-list">
+                        <li><img  src="/static/main_page/images/carusel/no-image.gif" alt="screen" class="img__carusel"></li> <!-- это экран -->
+                            {% for img in images %}
+                                <li class="sim-slider-element"><img src="{{ img.image.url }}"  class="img__carusel"></li>
+                            {% endfor %}
+                    </ul>
+                <div class="sim-slider-arrow-left"></div>
+                <div class="sim-slider-arrow-right"></div>
+                <div class="sim-slider-dots"></div>
+                </div>
+            </div>
+
+    </div>
+    
+</div>
+
+<!---------------------FOOTER----------------------------------------------->
+
+<script>
+    window.caruselspeed = 5000
+    console.log(window.caruselspeed)
+</script>
+<script src="/static/main_page/js/carusel.js"></script>
+{% endblock %}

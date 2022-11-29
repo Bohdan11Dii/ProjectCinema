@@ -131,6 +131,31 @@ class HallModel(models.Model):
     class Meta:
         db_table = 'hall_page'
 
+
+class SeanceModel(models.Model):
+    price = models.FloatField()
+    time = models.TimeField()
+    is_3d = models.BooleanField(default=False)
+    is_dbox = models.BooleanField(default=False)
+    is_vip = models.BooleanField(default=False)
+    film = models.ForeignKey('FilmModel', on_delete=models.CASCADE, null=True)
+    hall = models.ForeignKey('HallModel', on_delete=models.CASCADE, null=True)
+    cinema = models.ForeignKey('CinemaModel', on_delete=models.CASCADE, default=None)
+    date = models.CharField(max_length=10)
+
+
+    class Meta:
+        db_table = 'seance_model'
+
+
+
+class TiketModel(models.Model):
+    user = models.ForeignKey(ProjectUser, on_delete=models.CASCADE)
+    chose_film = models.ForeignKey(SeanceModel, on_delete=models.CASCADE)
+    # ticket = 
+
+
+
 class MainPageModel(models.Model):
     title = models.CharField(max_length=50)
     is_active = models.BooleanField(default=False)
@@ -205,6 +230,10 @@ class BackgroundBannerModel(models.Model):
     image = models.ImageField(upload_to='background/', null=True,
                               default=None)
 
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        super().delete(*args, **kwargs)
+
     class Meta:
         db_table = 'back_banner'
 
@@ -230,10 +259,15 @@ class BannerModel(models.Model):
 class SendMail(models.Model):
     file = models.FileField(upload_to='file/',
                             validators=[validators.FileExtensionValidator(['html'],
-                            message='file повинун бути html файл')])
+                            message='file повинун бути html файл')] )
     choice_user = models.CharField(max_length=20, choices=[('Всі користувачі', 'Всі користувачі'), ("Вибрані", "Вибрані")],
                             default="Всі користувачі")
     data_published = models.DateTimeField(auto_now_add=True)
 
+    def delete(self, *args, **kwargs):
+        self.file.delete()
+        super().delete(*args, **kwargs)
+
     class Meta:
         db_table = 'send_mail'
+

@@ -18,9 +18,10 @@
                 <p><input type="radio" class="radio_option" name="radio" value="1">Вибрані</p> -->
                 {{ form.choice_user }}
                 <div style="display: none;" id='block-1'>
-                    <button class="hideText" value="a" data-toggle="modal" data-target="#exampleModalCenter">
+                    <a href="#openModal"> Вибір користувачів</a>
+                    <!-- <button class="hideText" value="a" data-toggle="modal" data-target="#exampleModalCenter">
                         Вибір користувачів
-                    </button>
+                    </button> -->
                 </div>
             </div>
            <div class="email_newsletter_block">
@@ -44,16 +45,20 @@
                 <p>
                     Завантажений файл: <span style="color: #1ea7d6" id="demo"></span>
                 </p>
+                    {% if files is None %}
                     <p>
-                        Шаблон, який використовується в даній розсилці: <span style="color: #1ea7d6">{{ form.instance.filel }}</span>
+                        Шаблон, який використовується в даній розсилці: <span style="color: #1ea7d6">FILE</span>
                     </p>
+                    {% else %}
+                    <p>
+                        Шаблон, який використовується в даній розсилці: <span style="color: #1ea7d6">{{ files }}</span>
+                    </p>
+                    {% endif %}
                 <div class="all_list">
                     <p>
                         К-сть листів: <span style="color: #1ea7d6">{{ model.count }}</span>
                     </p>
-                    <p>
-                        Розсилка виконана на : <span style="color: #1ea7d6">45%</span>
-                    </p>
+                   
                 </div>
             </div>
             <div class="second_block_newsletter">
@@ -62,7 +67,10 @@
                 </p>
                  {% for item in model %}
                 <div class="checkbox_and_p_file">
-                    <input type="radio" name="item_">
+                     <a href="{% url 'get_file' item.id %}" data-id="{{item.id}}" >
+                         <input type="radio" name="file" class="radio_select" value="{{item.file}}">
+                     </a>
+
                     <p>
                        {{item.file}}
                     </p>
@@ -78,7 +86,7 @@
 
             <div class="btn_newsletter_go">
 
-                    <button type="submit">
+                    <button type="submit" name="file">
                         Почати розсилку
                     </button>
 
@@ -86,22 +94,12 @@
             </div>
 
           </div>
-</form>
+<!-- </form> -->
 <!--get_users-->
-<form method="POST" enctype="multipart/form-data" name="myForm">
-    {% csrf_token %}
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered send_email" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div >
-         <table id="example" class="display" style="width:100%">
+<div id="openModal" class="modalDialog">
+	<div>
+		<a href="#close" title="Закрыть" class="closes">X</a>
+		<table id="example" class="display" style="width:100%">
             <thead>
                 <tr>
                     <th data-field="code" data-sortable="true"></th>
@@ -133,21 +131,13 @@
                 </tr>
 
     {% endfor %}
+
             </table>
 
-
-      </div>
-      </div>
-      <div class="modal-footer">
-
-        <button type="submit" class="btn btn-primary">Вибрати</button>
-      </div>
-    </div>
-  </div>
+	</div>
 </div>
 
 </form>
-
       <!-- ----------------------CONTENT---------------------- -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
@@ -225,5 +215,11 @@ function show(val) {
             console.log(emails);
         })
     }
+</script>
+
+<script>
+$('input').change(function(){
+   var radio111 = $('input[name="file"]:checked').val();
+});
 </script>
 {% endblock %}

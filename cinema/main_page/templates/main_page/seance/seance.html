@@ -1,0 +1,96 @@
+{% extends 'main_page/base.html' %}
+{% load  i18n static%}
+
+{% block content %}
+
+<!-----------------------------------------CONTENT---------------------->
+<div class="cafe_bar_container schedule_container__">
+    <div class="schedule_container">
+        <h3 style="color: white; margin: 15px auto;">
+            Показати тільки:
+        </h3>
+            <p class="schedule_container_3d"><input type="checkbox">3D</p>
+            <p class="schedule_container_DBOX"><input type="checkbox">2D</p>
+            <p class="schedule_container_VIP"><input type="checkbox">IMAX</p>
+        <div class="dropdown__">
+            <button class="dropbtn__">Кінотеатр</button>
+            <div class="dropdown_content">
+                <a href="{% url 'get_seance' %}">Всі</a>
+               {% for item in cinema %}
+                    <a href="{% url 'get_all' item.id %}">{{ item.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dropdown__">
+            <button class="dropbtn__">Дата</button>
+            <div class="dropdown_content">
+                <a href="{% url 'get_seance' %}">Всі</a>
+                {% for item in seance %}
+                    <a href="{% url 'get_all' item.id %}">{{ item.date }}</a>
+                {% endfor %}
+            </div>
+        </div>
+      <div class="dropdown__">
+        <button class="dropbtn__">Фільми</button>
+            <div class="dropdown_content">
+                <a href="{% url 'get_seance' %}">Всі</a>
+                 {% for item in film %}
+                    <a href="{% url 'get_all' item.id %}">{{ item.title }}</a>
+                 {% endfor %}
+            </div>
+        </div>
+        <div class="dropdown__">
+            <button class="dropbtn__">Зал</button>
+            <div class="dropdown_content">
+                <a href="{% url 'get_seance' %}">Всі</a>
+               {% for item in hall %}
+                    <a href="{% url 'get_all' item.id %}">{{ item.title }}</a>
+               {% endfor %}
+            </div>
+        </div>
+ </div>
+ </div> 
+<div class="content_block_info information">
+    <div>
+
+        <h1 style="color: white;" id="date_result">
+
+        </h1>
+            
+        <table class="table_cafe_bar">
+
+            <tr class="tr_cafe_bar">
+                <th class="th_cafe_bar">DATE</th>
+              <th class="th_cafe_bar">Час</th>
+              <th class="th_cafe_bar">Фільми</th>
+              <th class="th_cafe_bar">Зал</th>
+              <th class="th_cafe_bar">Ціна в грн.</th>
+              <th class="th_cafe_bar">Бронювати</th>
+            </tr>
+            {% for item in seance %}
+                    <tr class="tr_cafe_bar">
+                      <td class="td_cafe_bar">{{ item.date }}</td>
+                      <td class="td_cafe_bar">{{ item.time }}</td>
+                      <td class="td_cafe_bar">{{ item.film }}</td>
+                      <td class="td_cafe_bar">{{ item.hall }}</td>
+                      <td class="td_cafe_bar">{{ item.price }}</td>
+                     <!-- <td class="td_cafe_bar">{{ item.film.type_of_film_IMAX }}</td> -->
+                      <td class="td_cafe_bar"><a href="{% url 'get_ticket' item.id  %}"> <img src="/static/main_page/images/poster/ticket.svg" alt=""></a></td>
+                    </tr>
+            {% endfor %}
+            
+          </table>
+
+        
+    </div>
+     <div class="left_content_block_info">
+        <div class="left_content_block_info_position">
+             <img src="/static/main_page/images/about_cinema/1.png" alt="">
+        </div>
+ </div>
+ </div>
+
+<script src="/static/main_page/js/data_poster.js"></script>
+
+<!---------------------FOOTER----------------------------------------------->
+{% endblock %}

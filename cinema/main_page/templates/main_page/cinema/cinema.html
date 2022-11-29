@@ -20,9 +20,11 @@
         {% for cinema in cinemas %}
             <div class="cinema_img_and_p">
                 <img src="{{ cinema.logo.url }}" alt="">
-                <p>
-                     {{ cinema.title }}
-                </p>
+                <a href="{% url 'get_cinema' cinema.id %}">
+                    <p>
+                        {{ cinema.title }}
+                    </p>
+                </a>
             </div>
           {% endfor %}
 
