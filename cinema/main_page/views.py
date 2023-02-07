@@ -233,11 +233,6 @@ def get_hall(request, pk):
 
 
 def get_seance(request):
-    from .script import script
-    script()
-    
-    
-    
     seance_model = SeanceModel.objects.all()
     hall_model = HallModel.objects.all()
     film_model = FilmModel.objects.all()

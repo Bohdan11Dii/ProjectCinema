@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" id="mainForm" name="mainForm">
     {% csrf_token %}
           <!-- EMAIL -->
           <div class="newsletter_block_border" id="close">
@@ -67,9 +67,9 @@
                 </p>
                  {% for item in model %}
                 <div class="checkbox_and_p_file">
-                     <a href="{% url 'get_file' item.id %}" data-id="{{item.id}}" >
-                         <input type="radio" name="file" class="radio_select" value="{{item.file}}">
-                     </a>
+                     <!-- <a href="" data-id="{{item.id}}" > -->
+                         <input type="radio" name="files"  class="radio_select" value="{{item.file}}">
+                     <!-- </a> -->
 
                     <p>
                        {{item.file}}
@@ -86,7 +86,7 @@
 
             <div class="btn_newsletter_go">
 
-                    <button type="submit" name="file">
+                    <button type="submit" >
                         Почати розсилку
                     </button>
 
@@ -218,8 +218,14 @@ function show(val) {
 </script>
 
 <script>
-$('input').change(function(){
-   var radio111 = $('input[name="file"]:checked').val();
-});
+// $('input').change(function(){
+//    var radio111 = $('input[name="files"]:checked').val();
+//    console.log(radio111)
+// });
+document.mainForm.onclick = function(){
+    var radVal = document.mainForm.files.value;
+    
+}
+ 
 </script>
 {% endblock %}

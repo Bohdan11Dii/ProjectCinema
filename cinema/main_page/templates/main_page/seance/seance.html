@@ -60,7 +60,7 @@
         <table class="table_cafe_bar">
 
             <tr class="tr_cafe_bar">
-                <th class="th_cafe_bar">DATE</th>
+              
               <th class="th_cafe_bar">Час</th>
               <th class="th_cafe_bar">Фільми</th>
               <th class="th_cafe_bar">Зал</th>
@@ -69,7 +69,6 @@
             </tr>
             {% for item in seance %}
                     <tr class="tr_cafe_bar">
-                      <td class="td_cafe_bar">{{ item.date }}</td>
                       <td class="td_cafe_bar">{{ item.time }}</td>
                       <td class="td_cafe_bar">{{ item.film }}</td>
                       <td class="td_cafe_bar">{{ item.hall }}</td>

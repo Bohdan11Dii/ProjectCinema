@@ -1,104 +1,31 @@
-from administrator.models import *
-import random
-import datetime
 from django.core.management.base import BaseCommand
+from administrator.models import FilmModel, HallModel, SeanceModel, CinemaModel
+import random
+from faker import Faker
+from django.utils import timezone
+
 
 class Command(BaseCommand):
-    def handle():
-        cinema_model = CinemaModel.objects.all()
-        hall_model = HallModel.objects.all()
-        film_model = FilmModel.objects.all()
+    def add_arguments(self, parser):
+        parser.add_argument('number', type=int, help='how many sessions generate')
 
-        date_today = datetime.datetime.today()
-
-        for item in range(1, 10):
-            days = date_today + datetime.timedelta(item)
-            if days.day < 10:
-                day_all = ("0"+str(days.day)+"."+str(days.month))
-            else:
-                day_all = (str(days.day)+"."+str(days.month))
-            cinema = [cinema_item.title for cinema_item in cinema_model]
-            cinemas = " ".join(random.sample(cinema, k=1))
-            hall =  [hall_item.title for hall_item in hall_model]
-            halls = " ".join(random.sample(hall, k=1))
-            film = [film_item.title for film_item in film_model]
-            films = " ".join(random.sample(film, k=1))
+    def handle(self, *args, **options):
+        fake = Faker()
+        count_film = FilmModel.objects.all()
+        count_hall = HallModel.objects.all()
+        count_cinema = CinemaModel.objects.all()
+        for _ in range(options['number']):
+            SeanceModel.objects.create(
+                film=random.choice(count_film),
+                hall=random.choice(count_hall),
+                cinema = random.choice(count_cinema),
+                price=random.randrange(50, 200, 5),
+                time=fake.date_time_between_dates(datetime_start='now',
+                                                      datetime_end='+10days', tzinfo=timezone.timezone.utc),
+                is_3d=random.randrange(0, 1),
+                is_dbox=random.randrange(0, 1),
+                is_vip=random.randrange(0, 1),
+            )
             
-            
-            time_and_price = [
-                {"time":"10:00", 
-                    "price": 60,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-                {"time":"11:00", 
-                    "price": 65,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-                {"time":"12:00",  
-                    "price": 60,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-                {"time":"13:00", 
-                    "price": 80,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-                {"time":"14:00", 
-                    "price": 70,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-                {"time":"15:00", 
-                    "price": 65,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-                {"time":"16:00",  
-                    "price": 65,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-                { "time":"18:00",  
-                    "price": 70,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-                {"time":"19:00", 
-                    "price": 75,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-                {"time":"20:00",
-                    "price": 80,
-                    "day": day_all,
-                    "cinema": cinemas,
-                    "hall": halls,
-                    "film": films},
-            ]
-            
-            # for item in time_and_price:
-            #     seance = SeanceModel.objects.create(
-            #         hall=HallModel.objects.get(title=item.get('hall')),
-            #         cinema=CinemaModel.objects.get(title=item.get('cinema')),
-            #         film = FilmModel.objects.get(title=item.get('film')),
-            #         price=item['price'],
-            #         time=item.get('time'),
-            #         date = item.get('day')
-            #     )
-            #     seance.save()
-
-
-    
-
+        print(str(options['number']) + ' sessions successfully create')
+        

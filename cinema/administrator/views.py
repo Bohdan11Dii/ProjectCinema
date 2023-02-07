@@ -855,18 +855,20 @@ def upload_file(request):
     model = SendMail.objects.all()
     files = SendMail.objects.last()
 
-
-
-
     if files is None:
         pass
     else:
         files = SendMail.objects.last().file.name
 
     form = SendMailForm(request.POST, request.FILES)
-
+    
+    
+    
+    
     if request.method == 'POST':
+        
         if form.is_valid():
+            
             
             template = form.cleaned_data['file']
             contents = template.read()
@@ -883,6 +885,9 @@ def upload_file(request):
                 for item in users:
                     print("USERS", users)
                     send_email_task(item, decrypt_message)
+            
+        
+            
     else:
         form = SendMailForm()
     context = {
@@ -891,31 +896,33 @@ def upload_file(request):
         'users': model_user,
         'files': files
     }
+    
+   
 
     return render(request, 'administrator/send_email/send_email.html', context)
 
 
-def get_file(request, pk):
-    from .tasks import send_email_task
-    """Завантаження файлів"""
-    model_user = ProjectUser.objects.all()
-    file_id = SendMail.objects.get(id=pk)
-    form = SendMailForm(request.POST, request.FILES, instance=file_id)
-    print(":FILE", file_id)
-    if request.method == "POST":
-        if 'file' in request.POST:
-            if form.is_valid():
-                form.save()
-            if form.instance.choice_user == "Всі користувачі":
-                for item in model_user:
-                    item = item.email
-                    send_email_task(item, file_id)
-            if form.instance.choice_user == "Вибрані":
-                users = request.POST.getlist("email")
-                for item in users:
-                    print("USERS", users)
-                    send_email_task(item, file_id)
-    return redirect('/send_mail')
+# def get_file(request, pk):
+#     from .tasks import send_email_task
+#     """Завантаження файлів"""
+#     model_user = ProjectUser.objects.all()
+#     file_id = SendMail.objects.get(id=pk)
+#     form = SendMailForm(request.POST, request.FILES, instance=file_id)
+#     print(":FILE", file_id)
+#     if request.method == "POST":
+#         if 'file' in request.POST:
+#             if form.is_valid():
+#                 form.save()
+#             if form.instance.choice_user == "Всі користувачі":
+#                 for item in model_user:
+#                     item = item.email
+#                     send_email_task(item, file_id)
+#             if form.instance.choice_user == "Вибрані":
+#                 users = request.POST.getlist("email")
+#                 for item in users:
+#                     print("USERS", users)
+#                     send_email_task(item, file_id)
+#     return redirect('/send_mail')
 
 
 def delete_email(request, pk):
